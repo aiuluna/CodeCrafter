@@ -92,12 +92,22 @@
         @current-change="handleCurrentChange"
       />
     </div>
+
+    <!-- 添加多文件组件测试 -->
+    <div class="mb-4 p-4 border border-gray-200 rounded">
+      <h2 class="text-lg font-bold mb-2">多文件组件测试</h2>
+      <div class="flex space-x-2">
+        <a-button type="primary" @click="testMultiFileComponent">测试多文件组件</a-button>
+        <span>{{ statusText }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType, ref, computed, watch } from "vue"
 import { SearchIcon, IncreaseIcon } from "@lefit/aries-ui-icon"
+import { createComponentFromFiles } from './utils';
 
 interface Column {
   prop: string
@@ -215,6 +225,7 @@ export default defineComponent({
     const filterColumn = ref("")
     const selectedRows = ref<TableItem[]>([])
     const sortConfig = ref({ prop: "", order: "" })
+    const statusText = ref("")
 
     // Computed
     const filteredData = computed(() => {
@@ -306,6 +317,124 @@ export default defineComponent({
       })
     }
 
+    /**
+     * 测试多文件组件
+     */
+    const testMultiFileComponent = () => {
+      // 多文件组件测试示例
+      const files = {
+        '/App.vue': `
+          <template>
+            <div class="test-app">
+              <h1>{{ title }}</h1>
+              <Button @click="handleClick" />
+              <Counter />
+            </div>
+          </template>
+          <script>
+          import Button from './components/Button.vue';
+          import Counter from './components/Counter.vue';
+          
+          export default {
+            components: { Button, Counter },
+            data() {
+              return {
+                title: '多文件组件测试'
+              }
+            },
+            methods: {
+              handleClick() {
+                alert('按钮点击了!');
+              }
+            }
+          }
+          </script>
+          <style>
+          .test-app {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+          }
+          h1 {
+            font-size: 24px;
+            color: #333;
+          }
+          </style>
+        `,
+        '/components/Button.vue': `
+          <template>
+            <button class="custom-button" @click="$emit('click')">
+              测试按钮
+            </button>
+          </template>
+          <script>
+          export default {
+            name: 'CustomButton'
+          }
+          </script>
+          <style>
+          .custom-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+          }
+          </style>
+        `,
+        '/components/Counter.vue': `
+          <template>
+            <div class="counter">
+              <p>计数器: {{ count }}</p>
+              <button @click="increment">+1</button>
+              <button @click="decrement">-1</button>
+            </div>
+          </template>
+          <script>
+          export default {
+            name: 'Counter',
+            data() {
+              return {
+                count: 0
+              }
+            },
+            methods: {
+              increment() {
+                this.count += 1;
+              },
+              decrement() {
+                this.count -= 1;
+              }
+            }
+          }
+          </script>
+          <style>
+          .counter {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+          }
+          button {
+            margin: 0 5px;
+            padding: 5px 10px;
+          }
+          </style>
+        `
+      };
+
+      // 渲染多文件组件
+      createComponentFromFiles(files, '/App.vue');
+      statusText.value = '已渲染多文件组件';
+    }
+
     return {
       columns,
       loading,
@@ -325,6 +454,8 @@ export default defineComponent({
       handleDelete,
       handleEdit,
       handleAdd,
+      testMultiFileComponent,
+      statusText,
     }
   },
 })

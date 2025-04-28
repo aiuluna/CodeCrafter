@@ -6,6 +6,10 @@ import * as AriesIcons from "@lefit/aries-ui-icon"
 import * as dayjs from "dayjs"
 import ErrorDisplay from "./components/ErrorDisplay.vue"
 
+// 引入新的组件渲染器
+import { componentRenderer } from "./core/component-renderer"
+import { virtualFs } from "./core/virtual-fs"
+
 const mockModules: Record<string, any> = {
   vue: Vue,
   "@lefit/aries-ui": Aries,
@@ -33,6 +37,11 @@ const handleSuccess = () => {
   )
 }
 
+/**
+ * 创建组件 - 向后兼容的旧版API
+ * @param componentString 组件代码字符串
+ * @deprecated 请使用新的createComponentFromFiles函数
+ */
 export function createComponentFromString(componentString: string) {
   const templateMatch = componentString.match(/<template>([\s\S]*)<\/template>/)
   const scriptMatch = componentString.match(/<script>([\s\S]*)<\/script>/)
@@ -124,7 +133,7 @@ export function createComponentFromString(componentString: string) {
       // 创建新的应用实例
       const app = createApp(component)
 
-      // 注册Element Plus
+      // 注册Aries UI
       app.use(Aries)
 
       // 注册图标组件
@@ -171,4 +180,107 @@ export function createComponentFromString(componentString: string) {
   }
 
   renderComponent()
+}
+
+/**
+ * 从多个文件创建组件（新版API）
+ * @param files 文件内容映射 {路径: 内容}
+ * @param entryPath 入口文件路径（默认为/App.vue）
+ */
+export function createComponentFromFiles(
+  files: Record<string, string>,
+  entryPath: string = "/App.vue"
+) {
+  try {
+    console.log(`[createComponentFromFiles] 开始渲染多文件组件，入口文件: ${entryPath}`);
+    console.log(`[createComponentFromFiles] 文件列表: ${Object.keys(files).join(', ')}`);
+
+    // 确保入口路径格式一致 (以斜杠开头)
+    if (!entryPath.startsWith('/')) {
+      entryPath = '/' + entryPath;
+      console.log(`[createComponentFromFiles] 规范化入口路径: ${entryPath}`);
+    }
+
+    // 检查文件是否提供
+    if (!files || Object.keys(files).length === 0) {
+      console.error("[createComponentFromFiles] 未提供任何文件");
+      throw new Error("未提供任何文件");
+    }
+
+    // 检查入口文件是否存在
+    if (!files[entryPath]) {
+      console.error(`[createComponentFromFiles] 入口文件不存在: ${entryPath}`);
+      console.log(`[createComponentFromFiles] 可用文件: ${Object.keys(files).join(', ')}`);
+
+      // 尝试无斜杠版本
+      const entryPathWithoutSlash = entryPath.replace(/^\//, '');
+      if (files[entryPathWithoutSlash]) {
+        console.log(`[createComponentFromFiles] 找到无斜杠版本的入口文件: ${entryPathWithoutSlash}`);
+        // 创建规范化版本的文件映射
+        const normalizedFiles: Record<string, string> = {};
+        for (const [path, content] of Object.entries(files)) {
+          const normalizedPath = path.startsWith('/') ? path : '/' + path;
+          normalizedFiles[normalizedPath] = content;
+          console.log(`[createComponentFromFiles] 规范化路径: ${path} -> ${normalizedPath}`);
+        }
+
+        console.log(`[createComponentFromFiles] 使用规范化的文件继续渲染`);
+        return createComponentFromFiles(normalizedFiles, entryPath);
+      }
+
+      // 如果只有一个文件且没指定入口，将其视为App.vue
+      if (Object.keys(files).length === 1) {
+        const singleFilePath = Object.keys(files)[0];
+        const content = files[singleFilePath];
+        console.log(`[createComponentFromFiles] 只有一个文件: ${singleFilePath}，尝试兼容模式`);
+
+        // 单文件模式兼容旧版API
+        if (singleFilePath.endsWith('.vue') || content.includes('<template>')) {
+          console.log('[createComponentFromFiles] 单文件模式，使用旧API进行兼容');
+          return createComponentFromString(content);
+        }
+      }
+
+      throw new Error(`入口文件 ${entryPath} 不存在`);
+    }
+
+    console.log(`[createComponentFromFiles] 开始加载文件到虚拟文件系统...`);
+    // 加载所有文件到虚拟文件系统
+    componentRenderer.loadFiles(files);
+
+    console.log(`[createComponentFromFiles] 开始渲染组件...`);
+    // 渲染组件
+    componentRenderer.render({
+      containerId: 'artifacts-container',
+      entryPath,
+      onSuccess: () => {
+        console.log("[createComponentFromFiles] 渲染成功");
+        handleSuccess();
+      },
+      onError: (errorMsg) => {
+        console.error("[createComponentFromFiles] 渲染失败:", errorMsg);
+        handleError(errorMsg);
+      }
+    });
+
+    return null;
+  } catch (error) {
+    console.error("[createComponentFromFiles] 渲染组件失败:", error);
+    const errorMessage = `渲染组件失败: ${error instanceof Error ? error.message : String(error)}`;
+    handleError(errorMessage);
+
+    // 显示错误
+    const container = document.getElementById("artifacts-container");
+    if (container) {
+      container.innerHTML = "";
+      const app = createApp({
+        render() {
+          return h(ErrorDisplay, { errorMessage });
+        },
+      });
+      app.mount(container);
+    }
+
+    return null;
+  }
 }

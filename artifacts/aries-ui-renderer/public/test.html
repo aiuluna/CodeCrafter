@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aries UI Renderer Test</title>
+    <title>Aries UI 渲染器测试</title>
     <style>
       #renderer {
         width: 100%;
@@ -23,16 +23,49 @@
         background-color: #fef0f0;
         color: #f56c6c;
       }
+      .test-buttons {
+        margin: 10px 0;
+        display: flex;
+        gap: 10px;
+      }
+      button {
+        padding: 8px 16px;
+        background-color: #409eff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #66b1ff;
+      }
+      button.active {
+        background-color: #2c5aa0;
+      }
     </style>
   </head>
   <body>
     <h2>Aries UI 渲染器测试</h2>
+
+    <div class="test-buttons">
+      <button id="singleFileBtn" class="active" onclick="renderSingleFile()">
+        测试单文件组件
+      </button>
+      <button id="multiFileBtn" onclick="renderMultiFile()">
+        测试多文件组件
+      </button>
+      <button id="setupMultiFileBtn" onclick="renderSetupMultiFile()">
+        测试Setup语法组件
+      </button>
+    </div>
+
     <div>
       <iframe id="renderer" src="/"></iframe>
     </div>
     <div id="status"></div>
 
     <script>
+      // 单文件组件测试示例
       const singleFileComponent = `
 <template>
   <div class="login-container">
@@ -68,7 +101,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue';
 import { ArInput, ArButton } from '@lefit/aries-ui';
 
@@ -89,7 +122,7 @@ const handleLogin = () => {
 };
 <\/script>
 
-<style lang="less" scoped>
+<style>
 .login-container {
   display: flex;
   justify-content: center;
@@ -123,29 +156,169 @@ const handleLogin = () => {
 .login-button {
   margin-top: 16px;
 }
-</style>
-`
+</style>`
+
+      // 多文件组件测试示例 - 简化版
+      const multiFileComponents = {
+        "/App.vue": `<template>
+  <div class="simple-app">
+    <h1>简单组件测试</h1>
+    <ChildComponent :message="message" @update-message="updateMessage" />
+    <p>当前消息: {{ message }}</p>
+  </div>
+</template>
+
+<script>
+import ChildComponent from './components/ChildComponent.vue';
+
+export default {
+  components: {
+    ChildComponent
+  },
+  data() {
+    return {
+      message: '这是一条初始消息'
+    };
+  },
+  methods: {
+    updateMessage(newMessage) {
+      this.message = newMessage;
+    }
+  }
+}
+<\/script>
+
+<style>
+.simple-app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-top: 20px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 4px;
+  border-left: 4px solid #42b983;
+}
+</style>`,
+        "/components/ChildComponent.vue": `
+    <template>
+      <div class="login-container">
+        <div class="login-form">
+          <h1 class="login-title">Welcome Back</h1>
+          <div>12312312312</div>
+          <ArInput
+            v-model="username"
+            label="Username"
+            placeholder="Enter your username"
+            class="login-input"
+          />
+          
+          <ArInput
+            v-model="password"
+            label="Password"
+            type="password"
+            placeholder="Enter your password"
+            class="login-input"
+          />
+          
+          <ArButton
+            type="primary"
+            size="large"
+            block
+            @click="handleLogin"
+            :loading="isLoading"
+            class="login-button"
+          >
+            Login
+          </ArButton>
+        </div>
+      </div>
+    </template>
+    
+    <script setup lang="ts">
+    import { ref } from 'vue';
+    import { ArInput, ArButton } from '@lefit/aries-ui';
+    
+    const username = ref('');
+    const password = ref('');
+    const isLoading = ref(false);
+    
+    const handleLogin = () => {
+      isLoading.value = true;
+      // Simulate API call
+      setTimeout(() => {
+        console.log('Login attempt with:', {
+          username: username.value,
+          password: password.value
+        });
+        isLoading.value = false;
+      }, 1000);
+    };
+    <\/script>
+    
+    <style lang="less" scoped>
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: var(--le-color-bg);
+      padding: 40px;
+    }
+    
+    .login-form {
+      width: 100%;
+      max-width: 500px;
+      background: #fff;
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    .login-title {
+      font-size: 40px;
+      color: var(--le-color-important-text);
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .login-input {
+      margin-bottom: 32px;
+    }
+    
+    .login-button {
+      margin-top: 16px;
+    }
+    </style>
+  `,
+      }
 
       const statusDiv = document.getElementById("status")
       const iframe = document.getElementById("renderer")
+      const singleFileBtn = document.getElementById("singleFileBtn")
+      const multiFileBtn = document.getElementById("multiFileBtn")
+
+      let currentMode = "single" // 默认单文件模式
 
       // 监听来自 iframe 的消息
       window.addEventListener("message", event => {
         if (event.data === "IFRAME_LOADED") {
           console.log("Iframe loaded, sending test component...")
-          // iframe 加载完成后发送测试组件
-          iframe.contentWindow.postMessage(
-            {
-              type: "artifacts",
-              data: {
-                files: {
-                  "App.vue": singleFileComponent,
-                },
-                entryFile: "App.vue",
-              },
-            },
-            "*",
-          )
+          // iframe 加载完成后发送默认测试组件（单文件模式）
+          renderSingleFile()
         } else if (event.data.type === "artifacts-success") {
           statusDiv.className = "status success"
           statusDiv.textContent = "渲染成功！"
@@ -154,6 +327,55 @@ const handleLogin = () => {
           statusDiv.textContent = `渲染错误: ${event.data.errorMessage}`
         }
       })
+
+      // 渲染单文件组件
+      function renderSingleFile() {
+        currentMode = "single"
+        singleFileBtn.classList.add("active")
+        multiFileBtn.classList.remove("active")
+
+        console.log("开始渲染单文件组件...")
+
+        iframe.contentWindow.postMessage(
+          {
+            type: "artifacts",
+            data: {
+              files: {
+                "/App.vue": singleFileComponent,
+              },
+              entryFile: "/App.vue",
+            },
+          },
+          "*",
+        )
+
+        statusDiv.className = ""
+        statusDiv.textContent = "正在渲染单文件组件..."
+      }
+
+      // 渲染多文件组件
+      function renderMultiFile() {
+        currentMode = "multi"
+        multiFileBtn.classList.add("active")
+        singleFileBtn.classList.remove("active")
+
+        console.log("开始渲染多文件组件...")
+        console.log("文件内容:", multiFileComponents)
+
+        iframe.contentWindow.postMessage(
+          {
+            type: "artifacts",
+            data: {
+              files: multiFileComponents,
+              entryFile: "/App.vue",
+            },
+          },
+          "*",
+        )
+
+        statusDiv.className = ""
+        statusDiv.textContent = "正在渲染多文件组件..."
+      }
     </script>
   </body>
 </html>

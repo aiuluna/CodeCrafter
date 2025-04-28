@@ -1,1 +1,183 @@
-[]
+{
+  "graphs": [
+    {
+      "id": "429fc58c-c536-48d6-aa5b-e87cc880d437",
+      "name": "渲染器对比分析",
+      "description": "对比分析antd-renderer和aries-ui-renderer的差异，为aries-ui-renderer实现多文件支持提供参考",
+      "type": "knowledge_base",
+      "status": "draft",
+      "nodes": [
+        {
+          "id": "267d8973-81a8-4949-9f55-fe32f606126b",
+          "type": "concept",
+          "name": "模块加载机制差异",
+          "description": "antd-renderer和aries-ui-renderer在模块加载机制上的关键差异",
+          "createdAt": "2025-04-28T03:47:36.474Z",
+          "updatedAt": "2025-04-28T03:53:04.515Z",
+          "resources": [
+            "res_1745812384515"
+          ]
+        },
+        {
+          "id": "508b9199-bc81-49c3-b446-f5e7a12769b8",
+          "type": "concept",
+          "name": "路径解析实现差异",
+          "description": "antd-renderer和aries-ui-renderer在路径解析实现上的关键差异",
+          "createdAt": "2025-04-28T03:47:53.656Z",
+          "updatedAt": "2025-04-28T03:53:50.805Z",
+          "resources": [
+            "res_1745812430805"
+          ]
+        },
+        {
+          "id": "f0183ec2-e4e7-4d47-bf69-7a6b6dbd735e",
+          "type": "concept",
+          "name": "组件渲染流程差异",
+          "description": "antd-renderer和aries-ui-renderer在组件渲染流程上的关键差异",
+          "createdAt": "2025-04-28T03:48:26.017Z",
+          "updatedAt": "2025-04-28T03:54:40.010Z",
+          "resources": [
+            "res_1745812480010"
+          ]
+        },
+        {
+          "id": "6f09ac4c-e1d0-4e82-8d06-142c36316c20",
+          "type": "concept",
+          "name": "Vue与React组件处理的特殊性",
+          "description": "Vue与React在组件处理方面的特殊性及其对渲染器实现的影响",
+          "createdAt": "2025-04-28T03:48:58.441Z",
+          "updatedAt": "2025-04-28T03:55:55.136Z",
+          "resources": [
+            "res_1745812555135"
+          ]
+        },
+        {
+          "id": "97c9d15b-8b25-4538-92a7-55acee732b93",
+          "type": "concept",
+          "name": "主要改进点",
+          "description": "将多文件支持从antd-renderer适配到aries-ui-renderer的主要改进点",
+          "createdAt": "2025-04-28T03:49:21.727Z",
+          "updatedAt": "2025-04-28T03:58:15.871Z",
+          "resources": [
+            "res_1745812601626",
+            "res_1745812667237",
+            "res_1745812695871"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "e53a659d-a3c4-425d-a43b-0faf6b13862a",
+          "type": "associated_with",
+          "source": "267d8973-81a8-4949-9f55-fe32f606126b",
+          "target": "97c9d15b-8b25-4538-92a7-55acee732b93",
+          "label": "影响改进",
+          "createdAt": "2025-04-28T03:49:40.589Z",
+          "updatedAt": "2025-04-28T03:49:40.589Z"
+        },
+        {
+          "id": "438f5702-4e70-4d5d-8f78-61646fa2eaa4",
+          "type": "associated_with",
+          "source": "508b9199-bc81-49c3-b446-f5e7a12769b8",
+          "target": "97c9d15b-8b25-4538-92a7-55acee732b93",
+          "label": "影响改进",
+          "createdAt": "2025-04-28T03:49:57.886Z",
+          "updatedAt": "2025-04-28T03:49:57.886Z"
+        },
+        {
+          "id": "d5c91570-1c23-4444-bd50-d673d10a9738",
+          "type": "associated_with",
+          "source": "f0183ec2-e4e7-4d47-bf69-7a6b6dbd735e",
+          "target": "97c9d15b-8b25-4538-92a7-55acee732b93",
+          "label": "影响改进",
+          "createdAt": "2025-04-28T03:50:37.664Z",
+          "updatedAt": "2025-04-28T03:50:37.664Z"
+        },
+        {
+          "id": "a85e47a3-a5bf-472b-a7bf-f41a781989cb",
+          "type": "associated_with",
+          "source": "6f09ac4c-e1d0-4e82-8d06-142c36316c20",
+          "target": "97c9d15b-8b25-4538-92a7-55acee732b93",
+          "label": "影响改进",
+          "createdAt": "2025-04-28T03:51:01.705Z",
+          "updatedAt": "2025-04-28T03:51:01.705Z"
+        }
+      ],
+      "resources": [
+        {
+          "id": "res_1745812384515",
+          "name": "模块加载机制差异分析",
+          "type": "markdown",
+          "title": "模块加载机制差异分析",
+          "description": "模块加载机制差异分析",
+          "path": "resources/md/模块加载机制差异分析_node_267d8973_20250428_1153.md",
+          "createdAt": "2025-04-28T03:53:04.515Z",
+          "updatedAt": "2025-04-28T03:53:04.515Z"
+        },
+        {
+          "id": "res_1745812430805",
+          "name": "路径解析实现差异分析",
+          "type": "markdown",
+          "title": "路径解析实现差异分析",
+          "description": "路径解析实现差异分析",
+          "path": "resources/md/路径解析实现差异分析_node_508b9199_20250428_1153.md",
+          "createdAt": "2025-04-28T03:53:50.805Z",
+          "updatedAt": "2025-04-28T03:53:50.805Z"
+        },
+        {
+          "id": "res_1745812480010",
+          "name": "组件渲染流程差异分析",
+          "type": "markdown",
+          "title": "组件渲染流程差异分析",
+          "description": "组件渲染流程差异分析",
+          "path": "resources/md/组件渲染流程差异分析_node_f0183ec2_20250428_1154.md",
+          "createdAt": "2025-04-28T03:54:40.010Z",
+          "updatedAt": "2025-04-28T03:54:40.010Z"
+        },
+        {
+          "id": "res_1745812555135",
+          "name": "Vue与React组件处理的特殊性",
+          "type": "markdown",
+          "title": "Vue与React组件处理的特殊性",
+          "description": "Vue与React组件处理的特殊性",
+          "path": "resources/md/Vue与React组件处理的特殊性_node_6f09ac4c_20250428_1155.md",
+          "createdAt": "2025-04-28T03:55:55.135Z",
+          "updatedAt": "2025-04-28T03:55:55.136Z"
+        },
+        {
+          "id": "res_1745812601626",
+          "name": "主要改进点",
+          "type": "markdown",
+          "title": "主要改进点",
+          "description": "主要改进点",
+          "path": "resources/md/主要改进点_node_97c9d15b_20250428_1156.md",
+          "createdAt": "2025-04-28T03:56:41.626Z",
+          "updatedAt": "2025-04-28T03:56:41.626Z"
+        },
+        {
+          "id": "res_1745812667237",
+          "name": "架构改进方案简图",
+          "type": "svg",
+          "title": "架构改进方案简图",
+          "description": "架构改进方案简图",
+          "path": "resources/svg/架构改进方案简图_node_97c9d15b_20250428_1157.svg",
+          "createdAt": "2025-04-28T03:57:47.237Z",
+          "updatedAt": "2025-04-28T03:57:47.237Z"
+        },
+        {
+          "id": "res_1745812695871",
+          "name": "架构改进方案详细说明",
+          "type": "markdown",
+          "title": "架构改进方案详细说明",
+          "description": "架构改进方案详细说明",
+          "path": "resources/md/架构改进方案详细说明_node_97c9d15b_20250428_1158.md",
+          "createdAt": "2025-04-28T03:58:15.871Z",
+          "updatedAt": "2025-04-28T03:58:15.871Z"
+        }
+      ],
+      "createdAt": "2025-04-28T03:47:18.951Z",
+      "updatedAt": "2025-04-28T03:58:15.871Z"
+    }
+  ],
+  "lastUpdated": "2025-04-28T03:58:15.871Z"
+}
