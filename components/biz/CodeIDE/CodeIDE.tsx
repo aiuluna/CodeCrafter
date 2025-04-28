@@ -7,7 +7,8 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { CodeIDEProps, FileNode } from "./interface"
-import { Editor, Monaco } from "@monaco-editor/react"
+import { Editor, Monaco, loader } from "@monaco-editor/react"
+// import { Editor, Monaco } from "@monaco-editor/react"
 import { FileProvider, useFile } from "./context/FileContext"
 import { useEffect, useState, useRef, memo } from "react"
 import { useTheme } from "next-themes"
@@ -19,6 +20,12 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+
+loader.config({
+  paths: {
+    vs: 'https://fastly.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs'
+  }
+});
 
 // Helper function to get language from file extension
 function getLanguageFromFileName(fileName: string): string | undefined {
@@ -209,10 +216,10 @@ function CodeIDEContent({ readOnly, onSave, codeRenderer }: CodeIDEProps) {
                               popoverNode={
                                 index === 0
                                   ? {
-                                      id: "originalFiles",
-                                      name: "root",
-                                      children: originalFiles,
-                                    }
+                                    id: "originalFiles",
+                                    name: "root",
+                                    children: originalFiles,
+                                  }
                                   : currentFilePath[index - 1]
                               }
                             />

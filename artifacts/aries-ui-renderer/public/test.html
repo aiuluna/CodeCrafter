@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aries UI Renderer Test</title>
+    <style>
+      #renderer {
+        width: 100%;
+        height: 500px;
+        border: 1px solid #ccc;
+      }
+      .status {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      .success {
+        background-color: #f0f9eb;
+        color: #67c23a;
+      }
+      .error {
+        background-color: #fef0f0;
+        color: #f56c6c;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Aries UI 渲染器测试</h2>
+    <div>
+      <iframe id="renderer" src="/"></iframe>
+    </div>
+    <div id="status"></div>
+
+    <script>
+      const singleFileComponent = `
+<template>
+  <div class="login-container">
+    <div class="login-form">
+      <h1 class="login-title">Welcome Back</h1>
+      
+      <ArInput
+        v-model="username"
+        label="Username"
+        placeholder="Enter your username"
+        class="login-input"
+      />
+      
+      <ArInput
+        v-model="password"
+        label="Password"
+        type="password"
+        placeholder="Enter your password"
+        class="login-input"
+      />
+      
+      <ArButton
+        type="primary"
+        size="large"
+        block
+        @click="handleLogin"
+        :loading="isLoading"
+        class="login-button"
+      >
+        Login
+      </ArButton>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { ArInput, ArButton } from '@lefit/aries-ui';
+
+const username = ref('');
+const password = ref('');
+const isLoading = ref(false);
+
+const handleLogin = () => {
+  isLoading.value = true;
+  // Simulate API call
+  setTimeout(() => {
+    console.log('Login attempt with:', {
+      username: username.value,
+      password: password.value
+    });
+    isLoading.value = false;
+  }, 1000);
+};
+<\/script>
+
+<style lang="less" scoped>
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--le-color-bg);
+  padding: 40px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.login-title {
+  font-size: 40px;
+  color: var(--le-color-important-text);
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.login-input {
+  margin-bottom: 32px;
+}
+
+.login-button {
+  margin-top: 16px;
+}
+</style>
+`
+
+      const statusDiv = document.getElementById("status")
+      const iframe = document.getElementById("renderer")
+
+      // 监听来自 iframe 的消息
+      window.addEventListener("message", event => {
+        if (event.data === "IFRAME_LOADED") {
+          console.log("Iframe loaded, sending test component...")
+          // iframe 加载完成后发送测试组件
+          iframe.contentWindow.postMessage(
+            {
+              type: "artifacts",
+              data: {
+                files: {
+                  "App.vue": singleFileComponent,
+                },
+                entryFile: "App.vue",
+              },
+            },
+            "*",
+          )
+        } else if (event.data.type === "artifacts-success") {
+          statusDiv.className = "status success"
+          statusDiv.textContent = "渲染成功！"
+        } else if (event.data.type === "artifacts-error") {
+          statusDiv.className = "status error"
+          statusDiv.textContent = `渲染错误: ${event.data.errorMessage}`
+        }
+      })
+    </script>
+  </body>
+</html>
