@@ -1,160 +1,64 @@
 <template>
-  <div
-    class="error-display"
-    :style="{
-      width: '90%',
-      maxWidth: '800px',
-      margin: '20px auto',
-      padding: '24px',
-      backgroundColor: '#1a1a1a',
-      borderRadius: '8px',
-      boxShadow: '0 0 10px rgba(0, 255, 0, 0.2)',
-      opacity: visible ? 1 : 0,
-      transform: `translateY(${visible ? 0 : '20px'})`,
-      transition: 'all 0.3s ease-out',
-    }"
-  >
-    <div
-      :style="{
-        display: 'flex',
-        alignItems: 'center',
-        marginBottom: '20px',
-        borderBottom: '1px solid #333',
-        paddingBottom: '12px',
-      }"
-    >
-      <div
-        :style="{
-          width: '12px',
-          height: '12px',
-          backgroundColor: '#ff5f56',
-          borderRadius: '50%',
-          marginRight: '8px',
-        }"
-      />
-      <div
-        :style="{
-          width: '12px',
-          height: '12px',
-          backgroundColor: '#ffbd2e',
-          borderRadius: '50%',
-          marginRight: '8px',
-        }"
-      />
-      <div
-        :style="{
-          width: '12px',
-          height: '12px',
-          backgroundColor: '#27c93f',
-          borderRadius: '50%',
-        }"
-      />
-    </div>
-
-    <h1
-      :style="{
-        fontSize: '24px',
-        fontWeight: '600',
-        color: '#00ff00',
-        margin: '0 0 20px 0',
-        fontFamily: 'monospace',
-        textShadow: '0 0 5px rgba(0, 255, 0, 0.5)',
-      }"
-    >
-      > SYSTEM ERROR DETECTED
-    </h1>
-
-    <div
-      :style="{
-        padding: '16px',
-        backgroundColor: '#000',
-        borderRadius: '4px',
-        border: '1px solid #333',
-        fontFamily: 'monospace',
-        position: 'relative',
-      }"
-    >
-      <div :style="{ color: '#ff0000', marginBottom: '8px' }">
-        > Error Stack Trace:
-      </div>
-      <pre
-        :style="{
-          margin: 0,
-          color: '#fff',
-          fontSize: '14px',
-          lineHeight: 1.5,
-          whiteSpace: 'pre-wrap',
-          wordBreak: 'break-word',
-        }"
-      >
-        <div
-          v-for="(line, index) in errorLines"
-          :key="index"
-          :style="{
-            opacity: visible ? 1 : 0,
-            transform: `translateX(${visible ? 0 : '20px'})`,
-            transition: `all 0.3s ease-out ${index * 0.1}s`,
-          }"
-        >
-          {{ line }}
-        </div>
-      </pre>
-    </div>
-
-    <div
-      :style="{
-        marginTop: '20px',
-        color: '#666',
-        fontSize: '12px',
-        fontFamily: 'monospace',
-        textAlign: 'center',
-      }"
-    >
-      * Please try clicking "
-      <span :style="{ fontWeight: 'bold' }">EXECUTE AUTO FIX</span>
-      " in the bottom right corner to fix the issue. If you think this is
-      a bug, please
-      <a
-        href="https://github.com/IamLiuLv/compoder/issues"
-        target="_blank"
-        rel="noopener noreferrer"
-        :style="{ color: '#666', textDecoration: 'underline' }"
-      >
-        report it in Compoder's GitHub issues
-      </a>
+  <div class="error-container">
+    <div class="error-card">
+      <div class="error-icon">❌</div>
+      <h3 class="error-title">渲染错误</h3>
+      <div class="error-message">{{ errorMessage }}</div>
     </div>
   </div>
 </template>
 
-<script>
-import { defineComponent, ref, computed, onMounted } from 'vue'
-
-export default defineComponent({
-  name: 'ErrorDisplay',
-  props: {
-    errorMessage: {
-      type: String,
-      default: null
-    }
+<script setup>
+defineProps({
+  errorMessage: {
+    type: String,
+    default: "发生未知错误",
   },
-  setup(props) {
-    const visible = ref(false)
-    
-    const errorLines = computed(() => {
-      if (!props.errorMessage) return []
-      return props.errorMessage.split('\n')
-    })
-    
-    onMounted(() => {
-      setTimeout(() => {
-        visible.value = true
-      }, 100)
-    })
-    
-    return {
-      visible,
-      errorLines
-    }
-  }
 })
-</script> 
+</script>
+
+<style>
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.error-card {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.error-title {
+  font-size: 22px;
+  color: #e74c3c;
+  margin-bottom: 15px;
+}
+
+.error-message {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  text-align: left;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 15px;
+  overflow-x: auto;
+}
+</style>

@@ -102,10 +102,10 @@ export default function CodegenDetailPage({
       { text: chatValue, type: "text" },
       ...images.map(
         image =>
-          ({
-            image,
-            type: "image",
-          } as PromptImage),
+        ({
+          image,
+          type: "image",
+        } as PromptImage),
       ),
     ]
 

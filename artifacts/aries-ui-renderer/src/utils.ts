@@ -284,3 +284,27 @@ export function createComponentFromFiles(
     return null;
   }
 }
+
+/**
+ * 导出虚拟文件系统中所有文件内容，返回 { '/App.vue': '...', ... }
+ */
+export function exportVirtualFsFiles(): Record<string, string> {
+  const result: Record<string, string> = {};
+
+  function traverse(dir: any, currentPath: string) {
+    for (const key in dir) {
+      const item = dir[key];
+      const path = currentPath + '/' + key;
+      if (item && typeof item === 'object' && 'content' in item) {
+        result[path] = item.content;
+      } else if (item && typeof item === 'object') {
+        traverse(item, path);
+      }
+    }
+  }
+
+  // 访问 virtualFs 的私有 root 属性
+  // @ts-ignore
+  traverse(virtualFs.root, '');
+  return result;
+}
