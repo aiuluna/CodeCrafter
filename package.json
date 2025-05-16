@@ -48,6 +48,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.13.1",
+    "gpt-tokenizer": "^2.9.0",
     "lucide-react": "^0.462.0",
     "mongodb": "^6.3.0",
     "mongoose": "7.5.3",

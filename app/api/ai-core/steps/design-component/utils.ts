@@ -5,7 +5,7 @@ import {
   getPrivateDocsDescription,
 } from "../../utils/codegenRules"
 import { z } from "zod"
-
+import { encode } from 'gpt-tokenizer'
 export interface ComponentDesign {
   componentName: string
   componentDescription: string
@@ -92,25 +92,25 @@ const buildCurrentComponentMessage = (
 ): Array<CoreMessage> => {
   return component
     ? [
-        {
-          role: "user",
-          content:
-            component?.prompt?.map(prompt => {
-              if (prompt.type === "image") {
-                return { type: "image" as const, image: prompt.image }
-              }
-              return { type: "text" as const, text: prompt.text }
-            }) || [],
-        },
-        {
-          role: "assistant",
-          content: `
+      {
+        role: "user",
+        content:
+          component?.prompt?.map(prompt => {
+            if (prompt.type === "image") {
+              return { type: "image" as const, image: prompt.image }
+            }
+            return { type: "text" as const, text: prompt.text }
+          }) || [],
+      },
+      {
+        role: "assistant",
+        content: `
         - Component name: ${component?.name}
         - Component code:
         ${component?.code}
       `,
-        },
-      ]
+      },
+    ]
     : []
 }
 
@@ -172,6 +172,29 @@ ${componentDescriptions.trim()}
   return templates.join("\n\n")
 }
 
+
+function getTokenLength(text: string) {
+  return encode(text).length
+}
+
+function getMessageContentTokenLength(messages: CoreMessage[]) {
+  // 提取所有文本内容
+  const allText = messages.map(m => {
+    if (Array.isArray(m.content)) {
+      return m.content.map(c => {
+        if (c.type === 'text') {
+          return c.text
+        }
+        // 如果是图片类型,返回空字符串或者一个固定的token计数
+        return c.type === 'image' ? '[IMAGE]' : ''
+      }).join('\n')
+    }
+    return typeof m.content === 'string' ? m.content : ''
+  }).join('\n')
+
+  return encode(allText).length
+}
+
 export async function generateComponentDesign(
   req: WorkflowContext,
 ): Promise<ComponentDesign> {
@@ -206,6 +229,10 @@ export async function generateComponentDesign(
     ...buildCurrentComponentMessage(req.query.component),
     ...buildUserMessage(req.query.prompt),
   ]
+
+  // 这边打印一下 systemPrompt 的长度和 messages 的长度，并转换成 token 的长度
+  console.log("systemPrompt token length:", getTokenLength(systemPrompt))
+  console.log("messages token length:", getMessageContentTokenLength(messages))
 
   try {
     const stream = await streamText({

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { run } from "@/app/api/ai-core/workflow"
-import { ComponentCodeApi } from "../type"
+import { ComponentCodeApi } from "../type.d"
 import { findCodegenById } from "@/lib/db/codegen/selectors"
 import { getAIClient } from "@/app/api/ai-core/utils/aiClient"
 import { getUserId } from "@/lib/auth/middleware"
@@ -42,6 +42,7 @@ export async function POST(request: NextRequest) {
         rules: codegenDetail.rules,
         userId: userId!,
         codegenId: body.codegenId,
+        figmaDesign: body.figmaDesign,
       },
     })
 

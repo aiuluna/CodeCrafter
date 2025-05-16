@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { saveComponentCodeVersion } from "@/lib/db/componentCode/mutations"
-import type { ComponentCodeApi } from "../type"
+import type { ComponentCodeApi } from "../type.d"
 import { validateSession } from "@/lib/auth/middleware"
 import { connectToDatabase } from "@/lib/db/mongo"
 

@@ -1,0 +1,4144 @@
+{
+  "taskId": "F9008250-306B-4E6F-9234-7DFD522BE25E",
+  "pluginVersion": "4.2.8",
+  "reference": "sketch",
+  "type": "Block",
+  "id": "Block_1",
+  "__VERSION__": "2.0",
+  "props": {
+    "style": {
+      "width": 750,
+      "height": 4442
+    },
+    "attrs": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "children": [
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:28",
+      "name": "编组 39",
+      "props": {
+        "style": {
+          "width": 750,
+          "height": 176
+        },
+        "attrs": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:29",
+          "name": "常规",
+          "props": {
+            "style": {
+              "width": 750,
+              "height": 176
+            },
+            "attrs": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "1:30",
+              "name": "常规",
+              "props": {
+                "style": {
+                  "width": 750,
+                  "height": 176
+                },
+                "attrs": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Shape",
+                  "id": "1:31",
+                  "name": "bg",
+                  "props": {
+                    "style": {
+                      "width": 750,
+                      "height": 176,
+                      "backgroundColor": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 0,
+                      "y": 0,
+                      "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                    }
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Block",
+                  "id": "1:32",
+                  "name": "Battery@iPhone X",
+                  "props": {
+                    "style": {
+                      "width": 750,
+                      "height": 88
+                    },
+                    "attrs": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "children": [
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Shape",
+                      "id": "1:33",
+                      "name": "矩形",
+                      "props": {
+                        "style": {
+                          "width": 750,
+                          "height": 88,
+                          "backgroundColor": "rgba(255, 255, 255, 1)"
+                        },
+                        "attrs": {
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      "children": []
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Block",
+                      "id": "1:34",
+                      "name": "Battery",
+                      "props": {
+                        "style": {
+                          "width": 50.602317810058594,
+                          "height": 23.61111068725586,
+                          "borderRadius": "0px 0px 0px 0px"
+                        },
+                        "attrs": {
+                          "x": 670,
+                          "y": 34.69444274902344
+                        }
+                      },
+                      "children": [
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:35",
+                          "name": "Border",
+                          "props": {
+                            "style": {
+                              "width": 45.7599983215332,
+                              "height": 23.61111068725586,
+                              "opacity": 0.3499999940395355,
+                              "borderRadius": "2.6666667461395264px"
+                            },
+                            "attrs": {
+                              "x": 670,
+                              "y": 34.69444274902344
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:36",
+                          "name": "Cap",
+                          "props": {
+                            "style": {
+                              "width": 2.7623190879821777,
+                              "height": 8.333333015441895,
+                              "opacity": 0.4000000059604645,
+                              "backgroundColor": "rgba(51, 51, 51, 1)"
+                            },
+                            "attrs": {
+                              "x": 717.8400268554688,
+                              "y": 42.33333206176758,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:37",
+                          "name": "Capacity",
+                          "props": {
+                            "style": {
+                              "width": 37.439998626708984,
+                              "height": 15.277777671813965,
+                              "borderRadius": "1.3333333730697632px",
+                              "backgroundColor": "rgba(51, 51, 51, 1)"
+                            },
+                            "attrs": {
+                              "x": 674.1600341796875,
+                              "y": 38.86143493652344,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        }
+                      ],
+                      "layoutHints": {
+                        "horizontalArrangement": true,
+                        "horizontalGroupMembers": [
+                          "1:38",
+                          "1:42"
+                        ]
+                      }
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Shape",
+                      "id": "1:38",
+                      "name": "Wifi",
+                      "props": {
+                        "style": {
+                          "width": 31.000049591064453,
+                          "height": 23,
+                          "backgroundColor": "rgba(51, 51, 51, 1)"
+                        },
+                        "attrs": {
+                          "x": 628,
+                          "y": 35
+                        }
+                      },
+                      "children": [
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:39",
+                          "name": "Wifi-path",
+                          "props": {
+                            "style": {
+                              "width": 31.000024795532227,
+                              "height": 9.948816299438477,
+                              "backgroundColor": "rgba(0, 0, 0, 1)"
+                            },
+                            "attrs": {
+                              "x": 628,
+                              "y": 35,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:40",
+                          "name": "Wifi-path",
+                          "props": {
+                            "style": {
+                              "width": 20.19464874267578,
+                              "height": 7.622179985046387,
+                              "backgroundColor": "rgba(0, 0, 0, 1)"
+                            },
+                            "attrs": {
+                              "x": 633.4059448242188,
+                              "y": 42.95790100097656,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:41",
+                          "name": "Wifi-path",
+                          "props": {
+                            "style": {
+                              "width": 9.390490531921387,
+                              "height": 7.077731132507324,
+                              "backgroundColor": "rgba(0, 0, 0, 1)"
+                            },
+                            "attrs": {
+                              "x": 638.805419921875,
+                              "y": 50.921875,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        }
+                      ],
+                      "layoutHints": {
+                        "horizontalArrangement": true,
+                        "horizontalGroupMembers": [
+                          "1:34",
+                          "1:42"
+                        ]
+                      }
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Shape",
+                      "id": "1:42",
+                      "name": "Cellular Connection",
+                      "props": {
+                        "style": {
+                          "width": 35,
+                          "height": 23,
+                          "backgroundColor": "rgba(51, 51, 51, 1)"
+                        },
+                        "attrs": {
+                          "x": 583,
+                          "y": 35
+                        }
+                      },
+                      "children": [
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:43",
+                          "name": "Cellular_Connection-path",
+                          "props": {
+                            "style": {
+                              "width": 6.176470756530762,
+                              "height": 8.625,
+                              "backgroundColor": "rgba(0, 0, 0, 1)"
+                            },
+                            "attrs": {
+                              "x": 583,
+                              "y": 49.375,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:44",
+                          "name": "Cellular_Connection-path",
+                          "props": {
+                            "style": {
+                              "width": 6.176470756530762,
+                              "height": 12.9375,
+                              "backgroundColor": "rgba(0, 0, 0, 1)"
+                            },
+                            "attrs": {
+                              "x": 592.6078491210938,
+                              "y": 45.0625,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:45",
+                          "name": "Cellular_Connection-path",
+                          "props": {
+                            "style": {
+                              "width": 6.176470756530762,
+                              "height": 17.96875,
+                              "backgroundColor": "rgba(0, 0, 0, 1)"
+                            },
+                            "attrs": {
+                              "x": 602.2156982421875,
+                              "y": 40.03125,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "1:46",
+                          "name": "Cellular_Connection-path",
+                          "props": {
+                            "style": {
+                              "width": 6.176470756530762,
+                              "height": 23,
+                              "backgroundColor": "rgba(0, 0, 0, 1)"
+                            },
+                            "attrs": {
+                              "x": 611.8235473632812,
+                              "y": 35,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        }
+                      ],
+                      "layoutHints": {
+                        "horizontalArrangement": true,
+                        "horizontalGroupMembers": [
+                          "1:34",
+                          "1:38"
+                        ]
+                      }
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Text",
+                      "id": "1:47",
+                      "name": "9:41",
+                      "props": {
+                        "style": {
+                          "width": 53,
+                          "height": 39,
+                          "fontFamily": "PingFang SC",
+                          "fontSize": "28px",
+                          "fontWeight": 600,
+                          "lineHeight": "1.4000000272478377em",
+                          "textAlign": "left",
+                          "color": "rgba(51, 51, 51, 1)"
+                        },
+                        "attrs": {
+                          "x": 60,
+                          "y": 26
+                        },
+                        "text": "9:41"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:48",
+          "name": "稽查填写",
+          "props": {
+            "style": {
+              "width": 128,
+              "height": 45,
+              "fontFamily": "PingFang SC",
+              "fontSize": "32px",
+              "fontWeight": 500,
+              "lineHeight": "1.399999976158142em",
+              "textAlign": "left",
+              "color": "rgba(42, 42, 45, 1)"
+            },
+            "attrs": {
+              "x": 311,
+              "y": 105
+            },
+            "text": "稽查填写"
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:49",
+          "name": "setting备份 4",
+          "props": {
+            "style": {
+              "width": 48,
+              "height": 48
+            },
+            "attrs": {
+              "x": 24,
+              "y": 101
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "I1:49;0:1470",
+              "name": "Group 15",
+              "props": {
+                "style": {
+                  "width": 0,
+                  "height": 0,
+                  "borderRadius": "0px 0px 0px 0px"
+                },
+                "attrs": {
+                  "x": 37,
+                  "y": 118
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "I1:49;0:1473",
+              "name": "路径",
+              "props": {
+                "style": {
+                  "width": 31.11269783973694,
+                  "height": 31.11269783973694
+                },
+                "attrs": {
+                  "x": 37.44364929199219,
+                  "y": 109.0294359922409,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:107",
+      "name": "Frame 2",
+      "props": {
+        "style": {
+          "width": 82,
+          "height": 34,
+          "borderRadius": "4px"
+        },
+        "attrs": {
+          "x": 248,
+          "y": 422
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:108",
+          "name": "不合格",
+          "props": {
+            "style": {
+              "width": 66,
+              "height": 31,
+              "fontFamily": "PingFang SC",
+              "fontSize": "22px",
+              "fontWeight": 500,
+              "lineHeight": "1.3999999653209338em",
+              "textAlign": "left",
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 256,
+              "y": 423.5
+            },
+            "text": "不合格"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:126",
+      "name": "标签/圆角/48/浅备份 4",
+      "props": {
+        "style": {
+          "width": 80,
+          "height": 40
+        },
+        "attrs": {
+          "x": 192,
+          "y": 834
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:127",
+          "name": "矩形",
+          "props": {
+            "style": {
+              "width": 80,
+              "height": 40,
+              "borderRadius": "4px",
+              "backgroundColor": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 192,
+              "y": 834,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:128",
+          "name": "-1分",
+          "props": {
+            "style": {
+              "width": 49,
+              "height": 32,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 500,
+              "lineHeight": "1.3333333333333333em",
+              "textAlign": "left",
+              "color": "rgba(255, 90, 32, 1)"
+            },
+            "attrs": {
+              "x": 206,
+              "y": 838
+            },
+            "text": "-1分"
+          },
+          "children": []
+        }
+      ],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:124",
+          "1:125",
+          "1:129"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:129",
+      "name": "标签/圆角/48/浅备份 10",
+      "props": {
+        "style": {
+          "width": 64,
+          "height": 40
+        },
+        "attrs": {
+          "x": 280,
+          "y": 834
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:130",
+          "name": "矩形",
+          "props": {
+            "style": {
+              "width": 64,
+              "height": 40,
+              "borderRadius": "4px",
+              "backgroundColor": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 280,
+              "y": 834,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:131",
+          "name": "卫生",
+          "props": {
+            "style": {
+              "width": 48,
+              "height": 32,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 500,
+              "lineHeight": "1.3333333333333333em",
+              "textAlign": "left",
+              "color": "rgba(255, 90, 32, 1)"
+            },
+            "attrs": {
+              "x": 288,
+              "y": 838
+            },
+            "text": "卫生"
+          },
+          "children": []
+        }
+      ],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:124",
+          "1:125",
+          "1:126"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:137",
+      "name": "Frame",
+      "props": {
+        "style": {
+          "width": 28,
+          "height": 28
+        },
+        "attrs": {
+          "x": 498,
+          "y": 1047
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:138",
+          "name": "Vector",
+          "props": {
+            "style": {
+              "width": 24.5,
+              "height": 24.5,
+              "backgroundColor": "rgba(255, 136, 0, 1)"
+            },
+            "attrs": {
+              "x": 499.75,
+              "y": 1048.75,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:167",
+      "name": "标签/圆角/48/浅备份 12",
+      "props": {
+        "style": {
+          "width": 80,
+          "height": 40
+        },
+        "attrs": {
+          "x": 192,
+          "y": 1551
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:168",
+          "name": "矩形",
+          "props": {
+            "style": {
+              "width": 80,
+              "height": 40,
+              "borderRadius": "4px",
+              "backgroundColor": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 192,
+              "y": 1551,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:169",
+          "name": "-1分",
+          "props": {
+            "style": {
+              "width": 49,
+              "height": 32,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 500,
+              "lineHeight": "1.3333333333333333em",
+              "textAlign": "left",
+              "color": "rgba(255, 90, 32, 1)"
+            },
+            "attrs": {
+              "x": 206,
+              "y": 1555
+            },
+            "text": "-1分"
+          },
+          "children": []
+        }
+      ],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:165",
+          "1:166",
+          "1:170"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:170",
+      "name": "标签/圆角/48/浅备份 13",
+      "props": {
+        "style": {
+          "width": 64,
+          "height": 40
+        },
+        "attrs": {
+          "x": 280,
+          "y": 1551
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:171",
+          "name": "矩形",
+          "props": {
+            "style": {
+              "width": 64,
+              "height": 40,
+              "borderRadius": "4px",
+              "backgroundColor": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 280,
+              "y": 1551,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:172",
+          "name": "卫生",
+          "props": {
+            "style": {
+              "width": 48,
+              "height": 32,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 500,
+              "lineHeight": "1.3333333333333333em",
+              "textAlign": "left",
+              "color": "rgba(255, 90, 32, 1)"
+            },
+            "attrs": {
+              "x": 288,
+              "y": 1555
+            },
+            "text": "卫生"
+          },
+          "children": []
+        }
+      ],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:165",
+          "1:166",
+          "1:167"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:178",
+      "name": "Frame",
+      "props": {
+        "style": {
+          "width": 28,
+          "height": 28
+        },
+        "attrs": {
+          "x": 498,
+          "y": 1764
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:179",
+          "name": "Vector",
+          "props": {
+            "style": {
+              "width": 24.5,
+              "height": 24.5,
+              "backgroundColor": "rgba(255, 136, 0, 1)"
+            },
+            "attrs": {
+              "x": 499.75,
+              "y": 1765.75,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:87",
+      "name": "文本框/灰色卡片",
+      "props": {
+        "style": {
+          "width": 654,
+          "height": 244,
+          "borderRadius": "8px"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 2625
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:88",
+          "name": "矩形备份 38",
+          "props": {
+            "style": {
+              "width": 654,
+              "height": 285.1687316894531,
+              "borderRadius": "4px",
+              "backgroundColor": "rgba(247, 248, 252, 1)"
+            },
+            "attrs": {
+              "x": 48,
+              "y": 2625,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:89",
+          "name": "请在3天内将违规器械清除 注意：卫生扣分",
+          "props": {
+            "style": {
+              "width": 590,
+              "height": 48,
+              "fontFamily": "PingFang SC",
+              "fontSize": "28px",
+              "fontWeight": 400,
+              "lineHeight": "1.7142857142857142em",
+              "textAlign": "left",
+              "color": "rgba(171, 167, 182, 1)"
+            },
+            "attrs": {
+              "x": 80,
+              "y": 2649
+            },
+            "text": "请输入"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:84",
+      "name": "Frame 82",
+      "props": {
+        "style": {
+          "width": 311,
+          "height": 48,
+          "borderRadius": "4px"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 2892
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:85",
+          "name": "请在3天内将违规器械清除",
+          "props": {
+            "style": {
+              "width": 279,
+              "height": 48,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 500,
+              "lineHeight": "2em",
+              "textAlign": "left",
+              "color": "rgba(138, 134, 151, 1)"
+            },
+            "attrs": {
+              "x": 64,
+              "y": 2892
+            },
+            "text": "请在3天内将违规器械清除"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:80",
+      "name": "Frame 81",
+      "props": {
+        "style": {
+          "width": 469,
+          "height": 48,
+          "borderRadius": "4px"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 2956
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:81",
+          "name": "卫生扣分>8分两次，将强制进行上门保洁",
+          "props": {
+            "style": {
+              "width": 437,
+              "height": 48,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 500,
+              "lineHeight": "2em",
+              "textAlign": "left",
+              "color": "rgba(138, 134, 151, 1)"
+            },
+            "attrs": {
+              "x": 64,
+              "y": 2956
+            },
+            "text": "卫生扣分>8分两次，将强制进行上门保洁"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:82",
+      "name": "Frame 83",
+      "props": {
+        "style": {
+          "width": 469,
+          "height": 48,
+          "borderRadius": "4px"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 3020
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:83",
+          "name": "卫生扣分>8分两次，将强制进行上门保洁",
+          "props": {
+            "style": {
+              "width": 437,
+              "height": 48,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 500,
+              "lineHeight": "2em",
+              "textAlign": "left",
+              "color": "rgba(138, 134, 151, 1)"
+            },
+            "attrs": {
+              "x": 64,
+              "y": 3020
+            },
+            "text": "卫生扣分>8分两次，将强制进行上门保洁"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:12",
+      "name": "编组 10备份",
+      "props": {
+        "style": {
+          "width": 750,
+          "height": 161.5
+        },
+        "attrs": {
+          "x": 0,
+          "y": 4280.5
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:13",
+          "name": "矩形",
+          "props": {
+            "style": {
+              "width": 750,
+              "height": 161,
+              "backgroundColor": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 0,
+              "y": 4281,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:14",
+          "name": "首页",
+          "props": {
+            "style": {
+              "width": 40,
+              "height": 28,
+              "fontFamily": "PingFang SC",
+              "fontSize": "20px",
+              "fontWeight": 500,
+              "lineHeight": "1.4em",
+              "textAlign": "left",
+              "color": "rgba(83, 78, 99, 1)"
+            },
+            "attrs": {
+              "x": 82,
+              "y": 4357
+            },
+            "text": "首页"
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:15",
+          "name": "编组",
+          "props": {
+            "style": {
+              "width": 48,
+              "height": 82
+            },
+            "attrs": {
+              "x": 257,
+              "y": 4303
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "1:16",
+              "name": "门店",
+              "props": {
+                "style": {
+                  "width": 40,
+                  "height": 28,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "20px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.4em",
+                  "textAlign": "left",
+                  "color": "rgba(83, 78, 99, 1)"
+                },
+                "attrs": {
+                  "x": 261,
+                  "y": 4357
+                },
+                "text": "门店"
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:17",
+              "name": "矩形备份 4",
+              "props": {
+                "style": {
+                  "width": 48,
+                  "height": 48,
+                  "backgroundColor": "rgba(216, 216, 216, 1)"
+                },
+                "attrs": {
+                  "x": 257,
+                  "y": 4303
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:18",
+              "1:21",
+              "1:24"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:18",
+          "name": "编组备份",
+          "props": {
+            "style": {
+              "width": 48,
+              "height": 82
+            },
+            "attrs": {
+              "x": 447,
+              "y": 4303
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "1:19",
+              "name": "会员",
+              "props": {
+                "style": {
+                  "width": 40,
+                  "height": 28,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "20px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.4em",
+                  "textAlign": "left",
+                  "color": "rgba(83, 78, 99, 1)"
+                },
+                "attrs": {
+                  "x": 451,
+                  "y": 4357
+                },
+                "text": "会员"
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:20",
+              "name": "矩形备份 4",
+              "props": {
+                "style": {
+                  "width": 48,
+                  "height": 48,
+                  "backgroundColor": "rgba(216, 216, 216, 1)"
+                },
+                "attrs": {
+                  "x": 447,
+                  "y": 4303
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:15",
+              "1:21",
+              "1:24"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:21",
+          "name": "编组备份 2",
+          "props": {
+            "style": {
+              "width": 48,
+              "height": 82
+            },
+            "attrs": {
+              "x": 637,
+              "y": 4303
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "1:22",
+              "name": "我的",
+              "props": {
+                "style": {
+                  "width": 40,
+                  "height": 28,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "20px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.4em",
+                  "textAlign": "left",
+                  "color": "rgba(83, 78, 99, 1)"
+                },
+                "attrs": {
+                  "x": 641,
+                  "y": 4357
+                },
+                "text": "我的"
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:23",
+              "name": "矩形备份 4",
+              "props": {
+                "style": {
+                  "width": 48,
+                  "height": 48,
+                  "backgroundColor": "rgba(216, 216, 216, 1)"
+                },
+                "attrs": {
+                  "x": 637,
+                  "y": 4303
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:15",
+              "1:18",
+              "1:24"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:24",
+          "name": "矩形",
+          "props": {
+            "style": {
+              "width": 48,
+              "height": 48,
+              "backgroundColor": "rgba(216, 216, 216, 1)"
+            },
+            "attrs": {
+              "x": 78,
+              "y": 4303
+            }
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:15",
+              "1:18",
+              "1:21"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:25",
+          "name": "Home Indicator_Black",
+          "props": {
+            "style": {
+              "width": 270,
+              "height": 10
+            },
+            "attrs": {
+              "x": 240,
+              "y": 4416
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:26",
+              "name": "home indicator",
+              "props": {
+                "style": {
+                  "width": 270,
+                  "height": 10,
+                  "borderRadius": "200px",
+                  "backgroundColor": "rgba(40, 44, 55, 1)"
+                },
+                "attrs": {
+                  "x": 240,
+                  "y": 4416
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:27",
+          "name": "路径 6",
+          "props": {
+            "style": {
+              "width": 750,
+              "height": 1,
+              "opacity": 0.2008928507566452
+            },
+            "attrs": {
+              "x": 0,
+              "y": 4280.5,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:50",
+      "name": "筛选条",
+      "props": {
+        "style": {
+          "width": 750,
+          "height": 112
+        },
+        "attrs": {
+          "x": 0,
+          "y": 179
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:51",
+          "name": "矩形备份 2",
+          "props": {
+            "style": {
+              "width": 250,
+              "height": 112,
+              "backgroundColor": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 0,
+              "y": 179
+            }
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:53",
+              "1:57"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:52",
+          "name": "Triangle",
+          "props": {
+            "style": {
+              "width": 18,
+              "height": 53,
+              "opacity": 0.6000000238418579,
+              "backgroundImage": "linear-gradient(270deg, #FFFFFF 0%, #BBBBBB 100%)"
+            },
+            "attrs": {
+              "x": 333,
+              "y": 208,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:54",
+              "1:55",
+              "1:56"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:53",
+          "name": "矩形备份",
+          "props": {
+            "style": {
+              "width": 251,
+              "height": 112,
+              "backgroundColor": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 250,
+              "y": 179
+            }
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:51",
+              "1:57"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:54",
+          "name": "Triangle",
+          "props": {
+            "style": {
+              "width": 18,
+              "height": 53,
+              "opacity": 0.6000000238418579,
+              "backgroundImage": "linear-gradient(270deg, #FFFFFF 0%, #BBBBBB 100%)"
+            },
+            "attrs": {
+              "x": 208,
+              "y": 208,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:52",
+              "1:55",
+              "1:56"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:55",
+          "name": "Triangle备份 2",
+          "props": {
+            "style": {
+              "width": 18,
+              "height": 53,
+              "opacity": 0.6000000238418579,
+              "backgroundImage": "linear-gradient(270deg, #FFFFFF 0%, #BBBBBB 100%)"
+            },
+            "attrs": {
+              "x": 456,
+              "y": 208,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:52",
+              "1:54",
+              "1:56"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:56",
+          "name": "Triangle备份",
+          "props": {
+            "style": {
+              "width": 18,
+              "height": 53,
+              "opacity": 0.6000000238418579,
+              "backgroundImage": "linear-gradient(270deg, #FFFFFF 0%, #BBBBBB 100%)"
+            },
+            "attrs": {
+              "x": 520,
+              "y": 208,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:52",
+              "1:54",
+              "1:55"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:57",
+          "name": "矩形备份 3",
+          "props": {
+            "style": {
+              "width": 249,
+              "height": 112,
+              "backgroundColor": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 501,
+              "y": 179
+            }
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:51",
+              "1:53"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:58",
+          "name": "内容4",
+          "props": {
+            "style": {
+              "width": 112,
+              "height": 40
+            },
+            "attrs": {
+              "x": 576,
+              "y": 215
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "1:59",
+              "name": "完成稽查",
+              "props": {
+                "style": {
+                  "width": 112,
+                  "height": 39,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "28px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.4000000272478377em",
+                  "textAlign": "center",
+                  "color": "rgba(255, 136, 0, 1)"
+                },
+                "attrs": {
+                  "x": 576,
+                  "y": 215
+                },
+                "text": "完成稽查"
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:62",
+              "1:60"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:60",
+          "name": "内容3",
+          "props": {
+            "style": {
+              "width": 140,
+              "height": 40
+            },
+            "attrs": {
+              "x": 310,
+              "y": 215
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "1:61",
+              "name": "扣分项填写",
+              "props": {
+                "style": {
+                  "width": 140,
+                  "height": 39,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "28px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.4000000272478377em",
+                  "textAlign": "center",
+                  "color": "rgba(171, 167, 182, 1)"
+                },
+                "attrs": {
+                  "x": 310,
+                  "y": 215
+                },
+                "text": "扣分项填写"
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:62",
+              "1:58"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:62",
+          "name": "内容2",
+          "props": {
+            "style": {
+              "width": 112,
+              "height": 40
+            },
+            "attrs": {
+              "x": 76,
+              "y": 214
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "1:63",
+              "name": "编组 4",
+              "props": {
+                "style": {
+                  "width": 112,
+                  "height": 40
+                },
+                "attrs": {
+                  "x": 76,
+                  "y": 214
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "1:64",
+                  "name": "基础信息",
+                  "props": {
+                    "style": {
+                      "width": 112,
+                      "height": 39,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "28px",
+                      "fontWeight": 500,
+                      "lineHeight": "1.4000000272478377em",
+                      "textAlign": "center",
+                      "color": "rgba(171, 167, 182, 1)"
+                    },
+                    "attrs": {
+                      "x": 76,
+                      "y": 214
+                    },
+                    "text": "基础信息"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:58",
+              "1:60"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:65",
+      "name": "矩形备份 9",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 222,
+          "borderRadius": "16px",
+          "backgroundImage": "linear-gradient(297deg, #FFBD00 0%, #FF8800 100%)"
+        },
+        "attrs": {
+          "x": 24,
+          "y": 381
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:66",
+      "name": "-8备份",
+      "props": {
+        "style": {
+          "width": 127,
+          "height": 39,
+          "fontFamily": "DIN",
+          "fontSize": "32px",
+          "fontWeight": 500,
+          "lineHeight": "1.2109999656677246em",
+          "textAlign": "right",
+          "color": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 575,
+          "y": 507
+        },
+        "text": "-9 (卫生差)"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:67"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:67",
+      "name": "卫生扣分",
+      "props": {
+        "style": {
+          "width": 96,
+          "height": 34,
+          "fontFamily": "PingFang SC",
+          "fontSize": "24px",
+          "fontWeight": 500,
+          "lineHeight": "1.3999999364217122em",
+          "textAlign": "left",
+          "color": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 80,
+          "y": 505
+        },
+        "text": "卫生扣分 "
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:66"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:68",
+      "name": "提醒：卫生扣分>8分两次，将强制进行上门",
+      "props": {
+        "style": {
+          "width": 629,
+          "height": 34,
+          "opacity": 0.9000000357627869,
+          "fontFamily": "PingFang SC",
+          "fontSize": "24px",
+          "fontWeight": 400,
+          "lineHeight": "1.3999999364217122em",
+          "textAlign": "left",
+          "color": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 56,
+          "y": 546
+        },
+        "text": "如卫生扣分>8分累计两次及以上，将安排专业保洁上门服务"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:69",
+      "name": "三角形备份",
+      "props": {
+        "style": {
+          "width": 16,
+          "height": 16,
+          "borderRadius": "1px",
+          "backgroundColor": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 56,
+          "y": 514,
+          "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:70",
+      "name": "最终稽查分数",
+      "props": {
+        "style": {
+          "width": 192,
+          "height": 45,
+          "fontFamily": "PingFang SC",
+          "fontSize": "32px",
+          "fontWeight": 500,
+          "lineHeight": "1.399999976158142em",
+          "textAlign": "left",
+          "color": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 417
+        },
+        "text": "最终稽查分数"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:73",
+      "name": "146备份",
+      "props": {
+        "style": {
+          "width": 77,
+          "height": 58,
+          "fontFamily": "DIN",
+          "fontSize": "48px",
+          "fontWeight": 500,
+          "lineHeight": "1.2109999656677246em",
+          "textAlign": "left",
+          "color": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 557,
+          "y": 412
+        },
+        "text": "146"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:74",
+      "name": "/150备份",
+      "props": {
+        "style": {
+          "width": 64,
+          "height": 39,
+          "fontFamily": "DIN",
+          "fontSize": "32px",
+          "fontWeight": 500,
+          "lineHeight": "1.2109999656677246em",
+          "textAlign": "left",
+          "color": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 638,
+          "y": 428
+        },
+        "text": "/150"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:75",
+      "name": "divider-level-dashed-w702px备份",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 1
+        },
+        "attrs": {
+          "x": 24,
+          "y": 483,
+          "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:76",
+      "name": "稽查扣分明细",
+      "props": {
+        "style": {
+          "width": 144,
+          "height": 34,
+          "fontFamily": "PingFang SC",
+          "fontSize": "24px",
+          "fontWeight": 400,
+          "lineHeight": "1.3999999364217122em",
+          "textAlign": "left",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 34,
+          "y": 635
+        },
+        "text": "稽查扣分明细"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:77",
+      "name": "给店长留言",
+      "props": {
+        "style": {
+          "width": 120,
+          "height": 34,
+          "fontFamily": "PingFang SC",
+          "fontSize": "24px",
+          "fontWeight": 400,
+          "lineHeight": "1.3999999364217122em",
+          "textAlign": "left",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 34,
+          "y": 2480
+        },
+        "text": "给店长留言"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:78",
+      "name": "给店长留言",
+      "props": {
+        "style": {
+          "width": 96,
+          "height": 34,
+          "fontFamily": "PingFang SC",
+          "fontSize": "24px",
+          "fontWeight": 400,
+          "lineHeight": "1.3999999364217122em",
+          "textAlign": "left",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 34,
+          "y": 2135
+        },
+        "text": "扣分描述"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:79",
+      "name": "矩形备份 8",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 588,
+          "borderRadius": "16px",
+          "backgroundColor": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 24,
+          "y": 2529
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:86",
+      "name": "矩形备份 11",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 263,
+          "borderRadius": "16px",
+          "backgroundColor": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 24,
+          "y": 2185
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:90",
+      "name": "矩形备份 10",
+      "props": {
+        "style": {
+          "width": 8,
+          "height": 24,
+          "borderRadius": "0px 4px 4px 0px",
+          "backgroundColor": "rgba(255, 136, 0, 1)"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 2568
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:91",
+      "name": "矩形备份 12",
+      "props": {
+        "style": {
+          "width": 8,
+          "height": 24,
+          "borderRadius": "0px 4px 4px 0px",
+          "backgroundColor": "rgba(255, 136, 0, 1)"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 2224
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:92",
+      "name": "给店长留言",
+      "props": {
+        "style": {
+          "width": 140,
+          "height": 39,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 500,
+          "lineHeight": "1.4000000272478377em",
+          "textAlign": "left",
+          "color": "rgba(42, 42, 45, 1)"
+        },
+        "attrs": {
+          "x": 72,
+          "y": 2561
+        },
+        "text": "给店长留言"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:93",
+      "name": "给店长留言",
+      "props": {
+        "style": {
+          "width": 112,
+          "height": 39,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 500,
+          "lineHeight": "1.4000000272478377em",
+          "textAlign": "left",
+          "color": "rgba(42, 42, 45, 1)"
+        },
+        "attrs": {
+          "x": 72,
+          "y": 2217
+        },
+        "text": "扣分描述"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:94",
+      "name": "编组 6备份",
+      "props": {
+        "style": {
+          "width": 750,
+          "height": 198
+        },
+        "attrs": {
+          "x": 0,
+          "y": 3164
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:95",
+          "name": "编组 4",
+          "props": {
+            "style": {
+              "width": 750,
+              "height": 198
+            },
+            "attrs": {
+              "x": 0,
+              "y": 3164
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "1:96",
+              "name": "编组 19",
+              "props": {
+                "style": {
+                  "width": 750,
+                  "height": 68
+                },
+                "attrs": {
+                  "x": 0,
+                  "y": 3294
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Block",
+                  "id": "1:97",
+                  "name": "编组 13",
+                  "props": {
+                    "style": {
+                      "width": 750,
+                      "height": 68
+                    },
+                    "attrs": {
+                      "x": 0,
+                      "y": 3294
+                    }
+                  },
+                  "children": [
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Block",
+                      "id": "1:98",
+                      "name": "Bottom@iPhone X",
+                      "props": {
+                        "style": {
+                          "width": 750,
+                          "height": 68
+                        },
+                        "attrs": {
+                          "x": 0,
+                          "y": 3294
+                        }
+                      },
+                      "children": [
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I1:98;0:1449",
+                          "name": "Rectangle",
+                          "props": {
+                            "style": {
+                              "width": 750,
+                              "height": 68,
+                              "backgroundColor": "rgba(255, 255, 255, 1)"
+                            },
+                            "attrs": {
+                              "x": 0,
+                              "y": 3294
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I1:98;0:1450",
+                          "name": "Rectangle 24",
+                          "props": {
+                            "style": {
+                              "width": 268,
+                              "height": 10,
+                              "borderRadius": "100px",
+                              "backgroundColor": "rgba(0, 0, 0, 1)"
+                            },
+                            "attrs": {
+                              "x": 241,
+                              "y": 3334
+                            }
+                          },
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "1:99",
+              "name": "分组 28",
+              "props": {
+                "style": {
+                  "width": 750,
+                  "height": 130
+                },
+                "attrs": {
+                  "x": 0,
+                  "y": 3164
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Shape",
+                  "id": "1:100",
+                  "name": "Rectangle 4 Copy",
+                  "props": {
+                    "style": {
+                      "width": 750,
+                      "height": 130,
+                      "backgroundColor": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 0,
+                      "y": 3164
+                    }
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Block",
+                  "id": "1:101",
+                  "name": "编组 27",
+                  "props": {
+                    "style": {
+                      "width": 339,
+                      "height": 98
+                    },
+                    "attrs": {
+                      "x": 24,
+                      "y": 3180
+                    }
+                  },
+                  "children": [
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Shape",
+                      "id": "1:102",
+                      "name": "Rectangle 4",
+                      "props": {
+                        "style": {
+                          "width": 339,
+                          "height": 98,
+                          "borderRadius": "8px"
+                        },
+                        "attrs": {
+                          "x": 24,
+                          "y": 3180,
+                          "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                        }
+                      },
+                      "children": []
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Text",
+                      "id": "1:103",
+                      "name": "上一步",
+                      "props": {
+                        "style": {
+                          "width": 96,
+                          "height": 45,
+                          "fontFamily": "PingFang SC",
+                          "fontSize": "32px",
+                          "fontWeight": 500,
+                          "lineHeight": "1.399999976158142em",
+                          "textAlign": "center",
+                          "color": "rgba(255, 136, 0, 1)"
+                        },
+                        "attrs": {
+                          "x": 146,
+                          "y": 3207
+                        },
+                        "text": "上一步"
+                      },
+                      "children": []
+                    }
+                  ],
+                  "layoutHints": {
+                    "horizontalArrangement": true,
+                    "horizontalGroupMembers": [
+                      "1:104"
+                    ]
+                  }
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Block",
+                  "id": "1:104",
+                  "name": "编组 27备份",
+                  "props": {
+                    "style": {
+                      "width": 339,
+                      "height": 98
+                    },
+                    "attrs": {
+                      "x": 387,
+                      "y": 3180
+                    }
+                  },
+                  "children": [
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Shape",
+                      "id": "1:105",
+                      "name": "Rectangle 4",
+                      "props": {
+                        "style": {
+                          "width": 339,
+                          "height": 98,
+                          "borderRadius": "8px",
+                          "backgroundColor": "rgba(255, 136, 0, 1)"
+                        },
+                        "attrs": {
+                          "x": 387,
+                          "y": 3180,
+                          "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                        }
+                      },
+                      "children": []
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Text",
+                      "id": "1:106",
+                      "name": "提 交",
+                      "props": {
+                        "style": {
+                          "width": 75,
+                          "height": 45,
+                          "fontFamily": "PingFang SC",
+                          "fontSize": "32px",
+                          "fontWeight": 500,
+                          "lineHeight": "1.399999976158142em",
+                          "textAlign": "center",
+                          "color": "rgba(255, 255, 255, 1)"
+                        },
+                        "attrs": {
+                          "x": 520,
+                          "y": 3207
+                        },
+                        "text": "提 交"
+                      },
+                      "children": []
+                    }
+                  ],
+                  "layoutHints": {
+                    "horizontalArrangement": true,
+                    "horizontalGroupMembers": [
+                      "1:101"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:109",
+      "name": "学习手册",
+      "props": {
+        "style": {
+          "width": 112,
+          "height": 39,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.4000000272478377em",
+          "textAlign": "left",
+          "color": "rgba(83, 78, 99, 1)"
+        },
+        "attrs": {
+          "x": 606,
+          "y": 107
+        },
+        "text": "学习手册"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:110",
+      "name": "黄龙万科店",
+      "props": {
+        "style": {
+          "width": 160,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "32px",
+          "fontWeight": 600,
+          "lineHeight": "1.3125em",
+          "textAlign": "center",
+          "color": "rgba(83, 79, 99, 1)"
+        },
+        "attrs": {
+          "x": 24,
+          "y": 315
+        },
+        "text": "黄龙万科店"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:111",
+      "name": "请在3天内将违规器械清除",
+      "props": {
+        "style": {
+          "width": 654,
+          "height": 144,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.7142857142857142em",
+          "textAlign": "left",
+          "color": "rgba(83, 79, 99, 1)"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 2272
+        },
+        "text": "扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述扣分描述"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:120",
+      "name": "矩形备份 17",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 693,
+          "borderRadius": "16px",
+          "backgroundColor": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 24,
+          "y": 697
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:121",
+      "name": "扣分项：私教区备份 2",
+      "props": {
+        "style": {
+          "width": 196,
+          "height": 39,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 500,
+          "lineHeight": "1.4000000272478377em",
+          "textAlign": "left",
+          "color": "rgba(40, 44, 55, 1)"
+        },
+        "attrs": {
+          "x": 72,
+          "y": 733
+        },
+        "text": "扣分项：私教区"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:122",
+      "name": "矩形备份 19",
+      "props": {
+        "style": {
+          "width": 8,
+          "height": 24,
+          "borderRadius": "0px 4px 4px 0px",
+          "backgroundColor": "rgba(255, 136, 0, 1)"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 741
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:123",
+      "name": "矩形备份 20",
+      "props": {
+        "style": {
+          "width": 654,
+          "height": 565,
+          "borderRadius": "8px",
+          "backgroundColor": "rgba(245, 246, 250, 1)"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 797
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:124",
+      "name": "操房训练垫&瑜伽垫备份 3",
+      "props": {
+        "style": {
+          "width": 245,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.5em",
+          "textAlign": "right",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 433,
+          "y": 832
+        },
+        "text": "操房训练垫&瑜伽垫"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:125",
+          "1:126",
+          "1:129"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:125",
+      "name": "扣分项目备份 3",
+      "props": {
+        "style": {
+          "width": 112,
+          "height": 40,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 500,
+          "lineHeight": "1.4285714285714286em",
+          "textAlign": "left",
+          "color": "rgba(42, 42, 45, 1)"
+        },
+        "attrs": {
+          "x": 72,
+          "y": 833
+        },
+        "text": "扣分项目"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:124",
+          "1:126",
+          "1:129"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:132",
+      "name": "路径 7备份 17",
+      "props": {
+        "style": {
+          "width": 655,
+          "height": 1
+        },
+        "attrs": {
+          "x": 48,
+          "y": 905,
+          "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:133",
+      "name": "摆放小道件不清洁(卫生项)备份 3",
+      "props": {
+        "style": {
+          "width": 327,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.5em",
+          "textAlign": "right",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 351,
+          "y": 938
+        },
+        "text": "摆放小道件不清洁(卫生项)"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:134"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:134",
+      "name": "扣分标准备份 3",
+      "props": {
+        "style": {
+          "width": 112,
+          "height": 40,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 500,
+          "lineHeight": "1.4285714285714286em",
+          "textAlign": "left",
+          "color": "rgba(42, 42, 45, 1)"
+        },
+        "attrs": {
+          "x": 72,
+          "y": 939
+        },
+        "text": "扣分标准"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:133"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:135",
+      "name": "小道件摆放不安全备份 3",
+      "props": {
+        "style": {
+          "width": 224,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.5em",
+          "textAlign": "right",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 454,
+          "y": 988
+        },
+        "text": "小道件摆放不安全"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:136",
+      "name": "小道件摆放不安全备份 5",
+      "props": {
+        "style": {
+          "width": 144,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "24px",
+          "fontWeight": 500,
+          "lineHeight": "1.75em",
+          "textAlign": "right",
+          "color": "rgba(255, 136, 0, 1)"
+        },
+        "attrs": {
+          "x": 534,
+          "y": 1039
+        },
+        "text": "为什么被扣分"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:139",
+      "name": "Group 72",
+      "props": {
+        "style": {
+          "width": 655,
+          "height": 227,
+          "borderRadius": "0px 0px 0px 0px"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 1101
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:140",
+          "name": "路径 7备份 19",
+          "props": {
+            "style": {
+              "width": 655,
+              "height": 1
+            },
+            "attrs": {
+              "x": 48,
+              "y": 1101,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:141",
+          "name": "路径 7备份 21",
+          "props": {
+            "style": {
+              "width": 655,
+              "height": 1
+            },
+            "attrs": {
+              "x": 48,
+              "y": 1205.5,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:142",
+          "name": "扣分说明备份 4",
+          "props": {
+            "style": {
+              "width": 112,
+              "height": 40,
+              "fontFamily": "PingFang SC",
+              "fontSize": "28px",
+              "fontWeight": 500,
+              "lineHeight": "1.4285714285714286em",
+              "textAlign": "left",
+              "color": "rgba(42, 42, 45, 1)"
+            },
+            "attrs": {
+              "x": 72,
+              "y": 1134
+            },
+            "text": "扣分说明"
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:143"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:143",
+          "name": "说明说明说明说明说明说明说明说明备份 2",
+          "props": {
+            "style": {
+              "width": 448,
+              "height": 39,
+              "fontFamily": "PingFang SC",
+              "fontSize": "28px",
+              "fontWeight": 400,
+              "lineHeight": "1.4000000272478377em",
+              "textAlign": "right",
+              "color": "rgba(138, 134, 151, 1)"
+            },
+            "attrs": {
+              "x": 230,
+              "y": 1134
+            },
+            "text": "说明说明说明说明说明说明说明说明"
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:142"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:144",
+          "name": "编组 2备份 4",
+          "props": {
+            "style": {
+              "width": 112,
+              "height": 40
+            },
+            "attrs": {
+              "x": 72,
+              "y": 1238
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "1:145",
+              "name": "稽查图片备份",
+              "props": {
+                "style": {
+                  "width": 112,
+                  "height": 40,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "28px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.4285714285714286em",
+                  "textAlign": "left",
+                  "color": "rgba(42, 42, 45, 1)"
+                },
+                "attrs": {
+                  "x": 72,
+                  "y": 1238
+                },
+                "text": "稽查图片"
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:146",
+              "1:151",
+              "1:156"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:146",
+          "name": "位图备份 23",
+          "props": {
+            "style": {
+              "width": 90,
+              "height": 90,
+              "opacity": 0.8499999642372131,
+              "borderRadius": "0px 0px 0px 0px"
+            },
+            "attrs": {
+              "x": 588,
+              "y": 1238
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:147",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 588,
+                  "y": 1238
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:148",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 588,
+                  "y": 1238
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:149",
+              "name": "位图",
+              "props": {
+                "style": {
+                  "width": 141,
+                  "height": 141
+                },
+                "attrs": {
+                  "x": 569,
+                  "y": 1211
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:144",
+              "1:151",
+              "1:156"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:151",
+          "name": "位图备份 25",
+          "props": {
+            "style": {
+              "width": 90,
+              "height": 90,
+              "opacity": 0.8499999642372131,
+              "borderRadius": "0px 0px 0px 0px"
+            },
+            "attrs": {
+              "x": 482,
+              "y": 1238
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:152",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 482,
+                  "y": 1238
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:153",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 482,
+                  "y": 1238
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:154",
+              "name": "位图",
+              "props": {
+                "style": {
+                  "width": 141,
+                  "height": 141
+                },
+                "attrs": {
+                  "x": 463,
+                  "y": 1211
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:144",
+              "1:146",
+              "1:156"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:156",
+          "name": "位图备份 27",
+          "props": {
+            "style": {
+              "width": 90,
+              "height": 90,
+              "opacity": 0.8499999642372131,
+              "borderRadius": "0px 0px 0px 0px"
+            },
+            "attrs": {
+              "x": 376,
+              "y": 1238
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:157",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 376,
+                  "y": 1238
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:158",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 376,
+                  "y": 1238
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:159",
+              "name": "位图",
+              "props": {
+                "style": {
+                  "width": 141,
+                  "height": 141
+                },
+                "attrs": {
+                  "x": 357,
+                  "y": 1211
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:144",
+              "1:146",
+              "1:151"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:161",
+      "name": "矩形备份 21",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 693,
+          "borderRadius": "16px",
+          "backgroundColor": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 24,
+          "y": 1418
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:162",
+      "name": "扣分项：私教区备份 3",
+      "props": {
+        "style": {
+          "width": 196,
+          "height": 39,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 500,
+          "lineHeight": "1.4000000272478377em",
+          "textAlign": "left",
+          "color": "rgba(40, 44, 55, 1)"
+        },
+        "attrs": {
+          "x": 72,
+          "y": 1450
+        },
+        "text": "扣分项：私教区"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:163",
+      "name": "矩形备份 22",
+      "props": {
+        "style": {
+          "width": 8,
+          "height": 24,
+          "borderRadius": "0px 4px 4px 0px",
+          "backgroundColor": "rgba(255, 136, 0, 1)"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 1458
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:164",
+      "name": "矩形备份 23",
+      "props": {
+        "style": {
+          "width": 654,
+          "height": 565,
+          "borderRadius": "8px",
+          "backgroundColor": "rgba(245, 246, 250, 1)"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 1514
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:165",
+      "name": "操房训练垫&瑜伽垫备份 4",
+      "props": {
+        "style": {
+          "width": 245,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.5em",
+          "textAlign": "right",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 433,
+          "y": 1549
+        },
+        "text": "操房训练垫&瑜伽垫"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:166",
+          "1:167",
+          "1:170"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:166",
+      "name": "扣分项目备份 4",
+      "props": {
+        "style": {
+          "width": 112,
+          "height": 40,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 500,
+          "lineHeight": "1.4285714285714286em",
+          "textAlign": "left",
+          "color": "rgba(42, 42, 45, 1)"
+        },
+        "attrs": {
+          "x": 72,
+          "y": 1550
+        },
+        "text": "扣分项目"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:165",
+          "1:167",
+          "1:170"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Shape",
+      "id": "1:173",
+      "name": "路径 7备份 18",
+      "props": {
+        "style": {
+          "width": 655,
+          "height": 1
+        },
+        "attrs": {
+          "x": 48,
+          "y": 1622,
+          "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+        }
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:174",
+      "name": "摆放小道件不清洁(卫生项)备份 4",
+      "props": {
+        "style": {
+          "width": 327,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.5em",
+          "textAlign": "right",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 351,
+          "y": 1655
+        },
+        "text": "摆放小道件不清洁(卫生项)"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:175"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:175",
+      "name": "扣分标准备份 4",
+      "props": {
+        "style": {
+          "width": 112,
+          "height": 40,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 500,
+          "lineHeight": "1.4285714285714286em",
+          "textAlign": "left",
+          "color": "rgba(42, 42, 45, 1)"
+        },
+        "attrs": {
+          "x": 72,
+          "y": 1656
+        },
+        "text": "扣分标准"
+      },
+      "children": [],
+      "layoutHints": {
+        "horizontalArrangement": true,
+        "horizontalGroupMembers": [
+          "1:174"
+        ]
+      }
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:176",
+      "name": "小道件摆放不安全备份 6",
+      "props": {
+        "style": {
+          "width": 224,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.5em",
+          "textAlign": "right",
+          "color": "rgba(138, 134, 151, 1)"
+        },
+        "attrs": {
+          "x": 454,
+          "y": 1705
+        },
+        "text": "小道件摆放不安全"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "1:177",
+      "name": "小道件摆放不安全备份 7",
+      "props": {
+        "style": {
+          "width": 144,
+          "height": 42,
+          "fontFamily": "PingFang SC",
+          "fontSize": "24px",
+          "fontWeight": 500,
+          "lineHeight": "1.75em",
+          "textAlign": "right",
+          "color": "rgba(255, 136, 0, 1)"
+        },
+        "attrs": {
+          "x": 534,
+          "y": 1756
+        },
+        "text": "为什么被扣分"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "1:180",
+      "name": "Group 73",
+      "props": {
+        "style": {
+          "width": 655,
+          "height": 227,
+          "borderRadius": "0px 0px 0px 0px"
+        },
+        "attrs": {
+          "x": 48,
+          "y": 1818
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:181",
+          "name": "路径 7备份 19",
+          "props": {
+            "style": {
+              "width": 655,
+              "height": 1
+            },
+            "attrs": {
+              "x": 48,
+              "y": 1818,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "1:182",
+          "name": "路径 7备份 21",
+          "props": {
+            "style": {
+              "width": 655,
+              "height": 1
+            },
+            "attrs": {
+              "x": 48,
+              "y": 1922.5,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:183",
+          "name": "扣分说明备份 4",
+          "props": {
+            "style": {
+              "width": 112,
+              "height": 40,
+              "fontFamily": "PingFang SC",
+              "fontSize": "28px",
+              "fontWeight": 500,
+              "lineHeight": "1.4285714285714286em",
+              "textAlign": "left",
+              "color": "rgba(42, 42, 45, 1)"
+            },
+            "attrs": {
+              "x": 72,
+              "y": 1851
+            },
+            "text": "扣分说明"
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:184"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "1:184",
+          "name": "说明说明说明说明说明说明说明说明备份 2",
+          "props": {
+            "style": {
+              "width": 448,
+              "height": 39,
+              "fontFamily": "PingFang SC",
+              "fontSize": "28px",
+              "fontWeight": 400,
+              "lineHeight": "1.4000000272478377em",
+              "textAlign": "right",
+              "color": "rgba(138, 134, 151, 1)"
+            },
+            "attrs": {
+              "x": 230,
+              "y": 1851
+            },
+            "text": "说明说明说明说明说明说明说明说明"
+          },
+          "children": [],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:183"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:185",
+          "name": "编组 2备份 4",
+          "props": {
+            "style": {
+              "width": 112,
+              "height": 40
+            },
+            "attrs": {
+              "x": 72,
+              "y": 1955
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "1:186",
+              "name": "稽查图片备份",
+              "props": {
+                "style": {
+                  "width": 112,
+                  "height": 40,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "28px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.4285714285714286em",
+                  "textAlign": "left",
+                  "color": "rgba(42, 42, 45, 1)"
+                },
+                "attrs": {
+                  "x": 72,
+                  "y": 1955
+                },
+                "text": "稽查图片"
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:187",
+              "1:192",
+              "1:197"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:187",
+          "name": "位图备份 23",
+          "props": {
+            "style": {
+              "width": 90,
+              "height": 90,
+              "opacity": 0.8499999642372131,
+              "borderRadius": "0px 0px 0px 0px"
+            },
+            "attrs": {
+              "x": 588,
+              "y": 1955
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:188",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 588,
+                  "y": 1955
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:189",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 588,
+                  "y": 1955
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:190",
+              "name": "位图",
+              "props": {
+                "style": {
+                  "width": 141,
+                  "height": 141
+                },
+                "attrs": {
+                  "x": 569,
+                  "y": 1928
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:185",
+              "1:192",
+              "1:197"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:192",
+          "name": "位图备份 25",
+          "props": {
+            "style": {
+              "width": 90,
+              "height": 90,
+              "opacity": 0.8499999642372131,
+              "borderRadius": "0px 0px 0px 0px"
+            },
+            "attrs": {
+              "x": 482,
+              "y": 1955
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:193",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 482,
+                  "y": 1955
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:194",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 482,
+                  "y": 1955
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:195",
+              "name": "位图",
+              "props": {
+                "style": {
+                  "width": 141,
+                  "height": 141
+                },
+                "attrs": {
+                  "x": 463,
+                  "y": 1928
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:185",
+              "1:187",
+              "1:197"
+            ]
+          }
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "1:197",
+          "name": "位图备份 27",
+          "props": {
+            "style": {
+              "width": 90,
+              "height": 90,
+              "opacity": 0.8499999642372131,
+              "borderRadius": "0px 0px 0px 0px"
+            },
+            "attrs": {
+              "x": 376,
+              "y": 1955
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:198",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 376,
+                  "y": 1955
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:199",
+              "name": "蒙版",
+              "props": {
+                "style": {
+                  "width": 90,
+                  "height": 90,
+                  "borderRadius": "7.974999904632568px",
+                  "backgroundColor": "rgba(245, 246, 250, 1)"
+                },
+                "attrs": {
+                  "x": 376,
+                  "y": 1955
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "1:200",
+              "name": "位图",
+              "props": {
+                "style": {
+                  "width": 141,
+                  "height": 141
+                },
+                "attrs": {
+                  "x": 357,
+                  "y": 1928
+                }
+              },
+              "children": []
+            }
+          ],
+          "layoutHints": {
+            "horizontalArrangement": true,
+            "horizontalGroupMembers": [
+              "1:185",
+              "1:187",
+              "1:192"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "name": "Root Container",
+  "previewImageURL": "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a7f17861-661b-40f5-b825-b10b186fb2af",
+  "layoutRelationships": {
+    "horizontalGroups": [
+      {
+        "id": "horizontal-group-1",
+        "members": [
+          "1:67",
+          "1:66"
+        ],
+        "properties": {
+          "spacing": 399,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-2",
+        "members": [
+          "1:124",
+          "1:125",
+          "1:126",
+          "1:129"
+        ],
+        "properties": {
+          "spacing": 35,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-3",
+        "members": [
+          "1:133",
+          "1:134"
+        ],
+        "properties": {
+          "spacing": 167,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-4",
+        "members": [
+          "1:165",
+          "1:166",
+          "1:167",
+          "1:170"
+        ],
+        "properties": {
+          "spacing": 35,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-5",
+        "members": [
+          "1:174",
+          "1:175"
+        ],
+        "properties": {
+          "spacing": 167,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-6",
+        "members": [
+          "1:34",
+          "1:38",
+          "1:42"
+        ],
+        "properties": {
+          "spacing": 10,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-7",
+        "members": [
+          "1:15",
+          "1:18",
+          "1:21",
+          "1:24"
+        ],
+        "properties": {
+          "spacing": 138,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-8",
+        "members": [
+          "1:51",
+          "1:53",
+          "1:57"
+        ],
+        "properties": {
+          "spacing": 0,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-9",
+        "members": [
+          "1:52",
+          "1:54",
+          "1:55",
+          "1:56"
+        ],
+        "properties": {
+          "spacing": 86,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-10",
+        "members": [
+          "1:62",
+          "1:58",
+          "1:60"
+        ],
+        "properties": {
+          "spacing": 124,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-11",
+        "members": [
+          "1:101",
+          "1:104"
+        ],
+        "properties": {
+          "spacing": 24,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-12",
+        "members": [
+          "1:142",
+          "1:143"
+        ],
+        "properties": {
+          "spacing": 46,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-13",
+        "members": [
+          "1:144",
+          "1:146",
+          "1:151",
+          "1:156"
+        ],
+        "properties": {
+          "spacing": 75,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-14",
+        "members": [
+          "1:183",
+          "1:184"
+        ],
+        "properties": {
+          "spacing": 46,
+          "alignment": "center"
+        }
+      },
+      {
+        "id": "horizontal-group-15",
+        "members": [
+          "1:185",
+          "1:187",
+          "1:192",
+          "1:197"
+        ],
+        "properties": {
+          "spacing": 75,
+          "alignment": "center"
+        }
+      }
+    ],
+    "verticalGroups": []
+  }
+}

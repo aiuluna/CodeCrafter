@@ -1,0 +1,2714 @@
+{
+  "taskId": "F1B311CF-0BD9-4B9F-B924-8C7ACE400509",
+  "pluginVersion": "4.2.8",
+  "reference": "sketch",
+  "type": "Block",
+  "id": "Block_1",
+  "__VERSION__": "2.0",
+  "props": {
+    "style": {
+      "width": 952,
+      "height": 1971
+    },
+    "attrs": {
+      "x": -202,
+      "y": 0
+    }
+  },
+  "children": [
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "2:89",
+      "name": "编组 24备份 3",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 488
+        },
+        "attrs": {
+          "x": 24,
+          "y": 185
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "2:90",
+          "name": "编组 4",
+          "props": {
+            "style": {
+              "width": 702,
+              "height": 440
+            },
+            "attrs": {
+              "x": 24,
+              "y": 233
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:91",
+              "name": "Rectangle",
+              "props": {
+                "style": {
+                  "width": 702,
+                  "height": 440
+                },
+                "attrs": {
+                  "x": 24,
+                  "y": 233,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:92",
+              "name": "编组 2",
+              "props": {
+                "style": {
+                  "width": 168,
+                  "height": 36
+                },
+                "attrs": {
+                  "x": 140,
+                  "y": 271
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:93",
+                  "name": "🐷🐷玉的努力",
+                  "props": {
+                    "style": {
+                      "width": 168,
+                      "height": 36,
+                      "fontFamily": "Roboto",
+                      "fontSize": "28px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.2857142857142858em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 140,
+                      "y": 271
+                    },
+                    "text": "🐷🐷玉的努力"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:94",
+              "name": "头像",
+              "props": {
+                "style": {
+                  "width": 72,
+                  "height": 72
+                },
+                "attrs": {
+                  "x": 56,
+                  "y": 269
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Shape",
+                  "id": "2:95",
+                  "name": "Oval",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 72
+                    },
+                    "attrs": {
+                      "x": 56,
+                      "y": 269
+                    }
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Shape",
+                  "id": "2:96",
+                  "name": "Oval",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 72
+                    },
+                    "attrs": {
+                      "x": 56,
+                      "y": 269
+                    }
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "2:97",
+              "name": "运动型",
+              "props": {
+                "style": {
+                  "width": 168,
+                  "height": 84,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "56px",
+                  "fontWeight": 600,
+                  "lineHeight": "1.5em",
+                  "textAlign": "left",
+                  "color": "rgba(78, 132, 255, 1)"
+                },
+                "attrs": {
+                  "x": 56,
+                  "y": 425
+                },
+                "text": "运动型"
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "2:98",
+              "name": "体型",
+              "props": {
+                "style": {
+                  "width": 48,
+                  "height": 32,
+                  "opacity": 0.800000011920929,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "24px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.3333333333333333em",
+                  "textAlign": "left",
+                  "color": "rgba(255, 255, 255, 1)"
+                },
+                "attrs": {
+                  "x": 56,
+                  "y": 385
+                },
+                "text": "体型"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "2:99",
+          "name": "2022年11月11日 18:24",
+          "props": {
+            "style": {
+              "width": 275,
+              "height": 32,
+              "fontFamily": "PingFang SC",
+              "fontSize": "28px",
+              "fontWeight": 400,
+              "lineHeight": "1.1428571428571428em",
+              "textAlign": "left",
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 27,
+              "y": 185
+            },
+            "text": "2022年11月11日 18:24"
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "2:100",
+          "name": "远洋乐堤港精品店",
+          "props": {
+            "style": {
+              "width": 160,
+              "height": 28,
+              "opacity": 0.6000000238418579,
+              "fontFamily": "PingFang SC",
+              "fontSize": "20px",
+              "fontWeight": 300,
+              "lineHeight": "1.4em",
+              "textAlign": "left",
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 318,
+              "y": 187
+            },
+            "text": "远洋乐堤港精品店"
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "2:101",
+          "name": "24岁",
+          "props": {
+            "style": {
+              "width": 53,
+              "height": 36,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 400,
+              "lineHeight": "1.5em",
+              "textAlign": "left",
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 144,
+              "y": 311
+            },
+            "text": "24岁"
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "2:102",
+          "name": "编组 8",
+          "props": {
+            "style": {
+              "width": 160,
+              "height": 56
+            },
+            "attrs": {
+              "x": 542,
+              "y": 273
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:103",
+              "name": "矩形",
+              "props": {
+                "style": {
+                  "width": 160,
+                  "height": 56,
+                  "backgroundColor": "rgba(255, 255, 255, 1)"
+                },
+                "attrs": {
+                  "x": 542,
+                  "y": 273
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "2:104",
+              "name": "查看完整报告",
+              "props": {
+                "style": {
+                  "width": 120,
+                  "height": 28,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "20px",
+                  "fontWeight": 600,
+                  "lineHeight": "1.4em",
+                  "textAlign": "left",
+                  "color": "rgba(42, 42, 45, 1)"
+                },
+                "attrs": {
+                  "x": 562,
+                  "y": 287
+                },
+                "text": "查看完整报告"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "2:105",
+          "name": "编组 7",
+          "props": {
+            "style": {
+              "width": 628,
+              "height": 106
+            },
+            "attrs": {
+              "x": 58,
+              "y": 534
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:106",
+              "name": "编组 7备份 5",
+              "props": {
+                "style": {
+                  "width": 104,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 58,
+                  "y": 534
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:107",
+                  "name": "体重",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 58,
+                      "y": 608
+                    },
+                    "text": "体重"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:108",
+                  "name": "偏高",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 90, 32, 1)"
+                    },
+                    "attrs": {
+                      "x": 114,
+                      "y": 608
+                    },
+                    "text": "偏高"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:109",
+                  "name": "84",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 67,
+                      "y": 534
+                    },
+                    "text": "84"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:110",
+                  "name": "kg",
+                  "props": {
+                    "style": {
+                      "width": 27,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 129,
+                      "y": 560
+                    },
+                    "text": "kg"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:111",
+              "name": "编组 7备份 6",
+              "props": {
+                "style": {
+                  "width": 127,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 221,
+                  "y": 534
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:112",
+                  "name": "体脂率",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 221,
+                      "y": 608
+                    },
+                    "text": "体脂率"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:113",
+                  "name": "偏高备份",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 90, 32, 1)"
+                    },
+                    "attrs": {
+                      "x": 300,
+                      "y": 608
+                    },
+                    "text": "偏高"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:114",
+                  "name": "24",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 244,
+                      "y": 534
+                    },
+                    "text": "24"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:115",
+                  "name": "%",
+                  "props": {
+                    "style": {
+                      "width": 24,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 306,
+                      "y": 560
+                    },
+                    "text": "%"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:116",
+              "name": "编组 7备份 7",
+              "props": {
+                "style": {
+                  "width": 128,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 398,
+                  "y": 534
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:117",
+                  "name": "骨骼肌",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 398,
+                      "y": 608
+                    },
+                    "text": "骨骼肌"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:118",
+                  "name": "偏低",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(233, 173, 69, 1)"
+                    },
+                    "attrs": {
+                      "x": 478,
+                      "y": 608
+                    },
+                    "text": "偏低"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:119",
+                  "name": "28",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 417,
+                      "y": 534
+                    },
+                    "text": "28"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:120",
+                  "name": "kg",
+                  "props": {
+                    "style": {
+                      "width": 27,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 479,
+                      "y": 560
+                    },
+                    "text": "kg"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:121",
+              "name": "编组 7备份 8",
+              "props": {
+                "style": {
+                  "width": 96,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 590,
+                  "y": 534
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:122",
+                  "name": "身体年龄",
+                  "props": {
+                    "style": {
+                      "width": 96,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 590,
+                      "y": 608
+                    },
+                    "text": "身体年龄"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:123",
+                  "name": "34",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 595,
+                      "y": 534
+                    },
+                    "text": "34"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:124",
+                  "name": "岁",
+                  "props": {
+                    "style": {
+                      "width": 24,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 657,
+                      "y": 560
+                    },
+                    "text": "岁"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:125",
+              "name": "直线 2",
+              "props": {
+                "style": {
+                  "width": 1,
+                  "height": 34,
+                  "opacity": 0.20000000298023224
+                },
+                "attrs": {
+                  "x": 199,
+                  "y": 570,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:126",
+              "name": "直线 2备份",
+              "props": {
+                "style": {
+                  "width": 1,
+                  "height": 34,
+                  "opacity": 0.20000000298023224
+                },
+                "attrs": {
+                  "x": 374,
+                  "y": 570,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:127",
+              "name": "直线 2备份 2",
+              "props": {
+                "style": {
+                  "width": 1,
+                  "height": 34,
+                  "opacity": 0.20000000298023224
+                },
+                "attrs": {
+                  "x": 549,
+                  "y": 570,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "2:25",
+      "name": "编组 24备份",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 346
+        },
+        "attrs": {
+          "x": 24,
+          "y": 721
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "2:26",
+          "name": "编组 4",
+          "props": {
+            "style": {
+              "width": 702,
+              "height": 346
+            },
+            "attrs": {
+              "x": 24,
+              "y": 721
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:27",
+              "name": "Rectangle",
+              "props": {
+                "style": {
+                  "width": 702,
+                  "height": 298
+                },
+                "attrs": {
+                  "x": 24,
+                  "y": 769,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:28",
+              "name": "编组 2",
+              "props": {
+                "style": {
+                  "width": 281,
+                  "height": 124
+                },
+                "attrs": {
+                  "x": 27,
+                  "y": 721
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:29",
+                  "name": "2022年11月11日 18:24",
+                  "props": {
+                    "style": {
+                      "width": 275,
+                      "height": 32,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "28px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.1428571428571428em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 27,
+                      "y": 721
+                    },
+                    "text": "2022年11月11日 18:24"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:30",
+                  "name": "🐷🐷玉的努力",
+                  "props": {
+                    "style": {
+                      "width": 168,
+                      "height": 36,
+                      "fontFamily": "Roboto",
+                      "fontSize": "28px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.2857142857142858em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 140,
+                      "y": 809
+                    },
+                    "text": "🐷🐷玉的努力"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:31",
+              "name": "头像",
+              "props": {
+                "style": {
+                  "width": 72,
+                  "height": 72
+                },
+                "attrs": {
+                  "x": 56,
+                  "y": 805
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Shape",
+                  "id": "2:32",
+                  "name": "Oval",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 72
+                    },
+                    "attrs": {
+                      "x": 56,
+                      "y": 805
+                    }
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Shape",
+                  "id": "2:33",
+                  "name": "Oval",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 72
+                    },
+                    "attrs": {
+                      "x": 56,
+                      "y": 805
+                    }
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "2:34",
+              "name": "手动录入",
+              "props": {
+                "style": {
+                  "width": 96,
+                  "height": 34,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "24px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.3999999364217122em",
+                  "textAlign": "center",
+                  "color": "rgba(138, 134, 151, 1)"
+                },
+                "attrs": {
+                  "x": 598,
+                  "y": 805
+                },
+                "text": "手动录入"
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:35",
+              "name": "编组 7备份 5",
+              "props": {
+                "style": {
+                  "width": 89,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 67,
+                  "y": 921
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:36",
+                  "name": "体重",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 87,
+                      "y": 995
+                    },
+                    "text": "体重"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:37",
+                  "name": "84",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 67,
+                      "y": 921
+                    },
+                    "text": "84"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:38",
+                  "name": "kg",
+                  "props": {
+                    "style": {
+                      "width": 27,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 129,
+                      "y": 947
+                    },
+                    "text": "kg"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:39",
+              "name": "编组 7备份 6",
+              "props": {
+                "style": {
+                  "width": 86,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 244,
+                  "y": 921
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:40",
+                  "name": "体脂率",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 251,
+                      "y": 995
+                    },
+                    "text": "体脂率"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:41",
+                  "name": "24",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 244,
+                      "y": 921
+                    },
+                    "text": "24"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:42",
+                  "name": "%",
+                  "props": {
+                    "style": {
+                      "width": 24,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 306,
+                      "y": 947
+                    },
+                    "text": "%"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:43",
+              "name": "编组 7备份 9",
+              "props": {
+                "style": {
+                  "width": 89,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 423,
+                  "y": 921
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:44",
+                  "name": "骨骼肌",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 430,
+                      "y": 995
+                    },
+                    "text": "骨骼肌"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:45",
+                  "name": "24",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 423,
+                      "y": 921
+                    },
+                    "text": "24"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:46",
+                  "name": "kg",
+                  "props": {
+                    "style": {
+                      "width": 27,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 485,
+                      "y": 947
+                    },
+                    "text": "kg"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:47",
+              "name": "直线 2",
+              "props": {
+                "style": {
+                  "width": 1,
+                  "height": 34,
+                  "opacity": 0.20000000298023224
+                },
+                "attrs": {
+                  "x": 199,
+                  "y": 957,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:48",
+              "name": "直线 2备份 3",
+              "props": {
+                "style": {
+                  "width": 1,
+                  "height": 34,
+                  "opacity": 0.20000000298023224
+                },
+                "attrs": {
+                  "x": 374,
+                  "y": 957,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "2:49",
+          "name": "24岁",
+          "props": {
+            "style": {
+              "width": 53,
+              "height": 36,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 400,
+              "lineHeight": "1.5em",
+              "textAlign": "left",
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 144,
+              "y": 847
+            },
+            "text": "24岁"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "2:50",
+      "name": "编组 24备份 2",
+      "props": {
+        "style": {
+          "width": 702,
+          "height": 496
+        },
+        "attrs": {
+          "x": 24,
+          "y": 1115
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "2:51",
+          "name": "编组 4",
+          "props": {
+            "style": {
+              "width": 702,
+              "height": 496
+            },
+            "attrs": {
+              "x": 24,
+              "y": 1115
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:52",
+              "name": "Rectangle",
+              "props": {
+                "style": {
+                  "width": 702,
+                  "height": 448
+                },
+                "attrs": {
+                  "x": 24,
+                  "y": 1163,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:53",
+              "name": "编组 2",
+              "props": {
+                "style": {
+                  "width": 451,
+                  "height": 124
+                },
+                "attrs": {
+                  "x": 27,
+                  "y": 1115
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:54",
+                  "name": "2022年11月11日 18:24",
+                  "props": {
+                    "style": {
+                      "width": 275,
+                      "height": 32,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "28px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.1428571428571428em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 27,
+                      "y": 1115
+                    },
+                    "text": "2022年11月11日 18:24"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:55",
+                  "name": "远洋乐堤港精品店备份",
+                  "props": {
+                    "style": {
+                      "width": 160,
+                      "height": 28,
+                      "opacity": 0.6000000238418579,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "20px",
+                      "fontWeight": 300,
+                      "lineHeight": "1.4em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 318,
+                      "y": 1117
+                    },
+                    "text": "远洋乐堤港精品店"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:56",
+                  "name": "🐷🐷玉的努力",
+                  "props": {
+                    "style": {
+                      "width": 168,
+                      "height": 36,
+                      "fontFamily": "Roboto",
+                      "fontSize": "28px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.2857142857142858em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 140,
+                      "y": 1203
+                    },
+                    "text": "🐷🐷玉的努力"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:57",
+              "name": "头像",
+              "props": {
+                "style": {
+                  "width": 72,
+                  "height": 72
+                },
+                "attrs": {
+                  "x": 56,
+                  "y": 1199
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Shape",
+                  "id": "2:58",
+                  "name": "Oval",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 72
+                    },
+                    "attrs": {
+                      "x": 56,
+                      "y": 1199
+                    }
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Shape",
+                  "id": "2:59",
+                  "name": "Oval",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 72
+                    },
+                    "attrs": {
+                      "x": 56,
+                      "y": 1199
+                    }
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "2:60",
+              "name": "健美型",
+              "props": {
+                "style": {
+                  "width": 168,
+                  "height": 84,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "56px",
+                  "fontWeight": 600,
+                  "lineHeight": "1.5em",
+                  "textAlign": "left",
+                  "color": "rgba(62, 70, 255, 1)"
+                },
+                "attrs": {
+                  "x": 56,
+                  "y": 1355
+                },
+                "text": "健美型"
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "2:61",
+              "name": "体型",
+              "props": {
+                "style": {
+                  "width": 48,
+                  "height": 32,
+                  "opacity": 0.800000011920929,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "24px",
+                  "fontWeight": 500,
+                  "lineHeight": "1.3333333333333333em",
+                  "textAlign": "left",
+                  "color": "rgba(255, 255, 255, 1)"
+                },
+                "attrs": {
+                  "x": 56,
+                  "y": 1315
+                },
+                "text": "体型"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Text",
+          "id": "2:62",
+          "name": "24岁",
+          "props": {
+            "style": {
+              "width": 53,
+              "height": 36,
+              "fontFamily": "PingFang SC",
+              "fontSize": "24px",
+              "fontWeight": 400,
+              "lineHeight": "1.5em",
+              "textAlign": "left",
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            "attrs": {
+              "x": 144,
+              "y": 1241
+            },
+            "text": "24岁"
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "2:63",
+          "name": "编组 8",
+          "props": {
+            "style": {
+              "width": 160,
+              "height": 56
+            },
+            "attrs": {
+              "x": 542,
+              "y": 1203
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:64",
+              "name": "矩形",
+              "props": {
+                "style": {
+                  "width": 160,
+                  "height": 56,
+                  "backgroundColor": "rgba(255, 255, 255, 1)"
+                },
+                "attrs": {
+                  "x": 542,
+                  "y": 1203
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Text",
+              "id": "2:65",
+              "name": "查看完整报告",
+              "props": {
+                "style": {
+                  "width": 120,
+                  "height": 28,
+                  "fontFamily": "PingFang SC",
+                  "fontSize": "20px",
+                  "fontWeight": 600,
+                  "lineHeight": "1.4em",
+                  "textAlign": "left",
+                  "color": "rgba(42, 42, 45, 1)"
+                },
+                "attrs": {
+                  "x": 562,
+                  "y": 1217
+                },
+                "text": "查看完整报告"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "2:66",
+          "name": "编组 7",
+          "props": {
+            "style": {
+              "width": 628,
+              "height": 106
+            },
+            "attrs": {
+              "x": 58,
+              "y": 1464
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:67",
+              "name": "编组 7备份 5",
+              "props": {
+                "style": {
+                  "width": 104,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 58,
+                  "y": 1464
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:68",
+                  "name": "体重",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 58,
+                      "y": 1538
+                    },
+                    "text": "体重"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:69",
+                  "name": "偏高",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 90, 32, 1)"
+                    },
+                    "attrs": {
+                      "x": 114,
+                      "y": 1538
+                    },
+                    "text": "偏高"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:70",
+                  "name": "84",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 67,
+                      "y": 1464
+                    },
+                    "text": "84"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:71",
+                  "name": "kg",
+                  "props": {
+                    "style": {
+                      "width": 27,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 129,
+                      "y": 1490
+                    },
+                    "text": "kg"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:72",
+              "name": "编组 7备份 6",
+              "props": {
+                "style": {
+                  "width": 127,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 221,
+                  "y": 1464
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:73",
+                  "name": "体脂率",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 221,
+                      "y": 1538
+                    },
+                    "text": "体脂率"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:74",
+                  "name": "偏高备份",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 90, 32, 1)"
+                    },
+                    "attrs": {
+                      "x": 300,
+                      "y": 1538
+                    },
+                    "text": "偏高"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:75",
+                  "name": "24",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 244,
+                      "y": 1464
+                    },
+                    "text": "24"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:76",
+                  "name": "%",
+                  "props": {
+                    "style": {
+                      "width": 24,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 306,
+                      "y": 1490
+                    },
+                    "text": "%"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:77",
+              "name": "编组 7备份 7",
+              "props": {
+                "style": {
+                  "width": 128,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 398,
+                  "y": 1464
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:78",
+                  "name": "骨骼肌",
+                  "props": {
+                    "style": {
+                      "width": 72,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 398,
+                      "y": 1538
+                    },
+                    "text": "骨骼肌"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:79",
+                  "name": "偏低",
+                  "props": {
+                    "style": {
+                      "width": 48,
+                      "height": 32,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(233, 173, 69, 1)"
+                    },
+                    "attrs": {
+                      "x": 478,
+                      "y": 1538
+                    },
+                    "text": "偏低"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:80",
+                  "name": "28",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 417,
+                      "y": 1464
+                    },
+                    "text": "28"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:81",
+                  "name": "kg",
+                  "props": {
+                    "style": {
+                      "width": 27,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 479,
+                      "y": 1490
+                    },
+                    "text": "kg"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:82",
+              "name": "编组 7备份 8",
+              "props": {
+                "style": {
+                  "width": 96,
+                  "height": 106
+                },
+                "attrs": {
+                  "x": 590,
+                  "y": 1464
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:83",
+                  "name": "身体年龄",
+                  "props": {
+                    "style": {
+                      "width": 96,
+                      "height": 32,
+                      "opacity": 0.800000011920929,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3333333333333333em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 590,
+                      "y": 1538
+                    },
+                    "text": "身体年龄"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:84",
+                  "name": "34",
+                  "props": {
+                    "style": {
+                      "width": 54,
+                      "height": 65,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "DIN Alternate",
+                      "fontSize": "56px",
+                      "fontWeight": 700,
+                      "lineHeight": "1.1640625em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 595,
+                      "y": 1464
+                    },
+                    "text": "34"
+                  },
+                  "children": []
+                },
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Text",
+                  "id": "2:85",
+                  "name": "岁",
+                  "props": {
+                    "style": {
+                      "width": 24,
+                      "height": 34,
+                      "opacity": 0.8999999761581421,
+                      "fontFamily": "PingFang SC",
+                      "fontSize": "24px",
+                      "fontWeight": 400,
+                      "lineHeight": "1.3999999364217122em",
+                      "textAlign": "left",
+                      "color": "rgba(255, 255, 255, 1)"
+                    },
+                    "attrs": {
+                      "x": 657,
+                      "y": 1490
+                    },
+                    "text": "岁"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:86",
+              "name": "直线 2",
+              "props": {
+                "style": {
+                  "width": 1,
+                  "height": 34,
+                  "opacity": 0.20000000298023224
+                },
+                "attrs": {
+                  "x": 199,
+                  "y": 1500,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:87",
+              "name": "直线 2备份",
+              "props": {
+                "style": {
+                  "width": 1,
+                  "height": 34,
+                  "opacity": 0.20000000298023224
+                },
+                "attrs": {
+                  "x": 374,
+                  "y": 1500,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            },
+            {
+              "__VERSION__": "2.0",
+              "type": "Shape",
+              "id": "2:88",
+              "name": "直线 2备份 2",
+              "props": {
+                "style": {
+                  "width": 1,
+                  "height": 34,
+                  "opacity": 0.20000000298023224
+                },
+                "attrs": {
+                  "x": 549,
+                  "y": 1500,
+                  "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                }
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "2:18",
+      "name": "椭圆形",
+      "props": {
+        "style": {
+          "width": 750,
+          "height": 1971
+        },
+        "attrs": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "2:19",
+          "name": "蒙版",
+          "props": {
+            "style": {
+              "width": 750,
+              "height": 1971
+            },
+            "attrs": {
+              "x": 0,
+              "y": 0,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        },
+        {
+          "__VERSION__": "2.0",
+          "type": "Shape",
+          "id": "2:20",
+          "name": "蒙版",
+          "props": {
+            "style": {
+              "width": 750,
+              "height": 1971
+            },
+            "attrs": {
+              "x": 0,
+              "y": 0,
+              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+            }
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Block",
+      "id": "2:21",
+      "name": "Group",
+      "props": {
+        "style": {
+          "width": 750,
+          "height": 88
+        },
+        "attrs": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "children": [
+        {
+          "__VERSION__": "2.0",
+          "type": "Block",
+          "id": "2:22",
+          "name": "Group 4",
+          "props": {
+            "style": {
+              "width": 750,
+              "height": 88
+            },
+            "attrs": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          "children": [
+            {
+              "__VERSION__": "2.0",
+              "type": "Block",
+              "id": "2:23",
+              "name": "Battery@iPhone X-H5",
+              "props": {
+                "style": {
+                  "width": 750,
+                  "height": 88
+                },
+                "attrs": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "children": [
+                {
+                  "__VERSION__": "2.0",
+                  "type": "Block",
+                  "id": "2:24",
+                  "name": "Battery@iPhone X",
+                  "props": {
+                    "style": {
+                      "width": 750,
+                      "height": 88
+                    },
+                    "attrs": {
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "children": [
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Block",
+                      "id": "I2:24;0:7748",
+                      "name": "Battery",
+                      "props": {
+                        "style": {
+                          "width": 50.60234451293945,
+                          "height": 23.61111068725586
+                        },
+                        "attrs": {
+                          "x": 670,
+                          "y": 34.6944580078125
+                        }
+                      },
+                      "children": [
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7749",
+                          "name": "Border",
+                          "props": {
+                            "style": {
+                              "width": 45.7599983215332,
+                              "height": 23.61111068725586,
+                              "opacity": 0.3499999940395355
+                            },
+                            "attrs": {
+                              "x": 670,
+                              "y": 34.69444274902344
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7750",
+                          "name": "Cap",
+                          "props": {
+                            "style": {
+                              "width": 2.7623190879821777,
+                              "height": 8.333333015441895,
+                              "opacity": 0.4000000059604645
+                            },
+                            "attrs": {
+                              "x": 717.8400268554688,
+                              "y": 42.33333206176758,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7751",
+                          "name": "Capacity",
+                          "props": {
+                            "style": {
+                              "width": 37.439998626708984,
+                              "height": 15.277777671813965
+                            },
+                            "attrs": {
+                              "x": 674.1599731445312,
+                              "y": 38.86111068725586,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Shape",
+                      "id": "I2:24;0:7754",
+                      "name": "Wifi",
+                      "props": {
+                        "style": {
+                          "width": 31,
+                          "height": 23
+                        },
+                        "attrs": {
+                          "x": 628,
+                          "y": 35
+                        }
+                      },
+                      "children": [
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7752",
+                          "name": "Wifi-path",
+                          "props": {
+                            "style": {
+                              "width": 31,
+                              "height": 9.948816299438477
+                            },
+                            "attrs": {
+                              "x": 628,
+                              "y": 35,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7753",
+                          "name": "Wifi-path",
+                          "props": {
+                            "style": {
+                              "width": 20.19458770751953,
+                              "height": 7.622179985046387
+                            },
+                            "attrs": {
+                              "x": 633.4059448242188,
+                              "y": 42.95790100097656,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7755",
+                          "name": "Wifi-path",
+                          "props": {
+                            "style": {
+                              "width": 9.390490531921387,
+                              "height": 7.077731132507324
+                            },
+                            "attrs": {
+                              "x": 638.805419921875,
+                              "y": 50.92226791381836,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Shape",
+                      "id": "I2:24;0:7758",
+                      "name": "Cellular Connection",
+                      "props": {
+                        "style": {
+                          "width": 35,
+                          "height": 23
+                        },
+                        "attrs": {
+                          "x": 583,
+                          "y": 35
+                        }
+                      },
+                      "children": [
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7756",
+                          "name": "Cellular_Connection-path",
+                          "props": {
+                            "style": {
+                              "width": 6.176470756530762,
+                              "height": 8.625
+                            },
+                            "attrs": {
+                              "x": 583,
+                              "y": 49.375,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7757",
+                          "name": "Cellular_Connection-path",
+                          "props": {
+                            "style": {
+                              "width": 6.176470756530762,
+                              "height": 12.9375
+                            },
+                            "attrs": {
+                              "x": 592.6078491210938,
+                              "y": 45.0625,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7759",
+                          "name": "Cellular_Connection-path",
+                          "props": {
+                            "style": {
+                              "width": 6.176470756530762,
+                              "height": 17.96875
+                            },
+                            "attrs": {
+                              "x": 602.2156982421875,
+                              "y": 40.03125,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        },
+                        {
+                          "__VERSION__": "2.0",
+                          "type": "Shape",
+                          "id": "I2:24;0:7760",
+                          "name": "Cellular_Connection-path",
+                          "props": {
+                            "style": {
+                              "width": 6.176470756530762,
+                              "height": 23
+                            },
+                            "attrs": {
+                              "x": 611.8235473632812,
+                              "y": 35,
+                              "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
+                            }
+                          },
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "__VERSION__": "2.0",
+                      "type": "Text",
+                      "id": "I2:24;0:7761",
+                      "name": "9：41",
+                      "props": {
+                        "style": {
+                          "width": 73,
+                          "height": 39,
+                          "fontFamily": "PingFang SC",
+                          "fontSize": "28px",
+                          "fontWeight": 600,
+                          "lineHeight": "1.4000000272478377em",
+                          "letterSpacing": "-1.0000000042574746%",
+                          "textAlign": "center",
+                          "color": "rgba(255, 255, 255, 1)"
+                        },
+                        "attrs": {
+                          "x": 60,
+                          "y": 26
+                        },
+                        "text": "9：41"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "2:128",
+      "name": "报告列表",
+      "props": {
+        "style": {
+          "width": 128,
+          "height": 45,
+          "fontFamily": "PingFang SC",
+          "fontSize": "32px",
+          "fontWeight": 600,
+          "lineHeight": "1.399999976158142em",
+          "textAlign": "left",
+          "color": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 311,
+          "y": 106
+        },
+        "text": "报告列表"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "2:129",
+      "name": "编辑",
+      "props": {
+        "style": {
+          "width": 56,
+          "height": 39,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 400,
+          "lineHeight": "1.4000000272478377em",
+          "textAlign": "left",
+          "color": "rgba(255, 255, 255, 1)"
+        },
+        "attrs": {
+          "x": 660,
+          "y": 106
+        },
+        "text": "编辑"
+      },
+      "children": []
+    },
+    {
+      "__VERSION__": "2.0",
+      "type": "Text",
+      "id": "2:130",
+      "name": "分四个模块 剧中展示",
+      "props": {
+        "style": {
+          "width": 140,
+          "height": 78,
+          "fontFamily": "PingFang SC",
+          "fontSize": "28px",
+          "fontWeight": 600,
+          "lineHeight": "1.4000000272478377em",
+          "textAlign": "left",
+          "color": "rgba(158, 75, 255, 1)"
+        },
+        "attrs": {
+          "x": -202,
+          "y": 734
+        },
+        "text": "分四个模块\n剧中展示"
+      },
+      "children": []
+    }
+  ],
+  "name": "Root Container"
+}

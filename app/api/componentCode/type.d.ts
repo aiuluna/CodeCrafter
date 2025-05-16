@@ -36,6 +36,7 @@ declare namespace ComponentCodeApi {
     prompt: Prompt[]
     model: string
     provider: string
+    figmaDesign?: FigmaDesign
   }
 
   // create response

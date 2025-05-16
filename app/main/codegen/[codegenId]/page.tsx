@@ -40,6 +40,9 @@ import {
   LLMSelectorProvider,
   LLMSelectorButton,
 } from "@/app/commons/LLMSelectorProvider"
+import { Figma, X } from "lucide-react"
+import { FigmaDesignData, FigmaImport } from "@/components/biz/FigmaImport"
+import { FigmaDesign } from "@/app/api/ai-core/type"
 
 export default function CodegenDetailPage({
   params,
@@ -74,6 +77,7 @@ export default function CodegenDetailPage({
   const deleteComponentMutation = useDeleteComponentCode()
 
   const shouldShowList = useShowOnFirstData(componentCodeData?.items)
+  const [figmaDesign, setFigmaDesign] = useState<FigmaDesign | null>(null)
 
   // handle LLM change
   const handleLLMChange = (
@@ -97,9 +101,28 @@ export default function CodegenDetailPage({
       return
     }
 
+    // let extraContext = ""
+
+    // if (figmaDesign) {
+    //   extraContext += `\n\nUser has provided a Figma design: ${figmaDesign.figmaUrl}\n`
+    //   if (figmaDesign.previewImage) {
+    //     extraContext += `Preview Image: ${figmaDesign.previewImage}\n`
+    //   }
+    //   if (figmaDesign.nodeId) {
+    //     extraContext += `Node ID: ${figmaDesign.nodeId}\n`
+    //   }
+    //   if (figmaDesign.designContext) {
+    //     extraContext += `Design context: ${JSON.stringify(figmaDesign.designContext)}\n`
+    //   }
+    //   if (figmaDesign.nodeData) {
+    //     extraContext += `Node data: ${JSON.stringify(figmaDesign.nodeData)}\n`
+    //   }
+    // }
+    // const finalPrompt = chatValue + extraContext
+
+
     setIsSubmitting(true)
     const prompts: Prompt[] = [
-      { text: chatValue, type: "text" },
       ...images.map(
         image =>
         ({
@@ -107,6 +130,10 @@ export default function CodegenDetailPage({
           type: "image",
         } as PromptImage),
       ),
+      {
+        type: "text" as const,
+        text: chatValue,
+      },
     ]
 
     // if model is selected, add it to the request parameters
@@ -115,6 +142,7 @@ export default function CodegenDetailPage({
       codegenId: params.codegenId,
       model,
       provider,
+      figmaDesign: figmaDesign ? figmaDesign : undefined,
     }
 
     try {
@@ -172,6 +200,21 @@ export default function CodegenDetailPage({
     )
   }
 
+  const handleFigmaImport = (designData: FigmaDesignData) => {
+    console.log("提交设计数据:", designData)
+    setFigmaDesign(designData)
+
+    toast({
+      title: "Figma设计已添加",
+      description: "Figma设计已添加到消息上下文中"
+    })
+  }
+
+  const handleFigmaRemove = () => {
+    setFigmaDesign(null)
+  }
+
+
   return (
     <LLMSelectorProvider onChange={handleLLMChange}>
       <div>
@@ -209,6 +252,16 @@ export default function CodegenDetailPage({
                   onChange={setChatValue}
                   onSubmit={handleChatSubmit}
                   actions={[
+                    <TooltipProvider key="figma">
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button variant="ghost" size="icon">
+                            <FigmaImport onSubmit={handleFigmaImport} disabled={isSubmitting} />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent side="top">导入Figma设计</TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>,
                     <TooltipProvider key="draw-image">
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -231,6 +284,26 @@ export default function CodegenDetailPage({
                   images={images}
                   onImageRemove={handleImageRemove}
                   loading={isSubmitting}
+                  extraContent={
+                    figmaDesign && (
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <Figma className="h-4 w-4 text-muted-foreground" />
+                          <span className="text-sm truncate max-w-[400px]">
+                            {figmaDesign.figmaUrl}
+                          </span>
+                        </div>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={handleFigmaRemove}
+                          className="h-6 w-6"
+                        >
+                          <X className="h-3 w-3" />
+                        </Button>
+                      </div>
+                    )
+                  }
                   loadingSlot={
                     isSubmitting ? (
                       <CompoderThinkingLoading

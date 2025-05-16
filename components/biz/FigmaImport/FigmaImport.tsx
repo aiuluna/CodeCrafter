@@ -1,0 +1,661 @@
+"use client"
+
+import { useState, FC, useEffect } from "react"
+import { Loader2, X, KeyRound } from "lucide-react"
+import { Figma } from "lucide-react"
+import { FigmaImportProps, FigmaDesignData } from "./interface"
+import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+  TooltipProvider,
+} from "@/components/ui/tooltip"
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetFooter,
+} from "@/components/ui/sheet"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { toast } from "@/hooks/use-toast"
+import { Skeleton } from "@/components/ui/skeleton"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog"
+import { adaptiveOptimizeFigmaData } from "./FigmaDataOptimizer"
+
+const FigmaImport: FC<FigmaImportProps> = ({ onSubmit, disabled }) => {
+  const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [figmaUrl, setFigmaUrl] = useState("")
+  const [apiKey, setApiKey] = useState("")
+  const [previewImage, setPreviewImage] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [imageDialogOpen, setImageDialogOpen] = useState(false)
+  const [figmaNodeData, setFigmaNodeData] = useState<any>(null)
+
+  // 从localStorage读取API密钥（如果存在）
+  useEffect(() => {
+    const savedApiKey = localStorage.getItem("figma_api_key")
+    if (savedApiKey) {
+      setApiKey(savedApiKey)
+    }
+  }, [])
+
+  // Figma URL验证
+  const isValidFigmaUrl = (url: string) => {
+    return /^https:\/\/(www\.)?figma\.com\/(file|proto|design)\/([a-zA-Z0-9]+)/.test(url)
+  }
+
+  // 保存API密钥到localStorage
+  const saveApiKey = () => {
+    if (apiKey) {
+      localStorage.setItem("figma_api_key", apiKey)
+      toast({
+        title: "API密钥已保存",
+        description: "您的Figma API密钥已保存到本地存储",
+      })
+    }
+  }
+
+  // 从URL中提取Figma文件ID
+  const extractFigmaFileId = (url: string) => {
+    const matches = url.match(/\/(file|proto|design)\/([a-zA-Z0-9]+)/)
+    return matches ? matches[2] : null
+  }
+
+  // 从URL中提取节点ID (node-id)
+  const extractNodeId = (url: string): string | undefined => {
+    try {
+      // 解码URL，处理可能的编码
+      const decodedUrl = decodeURIComponent(url)
+
+      // 尝试匹配不同格式的节点ID
+      // 格式1: node-id=xxx
+      const nodeIdMatch = decodedUrl.match(/node-id=([^&]+)/)
+      if (nodeIdMatch) return nodeIdMatch[1]
+
+      // 格式2: nodes?ids=xxx
+      const nodesIdsMatch = decodedUrl.match(/nodes\?ids=([^&]+)/)
+      if (nodesIdsMatch) return nodesIdsMatch[1]
+
+      // 格式3: node/xxx
+      const nodePathMatch = decodedUrl.match(/\/node\/([^?/]+)/)
+      if (nodePathMatch) return nodePathMatch[1]
+
+      // 格式4: screen=xxx
+      const screenMatch = decodedUrl.match(/screen=([^&]+)/)
+      if (screenMatch) return screenMatch[1]
+
+      return undefined
+    } catch (error) {
+      console.error("提取节点ID时出错:", error)
+      return undefined
+    }
+  }
+
+  // 获取Figma设计预览
+  const fetchFigmaPreview = async () => {
+    if (!figmaUrl) {
+      setError("请输入Figma设计URL")
+      return
+    }
+
+    if (!isValidFigmaUrl(figmaUrl)) {
+      setError("无效的Figma URL格式")
+      return
+    }
+
+    if (!apiKey) {
+      setError("请先配置Figma API密钥")
+      return
+    }
+
+    setError(null)
+    setLoading(true)
+    setPreviewImage(null)
+    setFigmaNodeData(null)
+
+    const fileId = extractFigmaFileId(figmaUrl)
+    if (!fileId) {
+      setError("无法提取Figma文件ID")
+      setLoading(false)
+      return
+    }
+
+    try {
+      // 检查URL是否包含node-id
+      const originalNodeId = extractNodeId(figmaUrl)
+      // 处理可能包含引号的节点ID（去除引号）
+      const nodeId = originalNodeId?.replace(/['"]/g, '')
+
+      console.log('提取的节点ID:', originalNodeId, '处理后:', nodeId)
+
+      let data
+      let previewUrl: string | undefined = undefined
+      let nodeData = null
+
+      // 无论是否指定节点，先获取整个文件的元数据
+      const fileEndpoint = `https://api.figma.com/v1/files/${fileId}`
+      console.log('文件API端点:', fileEndpoint)
+
+      const fileResponse = await fetch(fileEndpoint, {
+        method: "GET",
+        headers: {
+          "X-Figma-Token": apiKey,
+        },
+      })
+
+      if (!fileResponse.ok) {
+        const errorData = await fileResponse.json()
+        throw new Error(errorData.error || "获取Figma设计失败")
+      }
+
+      const fileData = await fileResponse.json()
+      console.log('文件API响应:', fileData)
+
+      // 保存文件元数据，包含文档结构
+      // nodeData = {
+      //   document: fileData.document,
+      //   name: fileData.name,
+      //   lastModified: fileData.lastModified,
+      //   thumbnailUrl: fileData.thumbnailUrl,
+      //   version: fileData.version,
+      //   schemaVersion: fileData.schemaVersion,
+      //   components: fileData.components,
+      //   styles: fileData.styles
+      // }
+
+      if (nodeId) {
+        // 如果指定了节点ID，再获取具体节点的详细数据
+        const nodeEndpoint = `https://api.figma.com/v1/files/${fileId}/nodes?ids=${nodeId}`
+        console.log('节点API端点:', nodeEndpoint)
+
+        const nodeResponse = await fetch(nodeEndpoint, {
+          method: "GET",
+          headers: {
+            "X-Figma-Token": apiKey,
+          },
+        })
+
+        if (!nodeResponse.ok) {
+          const errorData = await nodeResponse.json()
+          throw new Error(errorData.error || "获取Figma节点失败")
+        }
+
+        data = await nodeResponse.json()
+        console.log('节点API响应:', data)
+
+        // 验证节点数据是否存在
+        if (!data.nodes) {
+          throw new Error(`API返回格式不正确，未找到nodes字段`)
+        }
+
+        // 检查是否有任何节点数据
+        const availableNodeIds = Object.keys(data.nodes)
+        console.log('可用节点IDs:', availableNodeIds)
+
+        if (availableNodeIds.length === 0) {
+          throw new Error(`未找到任何节点数据`)
+        }
+
+        // 尝试直接查找节点
+        let exportNodeId = nodeId
+        if (!data.nodes[nodeId]) {
+          // 尝试查找替代形式
+          const alternativeNodeId = nodeId.includes('-')
+            ? nodeId.replace(/-/g, ':')
+            : nodeId.replace(/:/g, '-')
+
+          console.log('尝试替代节点ID:', alternativeNodeId)
+
+          if (!data.nodes[alternativeNodeId]) {
+            throw new Error(`找不到节点: ${nodeId}，可用节点: ${availableNodeIds.join(', ')}`)
+          }
+
+          // 使用找到的替代节点ID
+          exportNodeId = alternativeNodeId
+          console.log('使用替代节点ID:', alternativeNodeId)
+        }
+
+        // 合并节点数据到nodeData中
+        // nodeData = {
+        //   // ...nodeData,
+        //   selectedNode: {
+        //     id: exportNodeId,
+        //     data: data.nodes[exportNodeId]
+        //   },
+        //   // nodes: data.nodes
+        // }
+        nodeData = data.nodes[exportNodeId]
+        console.log('合并节点数据:', nodeData)
+
+        // 为导出API选择正确的节点ID
+        console.log('使用节点ID导出图像:', exportNodeId)
+
+        // 2. 使用导出API获取节点图像
+        const exportEndpoint = `https://api.figma.com/v1/images/${fileId}?ids=${exportNodeId}&format=png&scale=2`
+        console.log('导出API端点:', exportEndpoint)
+
+        const exportResponse = await fetch(exportEndpoint, {
+          method: "GET",
+          headers: {
+            "X-Figma-Token": apiKey,
+          },
+        })
+
+        if (!exportResponse.ok) {
+          const errorData = await exportResponse.json()
+          throw new Error(errorData.error || "导出Figma节点图像失败")
+        }
+
+        const exportData = await exportResponse.json()
+        console.log('导出API响应:', exportData)
+
+        // 从导出结果中获取图像URL
+        if (exportData.images) {
+          // 尝试使用找到的节点ID
+          const imageUrl = exportData.images[exportNodeId]
+
+          if (imageUrl) {
+            previewUrl = imageUrl
+            console.log('获取到图像URL:', previewUrl)
+          } else {
+            throw new Error(`导出API返回的图像URL为空，节点ID: ${exportNodeId}`)
+          }
+        } else {
+          throw new Error('导出API返回的数据格式不正确，未找到images字段')
+        }
+      } else {
+        // 使用文件缩略图
+        previewUrl = fileData.thumbnailUrl
+
+        if (!previewUrl) {
+          throw new Error('文件API返回的缩略图URL为空')
+        }
+      }
+
+      console.log('最终预览URL:', previewUrl)
+
+      // 设置预览图（优先使用API返回的图像URL，无图像时使用占位图）
+      if (previewUrl) {
+        setPreviewImage(previewUrl)
+      } else {
+        setPreviewImage("/placeholder-figma-preview.png")
+      }
+
+      // 可选：获取样式和组件元数据
+      try {
+        // 获取样式元数据
+        const stylesEndpoint = `https://api.figma.com/v1/files/${fileId}/styles`
+        console.log('获取样式元数据:', stylesEndpoint)
+
+        const stylesRes = await fetch(stylesEndpoint, {
+          method: "GET",
+          headers: { "X-Figma-Token": apiKey },
+        })
+
+        if (stylesRes.ok) {
+          const stylesInfo = await stylesRes.json()
+          // 使用类型断言避免类型错误
+          nodeData = { ...nodeData as any, stylesMetadata: stylesInfo }
+        }
+
+        // 获取组件元数据
+        const componentsEndpoint = `https://api.figma.com/v1/files/${fileId}/components`
+        console.log('获取组件元数据:', componentsEndpoint)
+
+        const componentsRes = await fetch(componentsEndpoint, {
+          method: "GET",
+          headers: { "X-Figma-Token": apiKey },
+        })
+
+        if (componentsRes.ok) {
+          const componentsInfo = await componentsRes.json()
+          // 使用类型断言避免类型错误
+          nodeData = { ...nodeData as any, componentsMetadata: componentsInfo }
+        }
+      } catch (metaError) {
+        console.warn("获取元数据时出错:", metaError)
+        // 不阻止主流程，继续执行
+      }
+
+      const designName = nodeId
+        ? `节点: ${nodeId}`
+        : (fileData?.name || "Figma设计")
+
+      // 存储节点数据，供后续使用
+      // setFigmaNodeData(nodeData)
+      // 数据优化和压缩处理
+      console.log(`原始Figma数据大小: ${JSON.stringify(nodeData).length} 字符`);
+      console.log(nodeData)
+      // 应用自适应优化，存储优化前后的数据
+      const optimizationResult = adaptiveOptimizeFigmaData(nodeData, 40000);
+      const dataCompressionRatio = optimizationResult.data ?
+        (1 - (JSON.stringify(optimizationResult.data).length / JSON.stringify(nodeData).length)) * 100 : 0;
+
+      // 创建处理后的数据对象，保留原始和优化后的数据
+      const processedData = {
+        original: nodeData,
+        optimized: optimizationResult.data,
+        metadata: {
+          compressionRatio: dataCompressionRatio.toFixed(2) + '%',
+          optimizationLevel: optimizationResult.level,
+          estimatedTokens: optimizationResult.estimatedTokens,
+          timestamp: new Date().toISOString()
+        }
+      };
+      setFigmaNodeData(processedData);
+
+      toast({
+        title: "设计获取成功",
+        description: `成功获取Figma设计: ${designName}`,
+      })
+    } catch (error) {
+      console.error("Figma API错误:", error)
+      setError((error as Error).message)
+      toast({
+        title: "获取Figma设计失败",
+        description: (error as Error).message,
+        variant: "destructive",
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // 提交设计数据
+  const handleSubmit = () => {
+    if (loading) return
+
+    if (!figmaUrl || !isValidFigmaUrl(figmaUrl)) {
+      setError("请输入有效的Figma URL")
+      return
+    }
+
+    const optimizationInfo = { level: 'none', ratio: 0 };
+
+    if (figmaNodeData && figmaNodeData.metadata) {
+      // 新格式：已预处理的数据
+      optimizationInfo.level = figmaNodeData.metadata.optimizationLevel;
+      optimizationInfo.ratio = parseFloat(figmaNodeData.metadata.compressionRatio);
+    }
+
+    // 创建设计数据对象
+    const designData: FigmaDesignData = {
+      figmaUrl,
+      previewImage: previewImage || undefined,
+      // apiKey, // 添加API密钥
+      nodeId: extractNodeId(figmaUrl), // 添加节点ID（如果有）
+      nodeData: figmaNodeData && figmaNodeData.optimized ? figmaNodeData.optimized : figmaNodeData, // 使用优化后的数据
+      // 添加元数据指示
+      designContext: {
+        hasDetailedData: !!figmaNodeData,
+        nodeType: extractNodeId(figmaUrl) ? 'specific' : 'file',
+        timestamp: new Date().toISOString(),
+        dataVersion: '1.0',
+        optimizationLevel: optimizationInfo.level,
+        estimatedTokens: figmaNodeData?.metadata?.estimatedTokens || 0,
+      }
+    }
+
+    console.log("提交设计数据:", designData)
+    // todo: 提交设计数据
+    onSubmit(designData)
+    setOpen(false)
+
+    toast({
+      title: "Figma设计已添加",
+      description: figmaNodeData
+        ? `设计及详细节点数据已成功添加到当前上下文中${optimizationInfo.level !== 'none' ? ` (优化级别: ${optimizationInfo.level})` : ''}`
+        : "设计已成功添加到当前上下文中",
+    })
+  }
+
+  // 清空输入
+  const handleClear = () => {
+    setFigmaUrl("")
+    setPreviewImage(null)
+    setError(null)
+  }
+
+  // 添加图片点击处理函数
+  const handleImageClick = () => {
+    if (previewImage) {
+      setImageDialogOpen(true)
+    }
+  }
+
+  return (
+    <>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-9 w-9 bg-background/20 hover:bg-background/30 dark:bg-white/20 dark:hover:bg-white/30"
+              onClick={() => setOpen(true)}
+              disabled={disabled}
+            >
+              <Figma className="h-4 w-4 text-foreground/70 dark:text-white/70" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>导入Figma设计</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetContent side="right" className="sm:max-w-md">
+          <SheetHeader>
+            <SheetTitle>导入Figma设计</SheetTitle>
+          </SheetHeader>
+
+          <div className="py-6 space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="figma-url">Figma设计URL</Label>
+              <div className="flex gap-2">
+                <Input
+                  id="figma-url"
+                  value={figmaUrl}
+                  onChange={(e) => setFigmaUrl(e.target.value)}
+                  placeholder="https://www.figma.com/file/..."
+                  className="flex-1"
+                  disabled={loading}
+                />
+                {figmaUrl && (
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={handleClear}
+                    disabled={loading}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                )}
+              </div>
+              {error && <p className="text-sm text-destructive">{error}</p>}
+            </div>
+
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="api-key">
+                <AccordionTrigger className="text-sm">
+                  <div className="flex items-center gap-2">
+                    <KeyRound className="h-4 w-4" />
+                    <span>配置Figma API密钥</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-2">
+                    <p className="text-xs text-muted-foreground">
+                      需要Figma API密钥才能获取设计数据。
+                      <a
+                        href="https://www.figma.com/developers/api#access-tokens"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        如何获取API密钥？
+                      </a>
+                    </p>
+                    <div className="flex gap-2">
+                      <Input
+                        type="password"
+                        value={apiKey}
+                        onChange={(e) => setApiKey(e.target.value)}
+                        placeholder="figd_..."
+                        className="flex-1"
+                      />
+                      <Button size="sm" onClick={saveApiKey} disabled={!apiKey}>
+                        保存
+                      </Button>
+                    </div>
+                    {!apiKey && (
+                      <p className="text-xs text-amber-500">
+                        未配置API密钥将无法获取Figma设计数据
+                      </p>
+                    )}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            <Button
+              onClick={fetchFigmaPreview}
+              disabled={!figmaUrl || loading || !apiKey}
+              className="w-full"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> 获取中...
+                </>
+              ) : (
+                "获取设计预览"
+              )}
+            </Button>
+
+            {/* 预览区域 */}
+            {previewImage ? (
+              <div className="border rounded-md overflow-hidden">
+                <div
+                  className="aspect-video bg-muted relative flex items-center justify-center cursor-zoom-in"
+                  onClick={handleImageClick}
+                >
+                  <img
+                    src={previewImage}
+                    alt="Figma设计预览"
+                    className="object-cover w-full h-full"
+                  />
+                  <div className="absolute inset-0 bg-black/5 hover:bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                    <span className="text-xs bg-background/80 px-2 py-1 rounded shadow">点击放大</span>
+                  </div>
+                </div>
+                <div className="p-2 bg-muted/50">
+                  <div className="flex justify-between items-center">
+                    <p className="text-xs truncate">
+                      {extractNodeId(figmaUrl) ? "Figma节点预览" : "Figma设计预览"}
+                    </p>
+                    {figmaNodeData && (
+                      <div className="flex items-center text-xs text-green-600">
+                        <span className="h-2 w-2 rounded-full bg-green-600 mr-1"></span>
+                        已获取详细数据
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ) : loading ? (
+              <div className="border rounded-md overflow-hidden">
+                <div className="aspect-video bg-muted flex items-center justify-center">
+                  <Skeleton className="w-full h-full" />
+                </div>
+                <div className="p-2 bg-muted/50">
+                  <p className="text-xs">正在加载预览...</p>
+                </div>
+              </div>
+            ) : null}
+          </div>
+
+          <SheetFooter>
+            <Button onClick={() => setOpen(false)} variant="outline">
+              取消
+            </Button>
+            <Button
+              onClick={handleSubmit}
+              disabled={!figmaUrl || loading}
+            >
+              {loading ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                "使用此设计"
+              )}
+            </Button>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
+
+      {/* 图片放大对话框 */}
+      <Dialog open={imageDialogOpen} onOpenChange={setImageDialogOpen}>
+        <DialogContent className="max-w-4xl p-0 overflow-hidden">
+          <div className="relative w-full h-full max-h-[80vh] overflow-auto">
+            <img
+              src={previewImage || ''}
+              alt="Figma设计大图"
+              className="w-full object-contain"
+            />
+            <DialogClose className="absolute top-2 right-2 rounded-full p-1.5 bg-background/80 hover:bg-background text-foreground shadow-md">
+              <X className="h-4 w-4" />
+              <span className="sr-only">关闭</span>
+            </DialogClose>
+
+            {figmaNodeData && (
+              <div className="absolute bottom-2 right-2 flex gap-2">
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  className="bg-background/80 hover:bg-background"
+                  onClick={() => {
+                    // 复制节点数据到剪贴板
+                    const dataStr = JSON.stringify(figmaNodeData, null, 2)
+                    navigator.clipboard.writeText(dataStr)
+                      .then(() => {
+                        toast({
+                          title: "节点数据已复制",
+                          description: "Figma节点详细数据已复制到剪贴板",
+                        })
+                      })
+                      .catch(err => {
+                        console.error("复制失败:", err)
+                        toast({
+                          title: "复制失败",
+                          description: "无法复制到剪贴板",
+                          variant: "destructive",
+                        })
+                      })
+                  }}
+                >
+                  复制节点数据
+                </Button>
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  )
+}
+
+export default FigmaImport 

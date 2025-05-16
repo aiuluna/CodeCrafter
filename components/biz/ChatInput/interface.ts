@@ -10,4 +10,5 @@ export interface ChatInputProps {
   onImageRemove?: (index: number) => void
   loadingSlot?: React.ReactNode
   className?: string
+  extraContent?: React.ReactNode
 }

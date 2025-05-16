@@ -12,6 +12,7 @@ export const env = createEnv({
     NEXTAUTH_SECRET: z.string().min(1),
     GITHUB_ID: z.string().min(1),
     GITHUB_SECRET: z.string().min(1),
+    FIGMA_ACCESS_TOKEN: z.string().optional(),
   },
   client: {
     // NEXT_PUBLIC_PUBLISHABLE_KEY: z.string().min(1),

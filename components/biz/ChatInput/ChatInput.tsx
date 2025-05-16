@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { ArrowUpIcon } from "lucide-react"
-import { Separator } from "@/components/ui/separator"
 import { toast } from "@/hooks/use-toast"
 import { ChatInputProps } from "./interface"
 import autosize from "autosize"
@@ -23,6 +22,7 @@ const ChatInput = React.memo(
     onImageRemove,
     loadingSlot,
     className,
+    extraContent,
   }: ChatInputProps) => {
     const textareaRef = useRef<HTMLTextAreaElement>(null)
 
@@ -134,6 +134,13 @@ const ChatInput = React.memo(
               </div>
             )}
 
+            {/* Extra content area */}
+            {extraContent && (
+              <div className="px-4 py-2 border-b">
+                {extraContent}
+              </div>
+            )}
+
             {/* Textarea */}
             <Textarea
               ref={textareaRef}
@@ -155,15 +162,12 @@ const ChatInput = React.memo(
             {/* Action Bar */}
             <div className="flex items-center justify-between bg-background px-4 py-2 rounded-b-lg">
               {/* Left side - Action buttons */}
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-4">
                 {actions &&
                   actions.length > 0 &&
                   actions.map((action, index) => (
                     <React.Fragment key={index}>
                       {action}
-                      {index < actions.length - 1 && (
-                        <Separator orientation="vertical" className="h-4" />
-                      )}
                     </React.Fragment>
                   ))}
               </div>

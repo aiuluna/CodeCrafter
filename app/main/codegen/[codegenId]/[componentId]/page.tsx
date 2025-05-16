@@ -35,6 +35,10 @@ import {
   LLMSelectorProvider,
   LLMSelectorButton,
 } from "@/app/commons/LLMSelectorProvider"
+import { FigmaImport, FigmaDesignData } from "@/components/biz/FigmaImport"
+import { Figma, X } from "lucide-react"
+
+
 
 export default function ComponentPage() {
   const params = useParams()
@@ -45,6 +49,7 @@ export default function ComponentPage() {
   const [streamingContent, setStreamingContent] = useState("")
   const [provider, setProvider] = useState<AIProvider>()
   const [model, setModel] = useState<string>()
+  const [figmaDesign, setFigmaDesign] = useState<FigmaDesignData | null>(null)
 
   // Fetch component code detail
   const {
@@ -88,6 +93,27 @@ export default function ComponentPage() {
 
   const handleChatSubmit = async (input?: string) => {
     if (!componentDetail || !params.codegenId) return
+    const promptWithContext = input || chatInput
+
+    let extraContext = ""
+
+    if (figmaDesign) {
+      extraContext += `\n\nUser has provided a Figma design: ${figmaDesign.figmaUrl}\n`
+      if (figmaDesign.previewImage) {
+        extraContext += `Preview Image: ${figmaDesign.previewImage}\n`
+      }
+      if (figmaDesign.nodeId) {
+        extraContext += `Node ID: ${figmaDesign.nodeId}\n`
+      }
+      if (figmaDesign.designContext) {
+        extraContext += `Design context: ${JSON.stringify(figmaDesign.designContext)}\n`
+      }
+      if (figmaDesign.nodeData) {
+        extraContext += `Node data: ${JSON.stringify(figmaDesign.nodeData)}\n`
+      }
+    }
+
+    const finalPrompt = promptWithContext + extraContext
 
     if (!provider || !model) {
       toast({
@@ -102,9 +128,15 @@ export default function ComponentPage() {
       ...(images.length > 0
         ? images.map(image => ({ type: "image" as const, image }))
         : []),
+      // ...(figmaDesign
+      //   ? [{
+      //     type: "text" as const,
+      //     text: `设计参考: ${figmaDesign.figmaUrl}`
+      //   }]
+      //   : []),
       {
         type: "text" as const,
-        text: input || chatInput,
+        text: finalPrompt,
       },
     ]
 
@@ -213,6 +245,20 @@ export default function ComponentPage() {
     handleChatSubmit(error)
   }
 
+  const handleFigmaImport = (designData: FigmaDesignData) => {
+    console.log("提交设计数据:", designData)
+    setFigmaDesign(designData)
+
+    toast({
+      title: "Figma设计已添加",
+      description: "Figma设计已添加到消息上下文中"
+    })
+  }
+
+  const handleFigmaRemove = () => {
+    setFigmaDesign(null)
+  }
+
   return (
     <LLMSelectorProvider onChange={handleLLMChange}>
       <div className="h-screen relative">
@@ -285,6 +331,16 @@ export default function ComponentPage() {
           onChange={setChatInput}
           onSubmit={handleChatSubmit}
           actions={[
+            <TooltipProvider key="figma">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <FigmaImport onSubmit={handleFigmaImport} disabled={isSubmitting} />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="top">导入Figma设计</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>,
             <TooltipProvider key="draw-image">
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -302,8 +358,29 @@ export default function ComponentPage() {
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>,
+
             <LLMSelectorButton key="llm-selector" />,
           ]}
+          extraContent={
+            figmaDesign && (
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <Figma className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm truncate max-w-[400px]">
+                    {figmaDesign.figmaUrl}
+                  </span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={handleFigmaRemove}
+                  className="h-6 w-6"
+                >
+                  <X className="h-3 w-3" />
+                </Button>
+              </div>
+            )
+          }
           images={images}
           onImageRemove={handleImageRemove}
           loading={isSubmitting}
