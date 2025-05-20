@@ -118,7 +118,16 @@ function analyzeLayoutRelationships(node: SchemaNode): LayoutRelationships {
           if (isHorizontal) {
             // 创建一个新的水平组
             const groupId = `horizontal-group-${layoutRelationships.horizontalGroups.length + 1}`;
-            const memberIds = group.map(n => n.id);
+
+            // 按X坐标排序节点，确保从左到右的顺序正确
+            const sortedByX = [...group].sort((a, b) => {
+              const aX = a.props?.attrs?.x || 0;
+              const bX = b.props?.attrs?.x || 0;
+              return aX - bX;
+            });
+
+            // 使用排序后的节点ID
+            const memberIds = sortedByX.map(n => n.id);
 
             // 计算组内元素的平均间距
             const spacing = calculateAverageSpacing(group);
@@ -133,7 +142,7 @@ function analyzeLayoutRelationships(node: SchemaNode): LayoutRelationships {
               }
             });
 
-            console.log(`[analyzeLayoutRelationships] 添加水平组 ${groupId}，成员: ${memberIds.join(', ')}`);
+            console.log(`[analyzeLayoutRelationships] 添加水平组 ${groupId}，成员(按X坐标排序): ${memberIds.join(', ')}`);
 
             // 为了向后兼容，仍然在节点上添加layoutHints
             group.forEach(n => {
@@ -507,6 +516,12 @@ function extractLayoutFeatures(enhancedSchema: SchemaNode): LayoutFeature[] {
   // 记录水平排列组的信息
   const horizontalGroups: { id: string, nodes: SchemaNode[], description: string }[] = [];
 
+  // 记录父子包含关系
+  const containmentRelationships: { parentId: string, parentName: string, childIds: string[], description: string }[] = [];
+
+  // 记录特殊UI组件，如标签组
+  const tagGroups: { id: string, nodes: SchemaNode[], description: string }[] = [];
+
   // 递归提取特征
   function extractFromNode(node: SchemaNode, parent: SchemaNode | null = null, path: string[] = []) {
     if (!node) return;
@@ -556,14 +571,14 @@ function extractLayoutFeatures(enhancedSchema: SchemaNode): LayoutFeature[] {
 
     // 如果节点有布局提示，添加布局特征
     if (node.layoutHints) {
-      if (node.layoutHints.horizontalFlex) {
+      if (node.layoutHints.horizontalArrangement || node.layoutHints.horizontalFlex) {
         // 收集水平布局组信息
         const groupId = node.layoutHints.groupId || '';
         let group = horizontalGroups.find(g => g.id === groupId);
 
         if (!group) {
           group = {
-            id: groupId,
+            id: groupId || `horizontal-group-${horizontalGroups.length + 1}`,
             nodes: [],
             description: ''
           };
@@ -581,10 +596,10 @@ function extractLayoutFeatures(enhancedSchema: SchemaNode): LayoutFeature[] {
         });
       }
 
-      if (node.layoutHints.verticalFlex) {
+      if (node.layoutHints.verticalArrangement || node.layoutHints.verticalFlex) {
         features.push({
           type: 'layout',
-          description: `垂直布局组: ${node.layoutHints.groupId}`,
+          description: `垂直布局组: ${node.layoutHints.groupId || node.id}`,
           importance: 7,
           elements: [node.id]
         });
@@ -605,6 +620,127 @@ function extractLayoutFeatures(enhancedSchema: SchemaNode): LayoutFeature[] {
           lineHeight: node.props.style.lineHeight
         }
       });
+    }
+
+    // 分析父子包含关系
+    if (parent && node.children && node.children.length > 0) {
+      // 记录父子包含关系
+      let relationshipDescription = "普通包含关系";
+      let importance = 6;
+
+      // 检查是否为标题+内容的包含关系
+      const hasTitle = node.children.some(child =>
+        child.type === 'Text' &&
+        (child.name?.includes('标题') || child.name?.includes('title') ||
+          (child.props?.style?.fontWeight && parseInt(child.props.style.fontWeight) >= 500))
+      );
+
+      if (hasTitle) {
+        relationshipDescription = "标题+内容包含关系";
+        importance = 8;
+      }
+
+      // 检查是否为表单项的包含关系
+      const isFormItem =
+        (node.name?.includes('表单') || node.name?.includes('form') || node.name?.includes('项')) &&
+        node.children.some(child =>
+          child.type === 'Text' &&
+          (child.props?.text?.includes(':') || child.props?.text?.includes('：'))
+        );
+
+      if (isFormItem) {
+        relationshipDescription = "表单项包含关系";
+        importance = 8;
+      }
+
+      // 检查是否为消息框包含关系
+      const isMessageBox =
+        (node.name?.includes('留言') || node.name?.includes('message') || node.name?.includes('评论')) &&
+        node.children.some(child => child.type === 'Shape') &&
+        node.children.some(child => child.type === 'Text');
+
+      if (isMessageBox) {
+        relationshipDescription = "留言/评论框包含关系";
+        importance = 9;
+      }
+
+      containmentRelationships.push({
+        parentId: node.id,
+        parentName: node.name || node.id,
+        childIds: node.children.map(child => child.id),
+        description: relationshipDescription
+      });
+
+      features.push({
+        type: 'layout',
+        description: `${relationshipDescription}: ${node.name || node.id} 包含 ${node.children.length} 个子元素`,
+        importance: importance,
+        elements: [node.id, ...node.children.map(child => child.id)]
+      });
+    }
+
+    // 检测标签组
+    if (node.children && node.children.length >= 2) {
+      const childrenWithBg = node.children.filter(child =>
+        child.props?.style?.backgroundColor &&
+        child.props?.style?.borderRadius &&
+        child.children?.some(grandChild => grandChild.type === 'Text')
+      );
+
+      // 检查是否为可能的标签组
+      if (childrenWithBg.length >= 2) {
+        // 检查这些元素是否有相似尺寸和样式
+        const widths = childrenWithBg.map(c => c.props?.style?.width || 0);
+        const heights = childrenWithBg.map(c => c.props?.style?.height || 0);
+        const bgColors = childrenWithBg.map(c => c.props?.style?.backgroundColor);
+
+        const widthCV = calculateCV(widths);
+        const heightCV = calculateCV(heights);
+        const hasSimilarSize = widthCV < 0.4 && heightCV < 0.2; // 允许宽度有较大差异
+
+        // 检查是否有相似的背景色
+        const uniqueColors = new Set(bgColors).size;
+        const hasSimilarStyle = uniqueColors <= 2; // 允许有两种不同的背景色
+
+        if (hasSimilarSize && hasSimilarStyle) {
+          const tagGroup = {
+            id: `tag-group-${tagGroups.length + 1}`,
+            nodes: childrenWithBg,
+            description: '标签组'
+          };
+
+          tagGroups.push(tagGroup);
+
+          // 检查这些标签是否水平排列
+          let isHorizontal = false;
+          if (childrenWithBg.length >= 2) {
+            const positions = childrenWithBg.map(c => ({
+              x: c.props?.attrs?.x || 0,
+              y: c.props?.attrs?.y || 0
+            }));
+
+            // 检查Y坐标是否相近
+            const uniqueYs = new Set(positions.map(p => Math.round(p.y / 5) * 5)).size;
+            isHorizontal = uniqueYs <= 2; // 允许有两行
+          }
+
+          if (isHorizontal) {
+            features.push({
+              type: 'layout',
+              description: `水平排列的标签组: ${node.name || node.id}，⚠️ 注意保持水平排列，不要换行`,
+              importance: 10, // 提高重要性
+              elements: childrenWithBg.map(c => c.id)
+            });
+          } else {
+            features.push({
+              type: 'layout',
+              description: `标签组: ${node.name || node.id}`,
+              importance: 8,
+              elements: childrenWithBg.map(c => c.id)
+            });
+          }
+        }
+      }
     }
 
     // 生成节点简化签名用于检测重复模式
@@ -643,12 +779,17 @@ function extractLayoutFeatures(enhancedSchema: SchemaNode): LayoutFeature[] {
   console.log(`[extractLayoutFeatures] 处理 ${horizontalGroups.length} 个水平组特征`);
   horizontalGroups.forEach((group, idx) => {
     if (group.nodes.length >= 2) {
+      // 按X坐标排序节点，确保从左到右的顺序正确
+      group.nodes.sort((a, b) => {
+        const aX = a.props?.attrs?.x || 0;
+        const bX = b.props?.attrs?.x || 0;
+        return aX - bX;
+      });
+
       console.log(`[extractLayoutFeatures] 水平组 ${idx + 1} (ID=${group.id}): 包含 ${group.nodes.length} 个节点`);
-      console.log(`[extractLayoutFeatures] 节点列表: ${group.nodes.map(n => n.name || n.id).join(', ')}`);
+      console.log(`[extractLayoutFeatures] 节点列表(按X坐标排序): ${group.nodes.map(n => n.name || n.id).join(', ')}`);
 
       // 分析水平排列元素的特征 - 完全基于几何特性
-      let description = '水平布局组';
-      let importance = 7;
 
       // 分析节点的几何特征
       const nodeWidths = group.nodes.map(n => n.props?.style?.width || 0);
@@ -677,26 +818,10 @@ function extractLayoutFeatures(enhancedSchema: SchemaNode): LayoutFeature[] {
       const isTextGroup = textNodes.length >= Math.floor(group.nodes.length / 2);
       console.log(`[extractLayoutFeatures] 文本节点数量=${textNodes.length}, 是否文本组=${isTextGroup}`);
 
-      // 根据几何和样式特征推断元素组类型
-      if (isSmallElements && hasSimilarStyles) {
-        if (heightCV < 0.1) { // 高度非常一致
-          description = '水平排列的相似元素组';
-          importance = 9; // 提高重要性
-          console.log(`[extractLayoutFeatures] 判定为水平排列的相似元素组`);
-        } else {
-          description = '水平排列的交互元素组';
-          importance = 8;
-          console.log(`[extractLayoutFeatures] 判定为水平排列的交互元素组`);
-        }
-      } else if (isTextGroup) {
-        description = '水平排列的文本元素组';
-        importance = 8;
-        console.log(`[extractLayoutFeatures] 判定为水平排列的文本元素组`);
-      } else if (group.nodes.length >= 3) {
-        description = '水平排列的多元素组';
-        importance = 8;
-        console.log(`[extractLayoutFeatures] 判定为水平排列的多元素组`);
-      }
+      // 检查是否为标签组
+      const isTagGroup = tagGroups.some(tg =>
+        tg.nodes.some(n => group.nodes.includes(n))
+      );
 
       // 检查元素间距是否非常小（紧密排列）
       const xPositions = group.nodes.map(n => n.props?.attrs?.x || 0);
@@ -720,49 +845,102 @@ function extractLayoutFeatures(enhancedSchema: SchemaNode): LayoutFeature[] {
       const gapCV = calculateCV(gaps);
       console.log(`[extractLayoutFeatures] 间距变异系数=${gapCV.toFixed(2)}`);
 
+      // 是否间距均匀
+      const hasEvenSpacing = gapCV < 0.3 && gaps.length > 0;
+
+      // 综合判断元素类型
+      let elementTypeDesc = "水平组";
+      let importanceScore = 7;
+
+      if (isTagGroup) {
+        elementTypeDesc = "标签组";
+        importanceScore = 10; // 最高优先级
+        console.log(`[extractLayoutFeatures] 判定为水平排列的标签组`);
+      } else if (isSmallElements && hasSimilarStyles) {
+        if (heightCV < 0.1) { // 高度非常一致
+          elementTypeDesc = "相似UI元素组";
+          importanceScore = 9; // 提高重要性
+          console.log(`[extractLayoutFeatures] 判定为水平排列的相似元素组`);
+        } else {
+          elementTypeDesc = "交互元素组";
+          importanceScore = 8;
+          console.log(`[extractLayoutFeatures] 判定为水平排列的交互元素组`);
+        }
+      } else if (isTextGroup) {
+        elementTypeDesc = "文本元素组";
+        importanceScore = 8;
+        console.log(`[extractLayoutFeatures] 判定为水平排列的文本元素组`);
+      } else if (group.nodes.length >= 3) {
+        elementTypeDesc = "多元素组";
+        importanceScore = 8;
+        console.log(`[extractLayoutFeatures] 判定为水平排列的多元素组`);
+      }
+
       // 根据间距特征进一步细化描述
+      let spacingDescription = "";
       if (tightlyPacked) {
-        description += '，元素紧密排列需保持在同一行';
-        importance = 9; // 提高重要性
+        spacingDescription = "，元素紧密排列需保持在同一行";
+        importanceScore = Math.min(importanceScore + 1, 10); // 提高重要性但不超过10
         console.log(`[extractLayoutFeatures] 元素紧密排列，需保持在同一行`);
-      } else if (gapCV < 0.3 && gaps.length > 0) {
+      } else if (hasEvenSpacing) {
         // 间距一致但不紧密
-        description += '，元素间距均匀';
-        importance = 8;
+        spacingDescription = "，元素间距均匀";
         console.log(`[extractLayoutFeatures] 元素间距均匀`);
       }
 
       // 如果元素大小非常一致，这是强烈的水平排列信号
       if (widthCV < 0.1 && heightCV < 0.1) {
-        description += '，元素大小一致';
-        importance = 9;
+        spacingDescription += "，元素大小一致";
+        importanceScore = Math.min(importanceScore + 1, 10);
         console.log(`[extractLayoutFeatures] 元素大小一致，强烈的水平排列信号`);
       }
 
+      // 组合生成最终描述
+      const finalDescription = `水平排列的${elementTypeDesc}${spacingDescription}`;
+      group.description = finalDescription;
+
+      // 添加水平组布局特征
       features.push({
         type: 'layout',
-        description: description,
-        importance: importance,
-        elements: group.nodes.map(n => n.id)
+        description: `${finalDescription}: 包含 ${group.nodes.length} 个元素`,
+        importance: importanceScore,
+        elements: group.nodes.map(n => n.id),
+        styles: {
+          tightlyPacked,
+          hasEvenSpacing,
+          averageGap: gaps.length ? gaps.reduce((sum, g) => sum + g, 0) / gaps.length : 0,
+          elementType: elementTypeDesc
+        }
       });
-
-      console.log(`[extractLayoutFeatures] 添加特征: ${description}, 重要性=${importance}`);
     }
   });
 
-  // 添加重复模式特征
-  nodePatterns.forEach((count, signature) => {
-    if (count > 1) {
+  // 分析重复模式
+  Array.from(nodePatterns.entries())
+    .filter(([, count]) => count > 1)
+    .forEach(([signature, count]) => {
+      console.log(`[extractLayoutFeatures] 检测到重复模式 "${signature}", 出现了 ${count} 次`);
       features.push({
         type: 'pattern',
-        description: `发现重复模式：${signature}，出现${count}次`,
-        importance: 9
+        description: `重复模式: ${signature}, 出现 ${count} 次`,
+        importance: Math.min(5 + count, 10)
+      });
+    });
+
+  // 添加包含关系特征
+  containmentRelationships.forEach(rel => {
+    // 只添加重要的包含关系作为特征
+    if (rel.description !== "普通包含关系") {
+      features.push({
+        type: 'layout',
+        description: `${rel.description}: ${rel.parentName} 包含多个子元素`,
+        importance: 8,
+        elements: [rel.parentId, ...rel.childIds]
       });
     }
   });
 
-  // 按重要性排序
-  return features.sort((a, b) => b.importance - a.importance);
+  return features;
 }
 
 /**
@@ -1412,127 +1590,86 @@ async function generateDynamicPrompt(
   context.stream.write("正在生成针对性的设计提示词...\n");
 
   // 系统提示词
-  const systemPrompt = `你是一个专业的前端开发工程师，擅长从设计稿精确还原UI界面。请基于我提供的设计分析信息，生成一个详细的开发指导提示词。
+  const systemPrompt = `你是一个专业的前端布局分析师，擅长分析设计稿的结构和布局关系。请基于我提供的设计分析信息，生成一个详细的布局描述和结构分析。
 
 请以 Markdown 格式组织主要内容，按照以下结构：
 
 ## 输出内容结构
 1. 开头简要总结页面的整体结构和核心功能
-2. "布局架构分析"部分：详细描述页面的整体布局结构，特别是：
+2. "水平排列组件分析"部分：
+   - **重点分析并列出所有水平排列的元素ID**
+   - **明确指出每个水平排列组中元素的前后顺序**
+   - **提供水平排列元素的具体内容描述**
+   - **强调必须严格按照设计稿中的水平排列关系实现**
+   - 详细描述元素间的间距关系和对齐方式
+3. "父子包含关系分析"部分：
+   - **详细列出所有父子包含关系，精确到节点ID**
+   - **明确警告哪些节点是父子包含关系而非平级关系**
+   - **使用树状结构清晰展示节点的层级关系**
+   - 强调父子关系实现的重要性
+4. "区块组件分析"部分：
+   - **识别卡片等区块组件，并强调这些组件应该让内容自动撑开高度**
+   - **明确指出哪些组件不需要固定高度，应该由内容自然撑开**
+   - 分析区块组件的边界和内部结构
+5. "布局架构分析"部分：详细描述页面的整体布局结构，特别是：
    - 指出页面分区（头部、内容区、底部）的具体位置和特点
    - 明确说明关键节点的布局类型（水平、垂直、网格等）
+   - 提供到具体节点ID级别的排版描述
    - 指出哪些元素需要居中对齐、两端对齐或其他特殊对齐方式
-   - 详细描述元素间的间距关系和对齐方式
    - 分析重复出现的布局模式和组件结构
-   - **详细分析水平布局组和垂直布局组的特征与实现方式**
-3. "组件结构分析"部分：识别页面中的独立组件并提供实现建议
-   - 对每个主要组件详细描述其内部结构和布局
-   - 提供如何组织组件层次结构的建议
-   - 注明组件间的交互关系
-4. "样式系统建议"部分：提供设计系统相关建议
-   - 颜色系统和变量定义
-   - 排版规范
-   - 空间和间距系统
-5. "实现优先级"部分：列出开发时应优先关注的关键点
-6. "特别注意事项"部分：列出实现过程中容易被忽略的细节
+6. "关键组件详情"部分：重点分析特殊UI组件
+   - 标签组：详细描述每组标签的排列方式，特别是需要水平排列的标签
+   - 表单项：分析表单结构和输入区域
+   - 留言框：分析留言相关区域的结构和包含关系
+7. "实现优先级"部分：列出开发时应优先关注的关键点
+   - 特别标注容易错误实现的布局点
+   - 标注易被忽视的父子包含关系
+8. "特别注意事项"部分：列出实现过程中容易被忽略的细节
+   - 强调水平排列元素一定要保持水平且不换行
+   - 标注父子包含关系的正确性
+   - 提醒区块组件应自动撑开高度，不要固定高度
 
 ## 特别要求
-1. 基于我提供的布局分析数据，精确指出哪些元素是水平排列、哪些是垂直排列
-2. **重点分析水平布局组和垂直布局组的信息，包括元素数量、间距和对齐方式**
-3. 对于水平排列的元素，详细说明它们的间距关系和对齐方式
-4. 明确指出哪些元素需要居中显示，以及如何实现这种居中效果
-5. 对重复出现的UI模式给出一致的处理建议
-6. 注明响应式布局相关的考虑点
-7. 不要提供完整的代码实现，只需要提供关键CSS属性和结构建议
-8. 针对特定的布局难点，给出简短的CSS技术提示
+1. **对于水平排列元素：必须明确列出每个水平组内部的所有节点ID及其从左到右的精确顺序，并强调每个组内部必须严格按照这种顺序实现，这决定了元素在页面上的实际视觉排列**
+2. **对于父子包含关系：必须清晰说明哪些节点是包含关系，避免错误实现为平级关系，使用缩进或树状结构表示层级关系**
+3. **对于卡片等区块组件：必须强调不要设置固定高度，让内部内容自然撑开高度**
+4. **所有元素的具体间距和对齐方式应直接基于schema中的精确坐标数据，而非预计算的平均值**
+5. **对于"水平组"的描述，强调的是组内元素的从左到右顺序，而不是水平组之间的关系**
+6. 基于布局分析数据，精确指出哪些元素是水平排列、哪些是垂直排列
+7. 详细分析每个水平/垂直布局组内部的节点顺序，这是正确实现布局的关键
+6. 对容易被错误实现的布局提供明确警告
+7. 明确指出哪些元素需要居中显示
+8. 针对标签组等特殊UI组件提供详细的布局描述
+9. 对重复出现的UI模式给出一致的描述
+10. 注明响应式布局相关的考虑点
+11. **严禁提供任何CSS、HTML或其他代码实现片段**
+12. **不要提供任何具体的技术实现建议或代码片段**
+13. **不要提及任何特定的CSS属性、类名或样式值**
+14. **专注于"是什么"而非"怎么做"**
+15. **不要生成任何代码示例，包括但不限于CSS、HTML、JavaScript、或任何前端框架代码**
 
-## 评估摘要（JSON格式）
-在Markdown内容之后，请添加一个用于系统评估的JSON摘要。**非常重要：这个JSON摘要必须详细反映你在Markdown中提供的所有分析内容，请确保JSON摘要与Markdown内容保持高度一致。**
+## 注意事项与建议
 
-JSON格式如下：
+为了确保开发者能够更好地理解设计，请在最后总结关键要点，提供具体的布局核心点和重点关注列表。
 
-\`\`\`json
-{
-  "layoutAnalysis": {
-    "pageStructure": "详细描述页面的整体结构，包括头部、内容区和底部的具体特点",
-    "layoutPatterns": [
-      "详细描述水平Flex布局的具体实现方式，例如：'顶部导航使用水平Flex布局，justify-content: space-between实现两端对齐'",
-      "详细描述垂直布局的具体实现方式，例如：'主内容区采用垂直Flex布局，direction: column，间距统一为16px'",
-      "详细描述网格布局的实现方式，例如：'卡片列表使用CSS Grid实现，grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))'",
-      "详细描述居中对齐的实现方式，例如：'页面标题使用Flex布局居中，justify-content: center'",
-      "至少包含5-8个详细的布局模式描述"
-    ],
-    "horizontalGroups": [
-      "水平布局组1的详细描述，包括元素数量、间距、对齐方式和实现建议",
-      "水平布局组2的详细描述，包括元素数量、间距、对齐方式和实现建议"
-    ],
-    "verticalGroups": [
-      "垂直布局组1的详细描述，包括元素数量、间距、对齐方式和实现建议",
-      "垂直布局组2的详细描述，包括元素数量、间距、对齐方式和实现建议"
-    ],
-    "responsiveConsiderations": [
-      "详细的响应式设计建议，例如：'在移动设备上将水平布局的菜单改为垂直布局'",
-      "详细的断点处理建议",
-      "详细的适配策略"
-    ]
-  },
-  "componentAnalysis": {
-    "keyComponents": [
-      "详细描述组件1，包括其内部结构和布局方式",
-      "详细描述组件2，包括其内部结构和布局方式",
-      "确保包含所有在Markdown中分析的组件"
-    ],
-    "componentHierarchy": "详细描述组件的嵌套关系和层次结构",
-    "reusablePatterns": [
-      "详细描述可复用模式1及其实现建议",
-      "详细描述可复用模式2及其实现建议"
-    ]
-  },
-  "designTokens": {
-    "spacing": "详细描述间距系统，包括具体的像素值和使用场景",
-    "typography": "详细描述字体系统，包括字体大小、行高、字重等完整规范",
-    "colors": "详细描述颜色系统，包括主色、辅助色、文本色、背景色等，最好包含具体的颜色代码"
-  },
-  "implementationPriorities": {
-    "critical": [
-      "详细描述最优先实现的项目1",
-      "详细描述最优先实现的项目2",
-      "详细描述最优先实现的项目3"
-    ],
-    "important": [
-      "详细描述次优先级的项目1",
-      "详细描述次优先级的项目2"
-    ],
-    "enhancement": [
-      "详细描述增强项目1",
-      "详细描述增强项目2"
-    ]
-  },
-  "developmentTips": [
-    "详细的开发建议1，包括具体的CSS属性或技术",
-    "详细的开发建议2，包括布局技巧",
-    "详细的开发建议3，包括常见陷阱的避免方法",
-    "应包含5个以上详细的开发建议"
-  ]
-}
-\`\`\`
+重点确保：
+1. **清晰描述水平排列元素的ID、内容和顺序，强调严格按此布局实现**
+2. **明确标识所有父子包含关系，避免错误实现为平级关系**
+3. **强调区块组件(卡片等)应该让内容自然撑开高度，不设固定高度**
+4. 提供清晰的布局结构描述，特别是对水平和垂直排列的元素
+5. 指出容易出错的关键点，尤其是标签组、表单和父子包含关系
+6. **绝对不要提供任何代码片段或技术实现方案**
+7. 设计一个简单的核心点列表，帮助开发者理解设计结构
 
-请确保JSON摘要中：
-1. 布局模式(layoutPatterns)描述详细具体，至少包含5个条目，每个条目都详细说明实现方式
-2. 颜色系统(colors)包含完整的颜色信息，包括具体的颜色代码或描述
-3. 组件分析(keyComponents)详细描述每个组件的内部结构和布局
-4. 开发建议(developmentTips)提供至少5个具体的建议，包含CSS属性或技术
-5. 所有描述都要具体、详细，避免过于概括的表述
-
-请基于提供的布局分析数据，生成一个全面、详细且切实可行的开发指导。你的指导将直接影响开发者能否精确还原设计稿。`;
+请基于提供的布局分析数据，生成一个全面、详细的布局描述文档。你的描述将直接影响开发者能否理解设计结构。`;
 
   // 用户消息构建
-  const userMessage = `我需要你帮我分析一个设计稿的实现方案。以下是从设计稿中提取的布局特征和结构信息，请基于这些数据生成详细的开发指导：
+  const userMessage = `我需要你帮我分析一个设计稿的布局结构。以下是从设计稿中提取的布局特征和结构信息，请基于这些数据生成详细的布局描述：
 
 ## 页面整体结构
 ${pageStructure.header ? `头部区域: ${pageStructure.header.name || '未命名区域'} (类型: ${pageStructure.header.type}, ID: ${pageStructure.header.id})` : '未检测到明确的头部区域'}
 内容区块: ${pageStructure.content.length}个主要内容区块
-${pageStructure.content.map((node, index) => `  - 内容区块 ${index + 1}: ${node.name || '未命名区块'} (类型: ${node.type})`).join('\n')}
+${pageStructure.content.map((node, index) => `  - 内容区块 ${index + 1}: ${node.name || '未命名区块'} (类型: ${node.type}, ID: ${node.id})`).join('\n')}
 ${pageStructure.footer ? `底部区域: ${pageStructure.footer.name || '未命名区域'} (类型: ${pageStructure.footer.type}, ID: ${pageStructure.footer.id})` : '未检测到明确的底部区域'}
 
 ## 布局模式分析
@@ -1540,40 +1677,143 @@ ${pageStructure.footer ? `底部区域: ${pageStructure.footer.name || '未命�
 ${layoutPatterns.map(pattern => `- ${pattern}`).join('\n')}
 
 ## 关键布局特征
-### 水平排列元素
+### 水平排列元素（重点关注！必须保持水平排列顺序）
 ${layoutFeatures
       .filter(f => f.type === 'layout' && f.description.includes('水平'))
-      .map(f => `- ${f.description}`)
+      .map(f => `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}`)
       .join('\n') || '未检测到水平排列元素'}
+
+⚠️ 特别注意：以上每个水平组内的节点必须按X坐标从左到右顺序排列，这决定了组件的实际视觉布局
 
 ### 垂直排列元素
 ${layoutFeatures
       .filter(f => f.type === 'layout' && f.description.includes('垂直'))
-      .map(f => `- ${f.description}`)
+      .map(f => `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}`)
       .join('\n') || '未检测到垂直排列元素'}
 
 ### 居中对齐元素
 ${layoutFeatures
       .filter(f => f.type === 'layout' && (f.description.includes('居中') || f.description.includes('中心')))
-      .map(f => `- ${f.description}`)
+      .map(f => `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}`)
       .join('\n') || '未检测到明确的居中对齐元素'}
 
-## 布局关系详情
-### 水平布局组详情
-${enhancedSchema.layoutRelationships?.horizontalGroups && enhancedSchema.layoutRelationships.horizontalGroups.length > 0 ?
-      enhancedSchema.layoutRelationships.horizontalGroups.map(group =>
-        `- 水平组 ${group.id}: 包含${group.members.length}个元素${group.properties.spacing !== undefined ?
-          `，间距为${group.properties.spacing}px` : ''}${group.properties.alignment ?
-            `，对齐方式为${group.properties.alignment}` : ''}`
-      ).join('\n') : '未检测到水平布局组'}
+### 父子包含关系（重点关注！避免错误实现为平级关系）
+${layoutFeatures
+      .filter(f => f.type === 'layout' && f.description.includes('包含关系'))
+      .map(f => `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}`)
+      .join('\n') || '未检测到明确的父子包含关系'}
 
-### 垂直布局组详情
+### 标签组与特殊UI组件
+${layoutFeatures
+      .filter(f => f.type === 'layout' && (f.description.includes('标签组') || f.description.includes('表单项')))
+      .map(f => `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}`)
+      .join('\n') || '未检测到明确的标签组或特殊UI组件'}
+
+## 布局关系详情
+### 水平布局组内部节点详情（必须严格按照视觉顺序实现！）
+${enhancedSchema.layoutRelationships?.horizontalGroups && enhancedSchema.layoutRelationships.horizontalGroups.length > 0 ?
+      enhancedSchema.layoutRelationships.horizontalGroups.map((group) => {
+        // 尝试获取组内节点的详细信息，包括X坐标和名称
+        const nodeDetails = group.members.map(nodeId => {
+          // 在schema中查找对应节点
+          const findNode = (node: SchemaNode): SchemaNode | null => {
+            if (node.id === nodeId) return node;
+            if (node.children) {
+              for (const child of node.children) {
+                const found = findNode(child);
+                if (found) return found;
+              }
+            }
+            return null;
+          };
+
+          const node = findNode(enhancedSchema);
+          return {
+            id: nodeId,
+            name: node?.name || '未命名元素',
+            x: node?.props?.attrs?.x || 0
+          };
+        });
+
+        // 按X坐标排序
+        nodeDetails.sort((a, b) => a.x - b.x);
+
+        // 构建有序的节点展示列表
+        const orderedNodes = nodeDetails.map((node, index) =>
+          `    ${index + 1}. ${node.id} ${node.name} (x: ${node.x})`
+        ).join('\n');
+
+        return `- **水平组 ${group.id}**（视觉从左到右顺序）：
+  - 包含${group.members.length}个元素，按X坐标排序：
+${orderedNodes}
+  - ⚠️ 必须严格按照上述编号顺序排列元素，这决定了实际的视觉布局
+    - ⚠️ 注意：不要机械地按照节点ID顺序处理，而是按照上面指定的视觉顺序实现`
+      }).join('\n\n') : '未检测到水平布局组'}
+
+### 垂直布局组内部节点详情
 ${enhancedSchema.layoutRelationships?.verticalGroups && enhancedSchema.layoutRelationships.verticalGroups.length > 0 ?
-      enhancedSchema.layoutRelationships.verticalGroups.map(group =>
-        `- 垂直组 ${group.id}: 包含${group.members.length}个元素${group.properties.spacing !== undefined ?
-          `，间距为${group.properties.spacing}px` : ''}${group.properties.alignment ?
-            `，对齐方式为${group.properties.alignment}` : ''}`
-      ).join('\n') : '未检测到垂直布局组'}
+      enhancedSchema.layoutRelationships.verticalGroups.map(group => {
+        // 尝试获取组内节点的详细信息，包括Y坐标和名称
+        const nodeDetails = group.members.map(nodeId => {
+          // 在schema中查找对应节点
+          const findNode = (node: SchemaNode): SchemaNode | null => {
+            if (node.id === nodeId) return node;
+            if (node.children) {
+              for (const child of node.children) {
+                const found = findNode(child);
+                if (found) return found;
+              }
+            }
+            return null;
+          };
+
+          const node = findNode(enhancedSchema);
+          return {
+            id: nodeId,
+            name: node?.name || '未命名元素',
+            y: node?.props?.attrs?.y || 0
+          };
+        });
+
+        // 按Y坐标排序
+        nodeDetails.sort((a, b) => a.y - b.y);
+
+        // 构建有序的节点展示列表
+        const orderedNodes = nodeDetails.map((node, index) =>
+          `    ${index + 1}. ${node.id} ${node.name} (y: ${node.y})`
+        ).join('\n');
+
+        return `- **垂直组 ${group.id}**（视觉从上到下顺序）：
+  - 包含${group.members.length}个元素，按Y坐标排序：
+${orderedNodes}
+  - ⚠️ 必须严格按照上述编号顺序排列元素，这决定了实际的视觉布局
+    - ⚠️ 注意：不要机械地按照节点ID顺序处理，而是按照上面指定的视觉顺序实现`
+      }).join('\n\n') : '未检测到垂直布局组'}
+
+### 节点级别layoutHints详情
+${enhancedSchema.children && Array.isArray(enhancedSchema.children) ?
+      enhancedSchema.children
+        .filter((node: any) =>
+          node.layoutHints?.horizontalArrangement ||
+          node.layoutHints?.verticalArrangement ||
+          node.layoutHints?.centered ||
+          (node.layoutHints?.horizontalGroupMembers && node.layoutHints.horizontalGroupMembers.length > 0)
+        )
+        .map((node: any) =>
+          `- 节点ID: ${node.id}, 名称: ${node.name || '未命名'}
+  - 水平排列: ${node.layoutHints?.horizontalArrangement ? '是' : '否'}
+  - 垂直排列: ${node.layoutHints?.verticalArrangement ? '是' : '否'}
+  - 居中对齐: ${node.layoutHints?.centered ? '是' : '否'}
+  - 水平组成员: ${node.layoutHints?.horizontalGroupMembers ? node.layoutHints.horizontalGroupMembers.join(', ') : '无'}`
+        ).join('\n') : '未能获取layoutHints详情'}
+
+### 区块组件分析（卡片等区块组件不应设置固定高度）
+${layoutFeatures
+      .filter(f => f.type === 'component' && (f.description.includes('卡片') || f.description.includes('区块') || f.description.includes('容器')))
+      .map(f => `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}
+  - ⚠️ 重要：这些区块组件应该让内容自然撑开高度，不要设置固定高度
+  - ⚠️ 注意：只需设置宽度，高度应该由内容自动撑开`)
+      .join('\n') || '未检测到明确的区块组件'}
 
 ### 间距和对齐特征
 ${layoutFeatures
@@ -1581,11 +1821,37 @@ ${layoutFeatures
       .map(f => `- ${f.description}`)
       .join('\n') || '未检测到明确的间距特征'}
 
+## 特殊UI组件分析
+${layoutFeatures
+      .filter(f => f.type === 'layout' && (
+        f.description.includes('标签组') ||
+        f.description.includes('表单项') ||
+        f.description.includes('留言/评论框')
+      ))
+      .map(f => {
+        // 对于标签组特别强调水平排列
+        if (f.description.includes('标签组') && f.description.includes('水平')) {
+          return `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}
+  - ⚠️ 重要：这些标签必须保持水平排列，不要换行
+  - ⚠️ 注意：标签应该是同行显示，而不是垂直堆叠`;
+        }
+        // 对于留言框强调包含关系
+        else if (f.description.includes('留言/评论框')) {
+          return `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}
+  - ⚠️ 重要：这是一个父子包含关系，不是平级关系
+  - ⚠️ 注意：所有子元素都应该包含在父容器内`;
+        }
+        else {
+          return `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}`;
+        }
+      })
+      .join('\n') || '未检测到特殊UI组件'}
+
 ## 组件分析
 识别到的关键组件：
 ${layoutFeatures
       .filter(f => f.type === 'component')
-      .map(f => `- ${f.description}`)
+      .map(f => `- ${f.description}${f.elements ? ` (节点ID: ${f.elements.join(', ')})` : ''}`)
       .join('\n') || '未检测到明确的组件'}
 
 ## 设计令牌
@@ -1618,7 +1884,36 @@ ${designIntent.userFlow.length > 0 ? `- 用户流程: ${designIntent.userFlow.jo
 ${designIntent.keyInteractions.length > 0 ? `- 关键交互: ${designIntent.keyInteractions.join(', ')}` : ''}
 ${designIntent.responsiveConsiderations.length > 0 ? `- 响应式考虑: ${designIntent.responsiveConsiderations.join(', ')}` : ''}`}
 
-请基于以上信息，生成一个详细的开发指导文档，帮助开发者精确还原这个设计稿。请确保包含所有关键布局分析和组件结构建议，并在文档末尾提供JSON格式的评估摘要。`;
+## 易错布局提示
+1. ⚠️ 水平排列元素常被错误实现！必须严格保持水平排列且按照从左到右的顺序实现
+2. ⚠️ 父子包含关系常被错误实现为平级关系！必须严格保持包含关系和层级结构
+3. ⚠️ 区块组件(如卡片)常被错误设置固定高度！应该只设置宽度，让内容自然撑开高度
+
+4. 检查水平组成员的方法：
+   - 确认元素按照设计稿的顺序水平排列(从左到右)
+   - 元素之间保持正确的间距
+   - 严格按照提供的节点ID顺序实现
+
+5. 检查父子包含关系的方法：
+   - 确认父元素包含所有子元素，不要将父子元素实现为平级关系
+   - 使用适当的嵌套结构表示父子关系
+   - 特别注意ID为特殊UI组件的父子包含关系
+
+6. 特别注意这些容易错误实现的布局点：
+   - 间距很大的水平布局组(仍需保持水平排列)
+   - 包含4个以上元素的水平组(必须保持水平顺序)
+   - 间距为0的水平组(元素需紧密相连)
+   - 卡片等区块组件(不要设置固定高度)
+
+
+请基于以上信息，生成一个详细的布局描述文档，帮助开发者理解这个设计稿的结构。请着重分析：
+1. 水平排列元素的ID、内容及前后顺序，并强调必须严格按此顺序实现
+2. 所有父子包含关系，明确指出避免错误实现为平级关系
+3. 区块组件(如卡片)应该让内容自然撑开高度，不设固定高度
+
+请确保包含所有关键布局分析、组件结构描述、常见错误警告和核心点列表，以确保开发者能正确理解所有布局关系。
+
+记住：不要提供任何具体的代码示例或技术实现方案，只描述"是什么"，不要描述"怎么做"。不要生成任何CSS、HTML或前端框架代码片段，也不要提及具体的CSS属性或样式值。`;
 
   // 创建流式生成
   const stream = await streamText({
@@ -1652,7 +1947,7 @@ ${designIntent.responsiveConsiderations.length > 0 ? `- 响应式考虑: ${desig
   context.stream.write("\n\n设计提示词生成完成\n");
 
   // 保存到本地文件
-  fs.writeFileSync("dynamic-prompt.json", completion);
+  fs.writeFileSync("dynamic-prompt.md", completion);
 
   // 返回完整生成结果
   return completion;
@@ -1742,7 +2037,6 @@ export const analyzeFigmaDesign = async (
     fs.writeFileSync("enhanced-schema.json", schemaStr);
 
     // 4. 使用AI生成基于布局分析的动态提示词
-    context.stream.write("正在生成针对性的设计提示词...\n");
     console.log("开始生成动态提示词...");
 
     // 提取布局特征
@@ -1763,24 +2057,9 @@ export const analyzeFigmaDesign = async (
     console.log("动态提示词生成完成:", dynamicPrompt);
 
     // 保存动态提示词到本地，方便查看
-    fs.writeFileSync("dynamic-prompt.json", dynamicPrompt);
     context.stream.write("设计提示词生成完成\n");
 
-    // 评估提示词质量
-    const promptQuality = assessPromptQuality(dynamicPrompt, layoutFeatures);
-    console.log(`提示词质量得分: ${promptQuality.score}/100`);
-
-    // 根据质量评估结果给出提示
-    if (promptQuality.score < 60) {
-      context.stream.write(`⚠️ 提示词质量评分较低(${promptQuality.score}/100)，可能需要改进\n`);
-    } else if (promptQuality.score >= 80) {
-      context.stream.write(`✅ 提示词质量评分优秀(${promptQuality.score}/100)\n`);
-    }
-
-    // 如果有明显缺失，给出提示
-    if (promptQuality.missingAspects.length > 0) {
-      context.stream.write(`注意: 提示词中缺少以下方面的信息: ${promptQuality.missingAspects.join(', ')}\n`);
-    }
+    // 移除了提示词评估部分，不再使用自动评分系统
 
     // 5. 返回包含增强Schema和动态提示词的上下文
     return {
@@ -1808,8 +2087,7 @@ export const analyzeFigmaDesign = async (
           }
         },
         standardSchema: standardSchema,
-        dynamicPrompt: dynamicPrompt,  // 保持原始文本格式
-        promptQuality: promptQuality  // 添加提示词质量评估结果
+        dynamicPrompt: dynamicPrompt  // 保持原始文本格式
       }
     } as unknown as FigmaAnalysisWorkflowContext;
   } catch (error) {
@@ -1818,316 +2096,4 @@ export const analyzeFigmaDesign = async (
   }
 }
 
-/**
- * 评估生成的提示词质量
- * @param promptText 生成的提示词文本，可能包含 Markdown + JSON 混合格式
- * @param layoutFeatures 布局特征数组
- * @returns 评估结果，包括质量评分和改进建议
- */
-function assessPromptQuality(promptText: string, layoutFeatures: LayoutFeature[]): {
-  score: number;
-  feedback: string[];
-  missingAspects: string[];
-} {
-  try {
-    // 尝试从文本中提取 JSON 部分
-    const jsonMatch = promptText.match(/```json\s*([\s\S]*?)\s*```/);
-    let promptJson = '';
-
-    if (jsonMatch && jsonMatch[1]) {
-      // 如果找到 JSON 代码块，使用其中的内容
-      promptJson = jsonMatch[1];
-    } else {
-      // 否则尝试直接解析整个文本作为 JSON
-      promptJson = promptText;
-    }
-
-    // 解析JSON
-    const prompt = JSON.parse(promptJson);
-
-    // 初始分数
-    let score = 0;
-    const feedback: string[] = [];
-    const missingAspects: string[] = [];
-
-    // 布局分析评估
-    if (prompt.layoutAnalysis) {
-      score += 2;
-
-      // 评估页面结构描述
-      if (prompt.layoutAnalysis.pageStructure && typeof prompt.layoutAnalysis.pageStructure === 'string') {
-        if (prompt.layoutAnalysis.pageStructure.length > 50) {
-          score += 3;
-          feedback.push("页面结构描述详尽");
-        } else {
-          score += 1;
-          feedback.push("页面结构描述简单，可以更详细");
-        }
-      } else {
-        missingAspects.push("缺少页面结构描述");
-      }
-
-      // 评估布局模式
-      if (Array.isArray(prompt.layoutAnalysis.layoutPatterns)) {
-        const patterns = prompt.layoutAnalysis.layoutPatterns;
-
-        if (patterns.length >= 5) {
-          score += 5;
-          feedback.push("布局模式描述全面");
-
-          // 检查描述的具体程度
-          const detailedPatterns = patterns.filter((p: any) => typeof p === 'string' && p.length > 40);
-          if (detailedPatterns.length >= 4) {
-            score += 3;
-            feedback.push("布局模式描述非常详细");
-          } else {
-            feedback.push("部分布局模式描述可以更详细");
-          }
-        } else if (patterns.length > 0) {
-          score += patterns.length;
-          feedback.push(`布局模式描述不够全面，仅包含${patterns.length}种模式`);
-          missingAspects.push("需要添加更多布局模式描述");
-        } else {
-          missingAspects.push("缺少布局模式描述");
-        }
-      } else {
-        missingAspects.push("缺少布局模式描述");
-      }
-
-      // 评估响应式设计考虑
-      if (Array.isArray(prompt.layoutAnalysis.responsiveConsiderations) &&
-        prompt.layoutAnalysis.responsiveConsiderations.length > 0) {
-        score += 3;
-
-        // 检查描述的具体程度
-        const detailedConsiderations = prompt.layoutAnalysis.responsiveConsiderations.filter(
-          (c: any) => typeof c === 'string' && c.length > 30
-        );
-
-        if (detailedConsiderations.length >= 2) {
-          score += 2;
-          feedback.push("响应式设计建议详细");
-        } else {
-          feedback.push("响应式设计建议可以更详细");
-        }
-      } else {
-        missingAspects.push("缺少响应式设计建议");
-      }
-    } else {
-      missingAspects.push("缺少布局分析部分");
-    }
-
-    // 组件分析评估
-    if (prompt.componentAnalysis) {
-      score += 2;
-
-      // 评估关键组件
-      if (Array.isArray(prompt.componentAnalysis.keyComponents)) {
-        const components = prompt.componentAnalysis.keyComponents;
-
-        if (components.length >= 3) {
-          score += 3;
-
-          // 检查描述的具体程度
-          const detailedComponents = components.filter((c: any) => typeof c === 'string' && c.length > 40);
-          if (detailedComponents.length >= 2) {
-            score += 2;
-            feedback.push("组件描述详细");
-          } else {
-            feedback.push("组件描述可以更详细");
-          }
-        } else if (components.length > 0) {
-          score += components.length;
-          feedback.push(`组件描述不够全面，仅包含${components.length}个组件`);
-        } else {
-          missingAspects.push("缺少组件描述");
-        }
-      } else {
-        missingAspects.push("缺少组件列表");
-      }
-
-      // 评估组件层次结构
-      if (prompt.componentAnalysis.componentHierarchy &&
-        typeof prompt.componentAnalysis.componentHierarchy === 'string' &&
-        prompt.componentAnalysis.componentHierarchy.length > 30) {
-        score += 3;
-        feedback.push("组件层次结构描述清晰");
-      } else {
-        feedback.push("组件层次结构描述不够详细");
-      }
-    } else {
-      missingAspects.push("缺少组件分析部分");
-    }
-
-    // 设计令牌评估
-    if (prompt.designTokens) {
-      score += 2;
-
-      // 评估颜色系统
-      if (prompt.designTokens.colors && typeof prompt.designTokens.colors === 'string') {
-        if (prompt.designTokens.colors.length > 40 &&
-          (prompt.designTokens.colors.includes('#') ||
-            prompt.designTokens.colors.includes('rgb') ||
-            prompt.designTokens.colors.includes('颜色代码'))) {
-          score += 3;
-          feedback.push("颜色系统描述详细且包含具体颜色代码");
-        } else if (prompt.designTokens.colors.length > 20) {
-          score += 1;
-          feedback.push("颜色系统描述基本完整，但缺少具体颜色代码");
-        } else {
-          feedback.push("颜色系统描述过于简单");
-        }
-      } else {
-        missingAspects.push("缺少颜色系统描述");
-      }
-
-      // 评估间距系统
-      if (prompt.designTokens.spacing && typeof prompt.designTokens.spacing === 'string') {
-        if (prompt.designTokens.spacing.length > 30 &&
-          (prompt.designTokens.spacing.includes('px') ||
-            prompt.designTokens.spacing.includes('rem') ||
-            prompt.designTokens.spacing.includes('em'))) {
-          score += 3;
-          feedback.push("间距系统描述详细且包含具体数值");
-        } else if (prompt.designTokens.spacing.length > 15) {
-          score += 1;
-          feedback.push("间距系统描述基本完整，但缺少具体数值");
-        } else {
-          feedback.push("间距系统描述过于简单");
-        }
-      } else {
-        missingAspects.push("缺少间距系统描述");
-      }
-
-      // 评估排版系统
-      if (prompt.designTokens.typography && typeof prompt.designTokens.typography === 'string') {
-        if (prompt.designTokens.typography.length > 40) {
-          score += 3;
-          feedback.push("排版系统描述详细");
-        } else if (prompt.designTokens.typography.length > 20) {
-          score += 1;
-          feedback.push("排版系统描述基本完整");
-        } else {
-          feedback.push("排版系统描述过于简单");
-        }
-      } else {
-        missingAspects.push("缺少排版系统描述");
-      }
-    } else {
-      missingAspects.push("缺少设计令牌部分");
-    }
-
-    // 实现优先级评估
-    if (prompt.implementationPriorities) {
-      score += 2;
-
-      let priorityItemsCount = 0;
-
-      if (Array.isArray(prompt.implementationPriorities.critical)) {
-        priorityItemsCount += prompt.implementationPriorities.critical.length;
-      }
-
-      if (Array.isArray(prompt.implementationPriorities.important)) {
-        priorityItemsCount += prompt.implementationPriorities.important.length;
-      }
-
-      if (Array.isArray(prompt.implementationPriorities.enhancement)) {
-        priorityItemsCount += prompt.implementationPriorities.enhancement.length;
-      }
-
-      if (priorityItemsCount >= 5) {
-        score += 3;
-        feedback.push("实现优先级描述全面");
-      } else if (priorityItemsCount > 0) {
-        score += 1;
-        feedback.push("实现优先级描述基本完整");
-      } else {
-        missingAspects.push("缺少具体的实现优先级项目");
-      }
-    } else {
-      missingAspects.push("缺少实现优先级部分");
-    }
-
-    // 开发技巧评估
-    if (Array.isArray(prompt.developmentTips)) {
-      const tips = prompt.developmentTips;
-
-      if (tips.length >= 5) {
-        score += 5;
-
-        // 检查描述的具体程度
-        const detailedTips = tips.filter((t: any) => typeof t === 'string' && t.length > 30);
-        if (detailedTips.length >= 4) {
-          score += 3;
-          feedback.push("开发建议非常详细且实用");
-        } else {
-          feedback.push("部分开发建议可以更详细");
-        }
-      } else if (tips.length > 0) {
-        score += tips.length;
-        feedback.push(`开发建议数量不足，仅包含${tips.length}条`);
-        missingAspects.push("需要添加更多开发建议");
-      } else {
-        missingAspects.push("缺少开发建议");
-      }
-    } else {
-      missingAspects.push("缺少开发建议部分");
-    }
-
-    // 检查是否涵盖了布局特征中的关键点
-    const layoutFeatureTypes = layoutFeatures.map(f => f.type);
-    const uniqueFeatureTypes = Array.from(new Set(layoutFeatureTypes));
-
-    // 检查是否提到了每种特征类型
-    for (const featureType of uniqueFeatureTypes) {
-      let typeFound = false;
-
-      // 在整个JSON中搜索这种特征类型的相关描述
-      const jsonStr = JSON.stringify(prompt).toLowerCase();
-
-      switch (featureType) {
-        case 'layout':
-          typeFound = jsonStr.includes('布局') || jsonStr.includes('layout') ||
-            jsonStr.includes('flex') || jsonStr.includes('grid');
-          break;
-        case 'component':
-          typeFound = jsonStr.includes('组件') || jsonStr.includes('component');
-          break;
-        case 'alignment':
-          typeFound = jsonStr.includes('对齐') || jsonStr.includes('align') ||
-            jsonStr.includes('center') || jsonStr.includes('justify');
-          break;
-        case 'spacing':
-          typeFound = jsonStr.includes('间距') || jsonStr.includes('spacing') ||
-            jsonStr.includes('margin') || jsonStr.includes('padding') ||
-            jsonStr.includes('gap');
-          break;
-      }
-
-      if (typeFound) {
-        score += 2;
-      } else {
-        missingAspects.push(`缺少关于${featureType}类型特征的描述`);
-      }
-    }
-
-    // 总分计算和规范化
-    // 最高可能得分取决于多个因素，这里我们设定为60分
-    const maxPossibleScore = 60;
-    const normalizedScore = Math.min(Math.round((score / maxPossibleScore) * 100), 100);
-
-    return {
-      score: normalizedScore,
-      feedback: feedback,
-      missingAspects: missingAspects
-    };
-  } catch (error: any) {
-    // 如果JSON解析失败，返回低分
-    console.error("评估提示词质量时出错:", error);
-    return {
-      score: 10,
-      feedback: ["无法解析JSON格式", "请确保JSON格式正确"],
-      missingAspects: ["完整的JSON结构"]
-    };
-  }
-}
+// 评估提示词质量的代码已被移除，改为使用AI手动评估

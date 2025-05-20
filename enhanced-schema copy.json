@@ -1,5 +1,5 @@
 {
-  "taskId": "4CE5907C-0F3F-45B4-AF88-A1D851E567BC",
+  "taskId": "694D0DD5-37BC-4273-B045-0A8AD16DB951",
   "pluginVersion": "4.2.8",
   "reference": "sketch",
   "type": "Block",
@@ -81,7 +81,12 @@
                       "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
                     }
                   },
-                  "children": []
+                  "children": [],
+                  "layoutHints": {
+                    "horizontalFlex": true,
+                    "groupId": "group_1:31_1:32",
+                    "verticalFlex": true
+                  }
                 },
                 {
                   "__VERSION__": "2.0",
@@ -151,7 +156,12 @@
                               "y": 34.69444274902344
                             }
                           },
-                          "children": []
+                          "children": [],
+                          "layoutHints": {
+                            "horizontalFlex": true,
+                            "groupId": "group_1:35_1:37",
+                            "verticalFlex": true
+                          }
                         },
                         {
                           "__VERSION__": "2.0",
@@ -191,15 +201,23 @@
                               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
                             }
                           },
-                          "children": []
+                          "children": [],
+                          "layoutHints": {
+                            "horizontalFlex": true,
+                            "groupId": "group_1:35_1:37",
+                            "verticalFlex": true
+                          }
                         }
                       ],
+                      "componentHints": {
+                        "type": "card",
+                        "styles": {
+                          "borderRadius": "2.6666667461395264px"
+                        }
+                      },
                       "layoutHints": {
-                        "horizontalArrangement": true,
-                        "horizontalGroupMembers": [
-                          "1:38",
-                          "1:42"
-                        ]
+                        "horizontalFlex": true,
+                        "groupId": "group_1:34_1:38_1:42"
                       }
                     },
                     {
@@ -278,11 +296,8 @@
                         }
                       ],
                       "layoutHints": {
-                        "horizontalArrangement": true,
-                        "horizontalGroupMembers": [
-                          "1:34",
-                          "1:42"
-                        ]
+                        "horizontalFlex": true,
+                        "groupId": "group_1:34_1:38_1:42"
                       }
                     },
                     {
@@ -319,7 +334,11 @@
                               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
                             }
                           },
-                          "children": []
+                          "children": [],
+                          "layoutHints": {
+                            "horizontalFlex": true,
+                            "groupId": "group_1:44_1:43"
+                          }
                         },
                         {
                           "__VERSION__": "2.0",
@@ -338,7 +357,11 @@
                               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
                             }
                           },
-                          "children": []
+                          "children": [],
+                          "layoutHints": {
+                            "horizontalFlex": true,
+                            "groupId": "group_1:44_1:43"
+                          }
                         },
                         {
                           "__VERSION__": "2.0",
@@ -380,11 +403,8 @@
                         }
                       ],
                       "layoutHints": {
-                        "horizontalArrangement": true,
-                        "horizontalGroupMembers": [
-                          "1:34",
-                          "1:38"
-                        ]
+                        "horizontalFlex": true,
+                        "groupId": "group_1:34_1:38_1:42"
                       }
                     },
                     {
@@ -411,7 +431,19 @@
                       },
                       "children": []
                     }
-                  ]
+                  ],
+                  "componentHints": {
+                    "type": "card",
+                    "styles": {
+                      "backgroundColor": "rgba(255, 255, 255, 1)",
+                      "borderRadius": "8px"
+                    }
+                  },
+                  "layoutHints": {
+                    "horizontalFlex": true,
+                    "groupId": "group_1:31_1:32",
+                    "verticalFlex": true
+                  }
                 }
               ]
             }
@@ -439,7 +471,11 @@
             },
             "text": "稽查填写"
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:49_1:48"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -473,7 +509,11 @@
                   "y": 118
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_I1:49;0:1470_I1:49;0:1473"
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -491,9 +531,17 @@
                   "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_I1:49;0:1470_I1:49;0:1473"
+              }
             }
-          ]
+          ],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:49_1:48"
+          }
         }
       ]
     },
@@ -574,7 +622,11 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:127_1:128"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -598,16 +650,16 @@
             },
             "text": "-1分"
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:127_1:128"
+          }
         }
       ],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:124",
-          "1:125",
-          "1:129"
-        ]
+        "verticalFlex": true,
+        "groupId": "group_1:126_1:167"
       }
     },
     {
@@ -644,7 +696,11 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:130_1:131"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -668,16 +724,16 @@
             },
             "text": "卫生"
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:130_1:131"
+          }
         }
       ],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:124",
-          "1:125",
-          "1:126"
-        ]
+        "verticalFlex": true,
+        "groupId": "group_1:129_1:170"
       }
     },
     {
@@ -715,7 +771,11 @@
           },
           "children": []
         }
-      ]
+      ],
+      "layoutHints": {
+        "verticalFlex": true,
+        "groupId": "group_1:137_1:178"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -751,7 +811,11 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:168_1:169"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -775,16 +839,16 @@
             },
             "text": "-1分"
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:168_1:169"
+          }
         }
       ],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:165",
-          "1:166",
-          "1:170"
-        ]
+        "verticalFlex": true,
+        "groupId": "group_1:126_1:167"
       }
     },
     {
@@ -821,7 +885,11 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:171_1:172"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -845,16 +913,16 @@
             },
             "text": "卫生"
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:171_1:172"
+          }
         }
       ],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:165",
-          "1:166",
-          "1:167"
-        ]
+        "verticalFlex": true,
+        "groupId": "group_1:129_1:170"
       }
     },
     {
@@ -892,7 +960,11 @@
           },
           "children": []
         }
-      ]
+      ],
+      "layoutHints": {
+        "verticalFlex": true,
+        "groupId": "group_1:137_1:178"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -1119,7 +1191,12 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:13_1:27",
+            "verticalFlex": true
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -1143,7 +1220,11 @@
             },
             "text": "首页"
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "verticalFlex": true,
+            "groupId": "group_1:24_1:14"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -1183,7 +1264,11 @@
                 },
                 "text": "门店"
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_1:17_1:16"
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -1201,16 +1286,16 @@
                   "y": 4303
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_1:17_1:16"
+              }
             }
           ],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:18",
-              "1:21",
-              "1:24"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:15_1:18_1:21_1:24"
           }
         },
         {
@@ -1251,7 +1336,11 @@
                 },
                 "text": "会员"
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_1:20_1:19"
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -1269,16 +1358,16 @@
                   "y": 4303
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_1:20_1:19"
+              }
             }
           ],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:15",
-              "1:21",
-              "1:24"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:15_1:18_1:21_1:24"
           }
         },
         {
@@ -1319,7 +1408,11 @@
                 },
                 "text": "我的"
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_1:23_1:22"
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -1337,16 +1430,16 @@
                   "y": 4303
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_1:23_1:22"
+              }
             }
           ],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:15",
-              "1:18",
-              "1:24"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:15_1:18_1:21_1:24"
           }
         },
         {
@@ -1367,12 +1460,9 @@
           },
           "children": [],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:15",
-              "1:18",
-              "1:21"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:24_1:14",
+            "verticalFlex": true
           }
         },
         {
@@ -1429,9 +1519,21 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "horizontalFlex": true,
+            "groupId": "group_1:13_1:27",
+            "verticalFlex": true
+          }
         }
-      ]
+      ],
+      "componentHints": {
+        "type": "card",
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 1)",
+          "borderRadius": "8px"
+        }
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -1467,11 +1569,8 @@
           },
           "children": [],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:53",
-              "1:57"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:51_1:53_1:57"
           }
         },
         {
@@ -1484,7 +1583,7 @@
               "width": 18,
               "height": 53,
               "opacity": 0.6000000238418579,
-              "backgroundImage": "linear-gradient(270deg, #FFFFFF 0%, #BBBBBB 100%)"
+              "backgroundImage": "linear-gradient(0deg, #ffffff, #bbbbbb)"
             },
             "attrs": {
               "x": 333,
@@ -1492,15 +1591,7 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": [],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:54",
-              "1:55",
-              "1:56"
-            ]
-          }
+          "children": []
         },
         {
           "__VERSION__": "2.0",
@@ -1520,11 +1611,8 @@
           },
           "children": [],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:51",
-              "1:57"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:51_1:53_1:57"
           }
         },
         {
@@ -1537,7 +1625,7 @@
               "width": 18,
               "height": 53,
               "opacity": 0.6000000238418579,
-              "backgroundImage": "linear-gradient(270deg, #FFFFFF 0%, #BBBBBB 100%)"
+              "backgroundImage": "linear-gradient(0deg, #ffffff, #bbbbbb)"
             },
             "attrs": {
               "x": 208,
@@ -1545,15 +1633,7 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": [],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:52",
-              "1:55",
-              "1:56"
-            ]
-          }
+          "children": []
         },
         {
           "__VERSION__": "2.0",
@@ -1565,7 +1645,7 @@
               "width": 18,
               "height": 53,
               "opacity": 0.6000000238418579,
-              "backgroundImage": "linear-gradient(270deg, #FFFFFF 0%, #BBBBBB 100%)"
+              "backgroundImage": "linear-gradient(0deg, #ffffff, #bbbbbb)"
             },
             "attrs": {
               "x": 456,
@@ -1573,15 +1653,7 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": [],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:52",
-              "1:54",
-              "1:56"
-            ]
-          }
+          "children": []
         },
         {
           "__VERSION__": "2.0",
@@ -1593,7 +1665,7 @@
               "width": 18,
               "height": 53,
               "opacity": 0.6000000238418579,
-              "backgroundImage": "linear-gradient(270deg, #FFFFFF 0%, #BBBBBB 100%)"
+              "backgroundImage": "linear-gradient(0deg, #ffffff, #bbbbbb)"
             },
             "attrs": {
               "x": 520,
@@ -1601,15 +1673,7 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": [],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:52",
-              "1:54",
-              "1:55"
-            ]
-          }
+          "children": []
         },
         {
           "__VERSION__": "2.0",
@@ -1629,11 +1693,8 @@
           },
           "children": [],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:51",
-              "1:53"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:51_1:53_1:57"
           }
         },
         {
@@ -1678,11 +1739,8 @@
             }
           ],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:62",
-              "1:60"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:62_1:58_1:60"
           }
         },
         {
@@ -1727,11 +1785,8 @@
             }
           ],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:62",
-              "1:58"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:62_1:58_1:60"
           }
         },
         {
@@ -1794,14 +1849,18 @@
             }
           ],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:58",
-              "1:60"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:62_1:58_1:60"
           }
         }
-      ]
+      ],
+      "componentHints": {
+        "type": "card",
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 1)",
+          "borderRadius": "8px"
+        }
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -1813,7 +1872,7 @@
           "width": 702,
           "height": 222,
           "borderRadius": "16px",
-          "backgroundImage": "linear-gradient(297deg, #FFBD00 0%, #FF8800 100%)"
+          "backgroundImage": "linear-gradient(0deg, #ffbd00, #ff8800)"
         },
         "attrs": {
           "x": 24,
@@ -1846,10 +1905,8 @@
       },
       "children": [],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:67"
-        ]
+        "horizontalFlex": true,
+        "groupId": "group_1:67_1:66"
       }
     },
     {
@@ -1876,10 +1933,8 @@
       },
       "children": [],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:66"
-        ]
+        "horizontalFlex": true,
+        "groupId": "group_1:67_1:66"
       }
     },
     {
@@ -1905,7 +1960,11 @@
         },
         "text": "如卫生扣分>8分累计两次及以上，将安排专业保洁上门服务"
       },
-      "children": []
+      "children": [],
+      "layoutHints": {
+        "verticalFlex": true,
+        "groupId": "group_1:68_1:69"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -1925,7 +1984,11 @@
           "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
         }
       },
-      "children": []
+      "children": [],
+      "layoutHints": {
+        "verticalFlex": true,
+        "groupId": "group_1:68_1:69"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -1949,7 +2012,11 @@
         },
         "text": "最终稽查分数"
       },
-      "children": []
+      "children": [],
+      "layoutHints": {
+        "horizontalFlex": true,
+        "groupId": "group_1:73_1:70"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -1973,7 +2040,11 @@
         },
         "text": "146"
       },
-      "children": []
+      "children": [],
+      "layoutHints": {
+        "horizontalFlex": true,
+        "groupId": "group_1:73_1:70"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -2334,7 +2405,11 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_1:96_1:99"
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -2431,10 +2506,8 @@
                     }
                   ],
                   "layoutHints": {
-                    "horizontalArrangement": true,
-                    "horizontalGroupMembers": [
-                      "1:104"
-                    ]
+                    "horizontalFlex": true,
+                    "groupId": "group_1:101_1:104"
                   }
                 },
                 {
@@ -2499,13 +2572,22 @@
                     }
                   ],
                   "layoutHints": {
-                    "horizontalArrangement": true,
-                    "horizontalGroupMembers": [
-                      "1:101"
-                    ]
+                    "horizontalFlex": true,
+                    "groupId": "group_1:101_1:104"
                   }
                 }
-              ]
+              ],
+              "componentHints": {
+                "type": "card",
+                "styles": {
+                  "backgroundColor": "rgba(255, 255, 255, 1)",
+                  "borderRadius": "8px"
+                }
+              },
+              "layoutHints": {
+                "verticalFlex": true,
+                "groupId": "group_1:96_1:99"
+              }
             }
           ]
         }
@@ -2688,12 +2770,8 @@
       },
       "children": [],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:125",
-          "1:126",
-          "1:129"
-        ]
+        "verticalFlex": true,
+        "groupId": "group_1:124_1:165"
       }
     },
     {
@@ -2718,15 +2796,7 @@
         },
         "text": "扣分项目"
       },
-      "children": [],
-      "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:124",
-          "1:126",
-          "1:129"
-        ]
-      }
+      "children": []
     },
     {
       "__VERSION__": "2.0",
@@ -2770,10 +2840,9 @@
       },
       "children": [],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:134"
-        ]
+        "horizontalFlex": true,
+        "groupId": "group_1:133_1:174",
+        "verticalFlex": true
       }
     },
     {
@@ -2800,10 +2869,8 @@
       },
       "children": [],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:133"
-        ]
+        "horizontalFlex": true,
+        "groupId": "group_1:133_1:134"
       }
     },
     {
@@ -2828,7 +2895,11 @@
         },
         "text": "小道件摆放不安全"
       },
-      "children": []
+      "children": [],
+      "layoutHints": {
+        "verticalFlex": true,
+        "groupId": "group_1:135_1:176"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -2852,7 +2923,11 @@
         },
         "text": "为什么被扣分"
       },
-      "children": []
+      "children": [],
+      "layoutHints": {
+        "verticalFlex": true,
+        "groupId": "group_1:136_1:177"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -2887,7 +2962,11 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "verticalFlex": true,
+            "groupId": "group_1:140_1:141"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -2905,7 +2984,11 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "verticalFlex": true,
+            "groupId": "group_1:140_1:141"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -2931,10 +3014,9 @@
           },
           "children": [],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:143"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:142_1:144",
+            "verticalFlex": true
           }
         },
         {
@@ -2961,10 +3043,8 @@
           },
           "children": [],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:142"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:142_1:143"
           }
         },
         {
@@ -3009,12 +3089,8 @@
             }
           ],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:146",
-              "1:151",
-              "1:156"
-            ]
+            "verticalFlex": true,
+            "groupId": "group_1:142_1:144"
           }
         },
         {
@@ -3052,7 +3128,12 @@
                   "y": 1238
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:147_1:148",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3071,7 +3152,12 @@
                   "y": 1238
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:147_1:148",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3091,13 +3177,12 @@
               "children": []
             }
           ],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:144",
-              "1:151",
-              "1:156"
-            ]
+          "componentHints": {
+            "type": "card",
+            "styles": {
+              "backgroundColor": "rgba(245, 246, 250, 1)",
+              "borderRadius": "7.974999904632568px"
+            }
           }
         },
         {
@@ -3135,7 +3220,12 @@
                   "y": 1238
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:152_1:153",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3154,7 +3244,12 @@
                   "y": 1238
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:152_1:153",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3174,13 +3269,12 @@
               "children": []
             }
           ],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:144",
-              "1:146",
-              "1:156"
-            ]
+          "componentHints": {
+            "type": "card",
+            "styles": {
+              "backgroundColor": "rgba(245, 246, 250, 1)",
+              "borderRadius": "7.974999904632568px"
+            }
           }
         },
         {
@@ -3218,7 +3312,12 @@
                   "y": 1238
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:157_1:158",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3237,7 +3336,12 @@
                   "y": 1238
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:157_1:158",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3257,16 +3361,21 @@
               "children": []
             }
           ],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:144",
-              "1:146",
-              "1:151"
-            ]
+          "componentHints": {
+            "type": "card",
+            "styles": {
+              "backgroundColor": "rgba(245, 246, 250, 1)",
+              "borderRadius": "7.974999904632568px"
+            }
           }
         }
-      ]
+      ],
+      "componentHints": {
+        "type": "card",
+        "styles": {
+          "borderRadius": "8px"
+        }
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -3373,12 +3482,8 @@
       },
       "children": [],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:166",
-          "1:167",
-          "1:170"
-        ]
+        "verticalFlex": true,
+        "groupId": "group_1:124_1:165"
       }
     },
     {
@@ -3403,15 +3508,7 @@
         },
         "text": "扣分项目"
       },
-      "children": [],
-      "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:165",
-          "1:167",
-          "1:170"
-        ]
-      }
+      "children": []
     },
     {
       "__VERSION__": "2.0",
@@ -3455,10 +3552,9 @@
       },
       "children": [],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:175"
-        ]
+        "horizontalFlex": true,
+        "groupId": "group_1:133_1:174",
+        "verticalFlex": true
       }
     },
     {
@@ -3485,10 +3581,8 @@
       },
       "children": [],
       "layoutHints": {
-        "horizontalArrangement": true,
-        "horizontalGroupMembers": [
-          "1:174"
-        ]
+        "horizontalFlex": true,
+        "groupId": "group_1:174_1:175"
       }
     },
     {
@@ -3513,7 +3607,11 @@
         },
         "text": "小道件摆放不安全"
       },
-      "children": []
+      "children": [],
+      "layoutHints": {
+        "verticalFlex": true,
+        "groupId": "group_1:135_1:176"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -3537,7 +3635,11 @@
         },
         "text": "为什么被扣分"
       },
-      "children": []
+      "children": [],
+      "layoutHints": {
+        "verticalFlex": true,
+        "groupId": "group_1:136_1:177"
+      }
     },
     {
       "__VERSION__": "2.0",
@@ -3572,7 +3674,11 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "verticalFlex": true,
+            "groupId": "group_1:181_1:182"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -3590,7 +3696,11 @@
               "src": "data:image/svg+xml,%3Csvg%3E%3C%2Fsvg%3E"
             }
           },
-          "children": []
+          "children": [],
+          "layoutHints": {
+            "verticalFlex": true,
+            "groupId": "group_1:181_1:182"
+          }
         },
         {
           "__VERSION__": "2.0",
@@ -3616,10 +3726,9 @@
           },
           "children": [],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:184"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:183_1:185",
+            "verticalFlex": true
           }
         },
         {
@@ -3646,10 +3755,8 @@
           },
           "children": [],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:183"
-            ]
+            "horizontalFlex": true,
+            "groupId": "group_1:183_1:184"
           }
         },
         {
@@ -3694,12 +3801,8 @@
             }
           ],
           "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:187",
-              "1:192",
-              "1:197"
-            ]
+            "verticalFlex": true,
+            "groupId": "group_1:183_1:185"
           }
         },
         {
@@ -3737,7 +3840,12 @@
                   "y": 1955
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:188_1:189",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3756,7 +3864,12 @@
                   "y": 1955
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:188_1:189",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3776,13 +3889,12 @@
               "children": []
             }
           ],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:185",
-              "1:192",
-              "1:197"
-            ]
+          "componentHints": {
+            "type": "card",
+            "styles": {
+              "backgroundColor": "rgba(245, 246, 250, 1)",
+              "borderRadius": "7.974999904632568px"
+            }
           }
         },
         {
@@ -3820,7 +3932,12 @@
                   "y": 1955
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:193_1:194",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3839,7 +3956,12 @@
                   "y": 1955
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:193_1:194",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3859,13 +3981,12 @@
               "children": []
             }
           ],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:185",
-              "1:187",
-              "1:197"
-            ]
+          "componentHints": {
+            "type": "card",
+            "styles": {
+              "backgroundColor": "rgba(245, 246, 250, 1)",
+              "borderRadius": "7.974999904632568px"
+            }
           }
         },
         {
@@ -3903,7 +4024,12 @@
                   "y": 1955
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:198_1:199",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3922,7 +4048,12 @@
                   "y": 1955
                 }
               },
-              "children": []
+              "children": [],
+              "layoutHints": {
+                "horizontalFlex": true,
+                "groupId": "group_1:198_1:199",
+                "verticalFlex": true
+              }
             },
             {
               "__VERSION__": "2.0",
@@ -3942,203 +4073,23 @@
               "children": []
             }
           ],
-          "layoutHints": {
-            "horizontalArrangement": true,
-            "horizontalGroupMembers": [
-              "1:185",
-              "1:187",
-              "1:192"
-            ]
+          "componentHints": {
+            "type": "card",
+            "styles": {
+              "backgroundColor": "rgba(245, 246, 250, 1)",
+              "borderRadius": "7.974999904632568px"
+            }
           }
         }
-      ]
+      ],
+      "componentHints": {
+        "type": "card",
+        "styles": {
+          "borderRadius": "8px"
+        }
+      }
     }
   ],
   "name": "Root Container",
-  "previewImageURL": "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/adcb6009-9319-4997-8d22-7eb6f8db244f",
-  "layoutRelationships": {
-    "horizontalGroups": [
-      {
-        "id": "horizontal-group-1",
-        "members": [
-          "1:67",
-          "1:66"
-        ],
-        "properties": {
-          "spacing": 399,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-2",
-        "members": [
-          "1:125",
-          "1:126",
-          "1:129",
-          "1:124"
-        ],
-        "properties": {
-          "spacing": 35,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-3",
-        "members": [
-          "1:134",
-          "1:133"
-        ],
-        "properties": {
-          "spacing": 167,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-4",
-        "members": [
-          "1:166",
-          "1:167",
-          "1:170",
-          "1:165"
-        ],
-        "properties": {
-          "spacing": 35,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-5",
-        "members": [
-          "1:175",
-          "1:174"
-        ],
-        "properties": {
-          "spacing": 167,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-6",
-        "members": [
-          "1:42",
-          "1:38",
-          "1:34"
-        ],
-        "properties": {
-          "spacing": 10,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-7",
-        "members": [
-          "1:24",
-          "1:15",
-          "1:18",
-          "1:21"
-        ],
-        "properties": {
-          "spacing": 138,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-8",
-        "members": [
-          "1:51",
-          "1:53",
-          "1:57"
-        ],
-        "properties": {
-          "spacing": 0,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-9",
-        "members": [
-          "1:54",
-          "1:52",
-          "1:55",
-          "1:56"
-        ],
-        "properties": {
-          "spacing": 86,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-10",
-        "members": [
-          "1:62",
-          "1:60",
-          "1:58"
-        ],
-        "properties": {
-          "spacing": 124,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-11",
-        "members": [
-          "1:101",
-          "1:104"
-        ],
-        "properties": {
-          "spacing": 24,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-12",
-        "members": [
-          "1:142",
-          "1:143"
-        ],
-        "properties": {
-          "spacing": 46,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-13",
-        "members": [
-          "1:144",
-          "1:156",
-          "1:151",
-          "1:146"
-        ],
-        "properties": {
-          "spacing": 75,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-14",
-        "members": [
-          "1:183",
-          "1:184"
-        ],
-        "properties": {
-          "spacing": 46,
-          "alignment": "center"
-        }
-      },
-      {
-        "id": "horizontal-group-15",
-        "members": [
-          "1:185",
-          "1:197",
-          "1:192",
-          "1:187"
-        ],
-        "properties": {
-          "spacing": 75,
-          "alignment": "center"
-        }
-      }
-    ],
-    "verticalGroups": []
-  }
+  "previewImageURL": "https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/cddfcb03-ecf8-445c-b08e-1ff3138f463a"
 }
